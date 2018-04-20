@@ -1,5 +1,12 @@
+import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  ProgramacaoScreen,
+  CheckinScreen,
+  TrendingScreen,
+  UsuarioScreen,
+} from '../screens';
 
 const BottomNavigation = TabNavigator(
   {
@@ -14,7 +21,7 @@ const BottomNavigation = TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
 
-        switch(routeName) {
+        switch (routeName) {
           case 'Programacao':
             iconName = 'calendar-text';
             break;
@@ -25,7 +32,7 @@ const BottomNavigation = TabNavigator(
             iconName = 'fire';
             break;
           case 'Usuario':
-            iconName = 'user';
+            iconName = 'account';
             break;
         }
         return <MaterialCommunityIcons name={iconName} size={25} color={tintColor} />;
@@ -34,10 +41,11 @@ const BottomNavigation = TabNavigator(
     tabBarOptions: {
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
+      showLabel: false,
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
+    animationEnabled: true,
     swipeEnabled: false,
   }
 );
