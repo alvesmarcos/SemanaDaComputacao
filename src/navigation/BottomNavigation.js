@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {
   ProgramacaoStack,
   CheckinStack,
-  TrendingStack,
+  AmigosStack,
   UsuarioStack
 } from './StacksNavigation';
 
@@ -12,7 +12,7 @@ const BottomNavigation = TabNavigator(
   {
     Programacao: { screen: ProgramacaoStack },
     Checkin: { screen: CheckinStack },
-    Trending: { screen: TrendingStack },
+    Amigos: { screen: AmigosStack },
     Usuario: { screen: UsuarioStack },
   },
   {
@@ -28,7 +28,7 @@ const BottomNavigation = TabNavigator(
           case 'Checkin':
             iconName = 'qrcode';
             break;
-          case 'Trending':
+          case 'Amigos':
             iconName = 'fire';
             break;
           case 'Usuario':

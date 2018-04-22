@@ -4,9 +4,14 @@ import { StackNavigator } from 'react-navigation';
 import {
   ProgramacaoScreen,
   CheckinScreen,
-  TrendingScreen,
+  AmigosScreen,
   UsuarioScreen,
   LoginSetupScreen,
+  LoginEmailScreen,
+  LoginSenhaScreen,
+  LoginFeraScreen,
+  LoginCursoScreen,
+  LoginNomeScreen,
 } from '../screens';
 
 const ProgramacaoStack = StackNavigator({
@@ -17,8 +22,8 @@ const CheckinStack = StackNavigator({
   Checkin: { screen: CheckinScreen }
 });
 
-const TrendingStack = StackNavigator({
-  Trending: { screen: TrendingScreen }
+const AmigosStack = StackNavigator({
+  Amigos: { screen: AmigosScreen }
 });
 
 const UsuarioStack = StackNavigator({
@@ -28,6 +33,11 @@ const UsuarioStack = StackNavigator({
 const LoginStack = StackNavigator(
   {
     LoginSetup: { screen: LoginSetupScreen },
+    LoginEmail: { screen: LoginEmailScreen },
+    LoginSenha: { screen: LoginSenhaScreen },
+    LoginFera: { screen: LoginFeraScreen },
+    LoginCurso: { screen: LoginCursoScreen },
+    LoginNome: { screen: LoginNomeScreen }
   },
   {
     navigationOptions: { header: null }
@@ -36,7 +46,7 @@ const LoginStack = StackNavigator(
 export {
   ProgramacaoStack,
   CheckinStack,
-  TrendingStack,
+  AmigosStack,
   UsuarioStack,
   LoginStack
 };

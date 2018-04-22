@@ -1,13 +1,23 @@
 import CheckinScreen from './Checkin/CheckinScreen';
 import ProgramacaoScreen from './Programacao/ProgramacaoScreen';
-import TrendingScreen from './Trending/TrendingScreen';
+import AmigosScreen from './Amigos/AmigosScreen';
 import UsuarioScreen from './Usuario/UsuarioScreen';
 import LoginSetupScreen from './Login/LoginSetupScreen';
+import LoginEmailScreen from './Login/LoginEmailScreen';
+import LoginSenhaScreen from './Login/LoginSenhaScreen';
+import LoginFeraScreen from './Login/LoginFeraScreen';
+import LoginCursoScreen from './Login/LoginCursoScreen';
+import LoginNomeScreen from './Login/LoginNomeScreen';
 
 export {
   CheckinScreen,
   ProgramacaoScreen,
-  TrendingScreen,
+  AmigosScreen,
   UsuarioScreen,
   LoginSetupScreen,
+  LoginEmailScreen,
+  LoginSenhaScreen,
+  LoginFeraScreen,
+  LoginCursoScreen,
+  LoginNomeScreen,
 };
