@@ -5,13 +5,12 @@ import {
   Text,
   View
 } from 'react-native';
-import BottomNavigation from './src/navigation/BottomNavigation';
-
+import Routes from './src/navigation/Routes';
 
 console.disableYellowBox = true;
 
 export default class App extends Component {
   render() {
-    return <BottomNavigation />;
+    return <Routes />;
   }
 }

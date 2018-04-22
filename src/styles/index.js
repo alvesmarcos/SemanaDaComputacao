@@ -1,7 +1,9 @@
 const colors = {
-  primary: '#D81B60',
+  primary: '#e6186d',
   primaryDark: '#AD1457',
   windowBackground: '#fafafa',
+  white: '#fff',
+  black: '#000',
 };
 
 export { colors };

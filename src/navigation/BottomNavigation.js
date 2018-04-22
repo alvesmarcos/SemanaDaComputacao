@@ -2,18 +2,18 @@ import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
-  ProgramacaoScreen,
-  CheckinScreen,
-  TrendingScreen,
-  UsuarioScreen,
-} from '../screens';
+  ProgramacaoStack,
+  CheckinStack,
+  TrendingStack,
+  UsuarioStack
+} from './StacksNavigation';
 
 const BottomNavigation = TabNavigator(
   {
-    Programacao: { screen: ProgramacaoScreen },
-    Checkin: { screen: CheckinScreen },
-    Trending: { screen: TrendingScreen },
-    Usuario: { screen: UsuarioScreen },
+    Programacao: { screen: ProgramacaoStack },
+    Checkin: { screen: CheckinStack },
+    Trending: { screen: TrendingStack },
+    Usuario: { screen: UsuarioStack },
   },
   {
     navigationOptions: ({ navigation }) => ({
