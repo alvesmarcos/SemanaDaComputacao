@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.purlple600
+    backgroundColor: colors.purple600
   }
 });
 
@@ -22,7 +22,7 @@ class LoginEmailScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar 
-          backgroundColor={colors.purlple800}
+          backgroundColor={colors.purple800}
           barStyle={'light-content'}
         />
         <Text>LoginEmail</Text>

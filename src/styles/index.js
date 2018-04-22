@@ -7,8 +7,8 @@ const colors = {
 
   lightBlue700: '#0288D1',
   lightBlue900: '#01579B',
-  purlple600: '#8E24AA',
-  purlple800: '#6A1B9A',
+  purple600: '#8E24AA',
+  purple800: '#6A1B9A',
 
 };
 
