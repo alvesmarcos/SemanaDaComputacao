@@ -13,6 +13,7 @@ import {
   LoginCursoScreen,
   LoginNomeScreen,
 } from '../screens';
+import { transitionConfig } from '../util';
 
 const ProgramacaoStack = StackNavigator({
   Programacao: { screen: ProgramacaoScreen }
@@ -40,7 +41,8 @@ const LoginStack = StackNavigator(
     LoginNome: { screen: LoginNomeScreen }
   },
   {
-    navigationOptions: { header: null }
+    navigationOptions: { header: null },
+    transitionConfig
 });
 
 export {
