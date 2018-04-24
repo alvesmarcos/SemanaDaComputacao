@@ -13,7 +13,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: colors.lightBlue700
+    padding: 16,
+    backgroundColor: colors.lightBlue400
+  },
+  helpText: {
+    fontSize: 14,
+    color: '#eee'
+  },
+  buttonText: {
+    color: colors.white, 
+    padding: 16, 
+    alignSelf: 'center', 
+    fontSize: 16, 
+    fontFamily: 'Lato-Regular' 
   }
 });
 
@@ -33,12 +45,26 @@ class LoginNomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar 
-          backgroundColor={colors.lightBlue900}
+          backgroundColor={colors.lightBlue600}
           barStyle={'light-content'}
         />
-        <FloatingLabelInput
-          label={'Nome'}
-        />
+        <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
+          <FloatingLabelInput
+            label={'Nome Completo'}
+          />
+        </View>
+        <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
+            <TouchableOpacity
+              onPress={ () => false }
+              style={{ backgroundColor: colors.lightBlue400, borderColor: '#fff', borderWidth: 1,  borderRadius: 5 }}>
+              <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              onPress={ () => false }
+              style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
+              <Text style={[styles.buttonText, { color: colors.lightBlue400 }]}>{'Próximo'}</Text>
+            </TouchableOpacity>
+        </View>
       </View>
     );
   }

@@ -60,11 +60,14 @@ class FloatingLabelInput extends React.Component {
         inputRange: [0, 1],
         outputRange: [16, 0]
       }),
-      fontSize:this._animatedIsFocused.interpolate({
+      fontSize: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
         outputRange: [22, 14]
       }),
-      color: colors.white,
+      color: this._animatedIsFocused.interpolate({
+        inputRange: [0, 1],
+        outputRange: ['#E0E0E0', colors.white]
+      }),
       fontFamily: 'Lato-Regular'
     }; 
 
@@ -79,6 +82,7 @@ class FloatingLabelInput extends React.Component {
           selectionColor={colors.white}
           underlineColorAndroid='rgba(0,0,0,0)'
           tintColor={colors.white}
+          autoFocus
         />
       </View>
     );

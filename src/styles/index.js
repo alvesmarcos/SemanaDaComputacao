@@ -5,8 +5,8 @@ const colors = {
   white: '#fff',
   black: '#000',
 
-  lightBlue700: '#0288D1',
-  lightBlue900: '#01579B',
+  lightBlue400: '#29B6F6',
+  lightBlue600: '#039BE5',
   purple600: '#8E24AA',
   purple800: '#6A1B9A',
 
