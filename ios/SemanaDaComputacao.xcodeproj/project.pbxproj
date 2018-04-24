@@ -53,6 +53,10 @@
 		29A954EC00F3457988E124D3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C9BC86A66E0E4371B5784AA3 /* Roboto-Regular.ttf */; };
 		41D9CC8E441145B0835BCA53 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6858441AB6D4F418DDFC68E /* Ubuntu-Light.ttf */; };
 		203FEF5AD6F644ACBD8F7DFD /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F778ED129124696A541D456 /* Ubuntu-Regular.ttf */; };
+		E0FC968FD8C94AE68040DF80 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0BF2384689C4372BF0E5F01 /* Lato-Bold.ttf */; };
+		D3543A0DA8F34DF7B9B4429B /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0667CC3D7033460D8B01CA95 /* Lato-Italic.ttf */; };
+		8BB8FF336EB04C899A8C9DB6 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E7B0B4669304B848718A832 /* Lato-Light.ttf */; };
+		C11A07AC41544845A73C4E90 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 71F597195D4042149DB7EAD9 /* Lato-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,6 +379,10 @@
 		C9BC86A66E0E4371B5784AA3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		F6858441AB6D4F418DDFC68E /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Light.ttf"; path = "../assets/fonts/Ubuntu-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		5F778ED129124696A541D456 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Regular.ttf"; path = "../assets/fonts/Ubuntu-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A0BF2384689C4372BF0E5F01 /* Lato-Bold.ttf */ = {isa = PBXFileReference; name = "Lato-Bold.ttf"; path = "../assets/fonts/Lato-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0667CC3D7033460D8B01CA95 /* Lato-Italic.ttf */ = {isa = PBXFileReference; name = "Lato-Italic.ttf"; path = "../assets/fonts/Lato-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0E7B0B4669304B848718A832 /* Lato-Light.ttf */ = {isa = PBXFileReference; name = "Lato-Light.ttf"; path = "../assets/fonts/Lato-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		71F597195D4042149DB7EAD9 /* Lato-Regular.ttf */ = {isa = PBXFileReference; name = "Lato-Regular.ttf"; path = "../assets/fonts/Lato-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -657,6 +665,10 @@
 				C9BC86A66E0E4371B5784AA3 /* Roboto-Regular.ttf */,
 				F6858441AB6D4F418DDFC68E /* Ubuntu-Light.ttf */,
 				5F778ED129124696A541D456 /* Ubuntu-Regular.ttf */,
+				A0BF2384689C4372BF0E5F01 /* Lato-Bold.ttf */,
+				0667CC3D7033460D8B01CA95 /* Lato-Italic.ttf */,
+				0E7B0B4669304B848718A832 /* Lato-Light.ttf */,
+				71F597195D4042149DB7EAD9 /* Lato-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1123,6 +1135,10 @@
 				29A954EC00F3457988E124D3 /* Roboto-Regular.ttf in Resources */,
 				41D9CC8E441145B0835BCA53 /* Ubuntu-Light.ttf in Resources */,
 				203FEF5AD6F644ACBD8F7DFD /* Ubuntu-Regular.ttf in Resources */,
+				E0FC968FD8C94AE68040DF80 /* Lato-Bold.ttf in Resources */,
+				D3543A0DA8F34DF7B9B4429B /* Lato-Italic.ttf in Resources */,
+				8BB8FF336EB04C899A8C9DB6 /* Lato-Light.ttf in Resources */,
+				C11A07AC41544845A73C4E90 /* Lato-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,12 @@ import {
   StatusBar,
 } from 'react-native';
 import { colors } from '../../styles';
+import { FloatingLabelInput } from '../../components';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: colors.lightBlue700
   }
 });
@@ -36,7 +36,9 @@ class LoginNomeScreen extends React.Component {
           backgroundColor={colors.lightBlue900}
           barStyle={'light-content'}
         />
-        <Text>LoginNome</Text>
+        <FloatingLabelInput
+          label={'Nome'}
+        />
       </View>
     );
   }
