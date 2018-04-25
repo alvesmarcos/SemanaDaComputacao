@@ -7,6 +7,9 @@ const colors = {
 
   lightBlue400: '#29B6F6',
   lightBlue600: '#039BE5',
+  green400: '#66BB6A',
+  green600: '#43A047',
+  
   purple600: '#8E24AA',
   purple800: '#6A1B9A',
 
