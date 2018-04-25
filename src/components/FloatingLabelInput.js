@@ -82,7 +82,6 @@ class FloatingLabelInput extends React.Component {
           selectionColor={colors.white}
           underlineColorAndroid='rgba(0,0,0,0)'
           tintColor={colors.white}
-          autoFocus
         />
       </View>
     );
