@@ -38,7 +38,11 @@ class LoginNomeScreen extends React.Component {
   }
 
   navigateLoginCurso() {
-    this.nav('LoginEmail');
+    this.nav('LoginCurso');
+  }
+
+  navigatePop() {
+    // TODO fazer o pop da scene
   }
 
   render() {
@@ -50,17 +54,17 @@ class LoginNomeScreen extends React.Component {
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <FloatingLabelInput
-            label={'Nome Completo'}
+            label={'Nome completo'}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
             <TouchableOpacity
-              onPress={ () => false }
+              onPress={ () => this.navigatePop() }
               style={{ backgroundColor: colors.lightBlue400, borderColor: '#fff', borderWidth: 1,  borderRadius: 5 }}>
               <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-              onPress={ () => false }
+              onPress={ () => this.navigateLoginCurso() }
               style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
               <Text style={[styles.buttonText, { color: colors.lightBlue400 }]}>{'Próximo'}</Text>
             </TouchableOpacity>

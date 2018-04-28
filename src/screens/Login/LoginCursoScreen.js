@@ -51,7 +51,7 @@ class LoginCursoScreen extends React.Component {
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <FloatingLabelInput
-            label={'Seu Curso'}
+            label={'Seu curso'}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>

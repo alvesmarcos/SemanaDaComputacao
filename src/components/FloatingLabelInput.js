@@ -4,7 +4,8 @@ import {
   Text,
   TextInput,
   View,
-  StyleSheet
+  StyleSheet,
+  Keyboard,
 } from 'react-native';
 import { colors } from '../styles';
 
@@ -32,6 +33,7 @@ class FloatingLabelInput extends React.Component {
 
   componentWillMount() {
     this._animatedIsFocused = new Animated.Value(0);
+    Keyboard.dismiss();
   }
 
   componentDidUpdate() {
@@ -66,7 +68,7 @@ class FloatingLabelInput extends React.Component {
       }),
       color: this._animatedIsFocused.interpolate({
         inputRange: [0, 1],
-        outputRange: ['#E0E0E0', colors.white]
+        outputRange: ['#eee', colors.white]
       }),
       fontFamily: 'Lato-Regular'
     }; 
@@ -82,6 +84,7 @@ class FloatingLabelInput extends React.Component {
           selectionColor={colors.white}
           underlineColorAndroid='rgba(0,0,0,0)'
           tintColor={colors.white}
+          autoFocus
         />
       </View>
     );

@@ -4,15 +4,17 @@ const colors = {
   windowBackground: '#fafafa',
   white: '#fff',
   black: '#000',
-
   lightBlue400: '#29B6F6',
   lightBlue600: '#039BE5',
   green400: '#66BB6A',
   green600: '#43A047',
-  
-  purple600: '#8E24AA',
-  purple800: '#6A1B9A',
-
+  deepPurple300: '#9575CD',
+  deepPurple400: '#7E57C2',
+  orange300: '#FFB74D',
+  orange500: '#FF9800',
+  grey600: '#bdbdbd',
+  cyan500: '#00BCD4',
+  cyan600: '#00ACC1'
 };
 
 export { colors };
