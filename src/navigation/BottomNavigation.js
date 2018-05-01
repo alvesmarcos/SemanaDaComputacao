@@ -1,12 +1,13 @@
 import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Feather from 'react-native-vector-icons/Feather';
 import {
   ProgramacaoStack,
   CheckinStack,
   AmigosStack,
   UsuarioStack
 } from './StacksNavigation';
+import { colors } from '../styles';
 
 const BottomNavigation = TabNavigator(
   {
@@ -23,25 +24,30 @@ const BottomNavigation = TabNavigator(
 
         switch (routeName) {
           case 'Programacao':
-            iconName = 'calendar-text';
+            iconName = 'calendar';
             break;
           case 'Checkin':
-            iconName = 'qrcode';
+            iconName = 'user';
             break;
           case 'Amigos':
-            iconName = 'fire';
+            iconName = 'heart';
             break;
           case 'Usuario':
-            iconName = 'account';
+            iconName = 'bell';
             break;
         }
-        return <MaterialCommunityIcons name={iconName} size={25} color={tintColor} />;
+        return <Feather name={iconName} size={25} color={tintColor} />;
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'tomato',
+      activeTintColor: colors.primary,
       inactiveTintColor: 'gray',
       showLabel: false,
+      style: {
+        backgroundColor: colors.grey100,
+        elevation: 5,
+        borderTopColor: colors.grey100
+      },
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',

@@ -1,12 +1,21 @@
 import React from 'react';
 import {
-  Text
+  Text,
+  StatusBar,
+  View,
 } from 'react-native';
+import { colors } from '../../styles';
 
 class ProgramacaoScreen extends React.Component {
   render() {
     return (
-      <Text>ProgramacaoScreen</Text>
+      <View style={{ flex: 1, backgroundColor: '#fafafa'}}>
+        <StatusBar
+          backgroundColor={colors.grey400}
+          barStyle={'light-content'}
+        />
+
+      </View>
     );
   }
 }

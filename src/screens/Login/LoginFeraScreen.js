@@ -61,6 +61,10 @@ class LoginFeraScreen extends React.Component {
     Keyboard.dismiss();
   }
 
+  navigateHome() {
+    this.nav('Home');
+  }
+
   onChangeCheckBox = () => {
     this.setState({ value: !this.state.value });
   };
@@ -86,7 +90,7 @@ class LoginFeraScreen extends React.Component {
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => false}
+            onPress={() => this.navigateHome()}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
             <Text style={[styles.buttonText, { color: colors.cyan500 }]}>{'Próximo'}</Text>
           </TouchableOpacity>
