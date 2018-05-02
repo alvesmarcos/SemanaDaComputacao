@@ -64,7 +64,7 @@ class LoginSetupScreen extends React.Component {
             <TouchableOpacity
               onPress={ () => this.navigateLoginNome() }
               style={{ backgroundColor: colors.primary, borderColor: '#fff', borderWidth: 1,  borderRadius: 5 }}>
-              <Text style={[styles.buttonText, { color: colors.white }]}>Cadastre-se</Text>
+              <Text style={[styles.buttonText, { color: colors.white }]}>Inscreva-se</Text>
             </TouchableOpacity>
             <TouchableOpacity 
               onPress={ () => this.navigateLoginEmail() }

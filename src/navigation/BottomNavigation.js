@@ -44,9 +44,9 @@ const BottomNavigation = TabNavigator(
       inactiveTintColor: 'gray',
       showLabel: false,
       style: {
-        backgroundColor: colors.grey100,
+        backgroundColor: colors.white,
         elevation: 5,
-        borderTopColor: colors.grey100
+        borderTopColor: colors.white
       },
     },
     tabBarComponent: TabBarBottom,

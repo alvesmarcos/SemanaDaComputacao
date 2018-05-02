@@ -1,7 +1,7 @@
 import React from 'react';
+import Feather from 'react-native-vector-icons/Feather';
 import { StackNavigator } from 'react-navigation';
 import { colors } from '../styles';
-
 import {
   ProgramacaoScreen,
   CheckinScreen,
@@ -26,14 +26,16 @@ const ProgramacaoStack = StackNavigator(
     navigationOptions: ({ navigation }) => ({
       title: 'Programação',
       headerTitleStyle: {
-        fontFamily: 'Liato-Regular',
+        fontFamily: 'Lato-Regular',
         fontWeight: 'normal',
       },
       headerTintColor: '#424242',
       headerStyle: {
-        backgroundColor: colors.grey100,
-        elevation: 2
-      }
+        backgroundColor: colors.white,
+        elevation: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: colors.grey100
+      },
     }),
   }
 );
