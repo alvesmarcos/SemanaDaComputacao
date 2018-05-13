@@ -4,7 +4,7 @@ import { StackNavigator } from 'react-navigation';
 import { colors } from '../styles';
 import {
   ProgramacaoScreen,
-  CheckinScreen,
+  NotificacaoScreen,
   AmigosScreen,
   UsuarioScreen,
   LoginSetupScreen,
@@ -40,17 +40,18 @@ const ProgramacaoStack = StackNavigator(
   }
 );
 
-const CheckinStack = StackNavigator({
-  Checkin: { screen: CheckinScreen }
+const UsuarioStack = StackNavigator({
+  Usuario: { screen: UsuarioScreen }
 });
 
 const AmigosStack = StackNavigator({
   Amigos: { screen: AmigosScreen }
 });
 
-const UsuarioStack = StackNavigator({
-  Usuario: { screen: UsuarioScreen }
+const NotificacaoStack = StackNavigator({
+  Checkin: { screen: NotificacaoScreen }
 });
+
 
 const LoginStack = StackNavigator(
   {
@@ -68,7 +69,7 @@ const LoginStack = StackNavigator(
 
 export {
   ProgramacaoStack,
-  CheckinStack,
+  NotificacaoStack,
   AmigosStack,
   UsuarioStack,
   LoginStack

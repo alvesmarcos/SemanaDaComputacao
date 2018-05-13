@@ -1,4 +1,4 @@
-import CheckinScreen from './Checkin/CheckinScreen';
+import NotificacaoScreen from './Checkin/NotificacaoScreen';
 import ProgramacaoScreen from './Programacao/ProgramacaoScreen';
 import AmigosScreen from './Amigos/AmigosScreen';
 import UsuarioScreen from './Usuario/UsuarioScreen';
@@ -10,7 +10,7 @@ import LoginCursoScreen from './Login/LoginCursoScreen';
 import LoginNomeScreen from './Login/LoginNomeScreen';
 
 export {
-  CheckinScreen,
+  NotificacaoScreen,
   ProgramacaoScreen,
   AmigosScreen,
   UsuarioScreen,

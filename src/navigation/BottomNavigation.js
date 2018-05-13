@@ -3,7 +3,7 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Feather from 'react-native-vector-icons/Feather';
 import {
   ProgramacaoStack,
-  CheckinStack,
+  NotificacaoStack,
   AmigosStack,
   UsuarioStack
 } from './StacksNavigation';
@@ -12,9 +12,9 @@ import { colors } from '../styles';
 const BottomNavigation = TabNavigator(
   {
     Programacao: { screen: ProgramacaoStack },
-    Checkin: { screen: CheckinStack },
-    Amigos: { screen: AmigosStack },
     Usuario: { screen: UsuarioStack },
+    Amigos: { screen: AmigosStack },
+    Notificacao: { screen: NotificacaoStack },
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -26,13 +26,13 @@ const BottomNavigation = TabNavigator(
           case 'Programacao':
             iconName = 'calendar';
             break;
-          case 'Checkin':
+          case 'Usuario':
             iconName = 'user';
             break;
           case 'Amigos':
             iconName = 'heart';
             break;
-          case 'Usuario':
+          case 'Notificacao':
             iconName = 'bell';
             break;
         }
