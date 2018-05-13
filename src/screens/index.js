@@ -1,4 +1,4 @@
-import NotificacaoScreen from './Checkin/NotificacaoScreen';
+import NotificacaoScreen from './Notificacao/NotificacaoScreen';
 import ProgramacaoScreen from './Programacao/ProgramacaoScreen';
 import AmigosScreen from './Amigos/AmigosScreen';
 import UsuarioScreen from './Usuario/UsuarioScreen';

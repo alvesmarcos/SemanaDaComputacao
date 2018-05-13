@@ -48,9 +48,25 @@ const AmigosStack = StackNavigator({
   Amigos: { screen: AmigosScreen }
 });
 
-const NotificacaoStack = StackNavigator({
-  Checkin: { screen: NotificacaoScreen }
-});
+const NotificacaoStack = StackNavigator(
+  {
+    Checkin: { screen: NotificacaoScreen }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      title: 'Notificações',
+      headerTitleStyle: {
+        fontFamily: 'Lato-Regular',
+        fontWeight: 'normal',
+      },
+      headerTintColor: '#424242',
+      headerStyle: {
+        backgroundColor: colors.white,
+        elevation: 5,
+      },
+    }),
+  }
+);
 
 
 const LoginStack = StackNavigator(

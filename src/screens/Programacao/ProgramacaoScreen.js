@@ -103,7 +103,7 @@ class ProgramacaoScreen extends React.Component {
     const swipeoutBtns1 = this.tipoButton1();
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
+      <View style={{ flex: 1, backgroundColor: colors.windowBackground }}>
         <StatusBar
           backgroundColor={'#e0e0e0'}
           barStyle={'light-content'}
