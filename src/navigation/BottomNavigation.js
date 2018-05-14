@@ -4,7 +4,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {
   ProgramacaoStack,
   NotificacaoStack,
-  AmigosStack,
+  FaqStack,
   UsuarioStack
 } from './StacksNavigation';
 import { colors } from '../styles';
@@ -13,7 +13,7 @@ const BottomNavigation = TabNavigator(
   {
     Programacao: { screen: ProgramacaoStack },
     Usuario: { screen: UsuarioStack },
-    Amigos: { screen: AmigosStack },
+    Faq: { screen: FaqStack },
     Notificacao: { screen: NotificacaoStack },
   },
   {
@@ -29,8 +29,8 @@ const BottomNavigation = TabNavigator(
           case 'Usuario':
             iconName = 'user';
             break;
-          case 'Amigos':
-            iconName = 'heart';
+          case 'Faq':
+            iconName = 'message-circle';
             break;
           case 'Notificacao':
             iconName = 'bell';

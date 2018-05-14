@@ -5,7 +5,7 @@ import { colors } from '../styles';
 import {
   ProgramacaoScreen,
   NotificacaoScreen,
-  AmigosScreen,
+  FaqScreen,
   UsuarioScreen,
   LoginSetupScreen,
   LoginEmailScreen,
@@ -15,7 +15,6 @@ import {
   LoginNomeScreen,
 } from '../screens';
 import { transitionConfig } from '../util';
-
 
 
 const ProgramacaoStack = StackNavigator(
@@ -44,13 +43,29 @@ const UsuarioStack = StackNavigator({
   Usuario: { screen: UsuarioScreen }
 });
 
-const AmigosStack = StackNavigator({
-  Amigos: { screen: AmigosScreen }
-});
+const FaqStack = StackNavigator(
+  {
+    Faq: { screen: FaqScreen }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      title: 'Perguntas frequentes',
+      headerTitleStyle: {
+        fontFamily: 'Lato-Regular',
+        fontWeight: 'normal',
+      },
+      headerTintColor: '#424242',
+      headerStyle: {
+        backgroundColor: colors.white,
+        elevation: 0,
+      },
+    }),
+  }
+);
 
 const NotificacaoStack = StackNavigator(
   {
-    Checkin: { screen: NotificacaoScreen }
+    Notificacao: { screen: NotificacaoScreen }
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -86,7 +101,7 @@ const LoginStack = StackNavigator(
 export {
   ProgramacaoStack,
   NotificacaoStack,
-  AmigosStack,
+  FaqStack,
   UsuarioStack,
   LoginStack
 };
