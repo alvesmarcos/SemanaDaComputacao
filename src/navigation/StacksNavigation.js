@@ -1,5 +1,9 @@
 import React from 'react';
+import {
+  View
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigator } from 'react-navigation';
 import { colors } from '../styles';
 import {
@@ -15,6 +19,7 @@ import {
   LoginNomeScreen,
 } from '../screens';
 import { transitionConfig } from '../util';
+import { HeaderRight } from '../components';
 
 
 const ProgramacaoStack = StackNavigator(
@@ -57,8 +62,16 @@ const FaqStack = StackNavigator(
       headerTintColor: '#424242',
       headerStyle: {
         backgroundColor: colors.white,
-        elevation: 0,
+        elevation: 5,
       },
+      headerRight: (
+        <View style={{ flexDirection: 'row' }}>
+        <MaterialIcons.Button size={22} name="view-list" color={colors.grey800} backgroundColor={colors.white}
+      onPress={() => navigation.goBack(null)} />
+       <MaterialIcons.Button size={22} name="edit" color={colors.grey800} backgroundColor={colors.white}
+       onPress={() => navigation.goBack(null)} />
+       </View>
+      ),
     }),
   }
 );

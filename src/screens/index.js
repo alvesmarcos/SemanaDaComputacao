@@ -8,7 +8,6 @@ import LoginSenhaScreen from './Login/LoginSenhaScreen';
 import LoginFeraScreen from './Login/LoginFeraScreen';
 import LoginCursoScreen from './Login/LoginCursoScreen';
 import LoginNomeScreen from './Login/LoginNomeScreen';
-import { CategoriasScreen, MinhasPerguntasScreen } from './Faq/Tab';
 
 export {
   NotificacaoScreen,
@@ -21,6 +20,4 @@ export {
   LoginFeraScreen,
   LoginCursoScreen,
   LoginNomeScreen,
-  CategoriasScreen,
-  MinhasPerguntasScreen,
 };
