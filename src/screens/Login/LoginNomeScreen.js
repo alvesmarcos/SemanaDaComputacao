@@ -5,9 +5,14 @@ import {
   TouchableOpacity,
   StyleSheet,
   StatusBar,
+  Keyboard
 } from 'react-native';
+import Snackbar from 'react-native-snackbar';
+import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
+import { mudaNome } from '../../actions/LoginActions';
+import { validateNome } from '../../util';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,29 +37,57 @@ const styles = StyleSheet.create({
 class LoginNomeScreen extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      statusBarColor: colors.lightBlue600
+    };
+
     //--
-    const { navigate } = this.props.navigation;
+    const { navigate, goBack } = this.props.navigation;
     this.nav = navigate;
+    this.navBack = goBack;
   }
 
   navigateLoginCurso() {
-    this.nav('LoginCurso');
+    if (validateNome(this.props.nome)) {
+      this.nav('LoginCurso');
+    } else {
+      Snackbar.show({
+        title: 'Digite um nome válido',
+        duration: Snackbar.LENGTH_SHORT,
+        action: {
+            title: 'OK',
+            color: colors.primary,
+            onPress: () => { /* Do something. */ },
+        },
+      });
+    }
   }
 
   navigatePop() {
-    // TODO fazer o pop da scene
+    // fecha teclado
+    Keyboard.dismiss();
+    this.setState({ statusBarColor: colors.primaryDark });
+
+    this.navBack();
   }
+
+  onChange = (v) => {
+    this.props.mudaNome(v);
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <StatusBar 
-          backgroundColor={colors.lightBlue600}
+          backgroundColor={this.state.statusBarColor}
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <FloatingLabelInput
-            label={'Nome completo'}
+            label={'Nome e sobrenome'}
+            value={this.props.nome}
+            onChangeText={this.onChange}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
@@ -74,4 +107,8 @@ class LoginNomeScreen extends React.Component {
   }
 }
 
-export default LoginNomeScreen;
+const mapStateToProps = state => ({
+  nome: state.LoginReducer.nome
+});
+
+export default connect(mapStateToProps, { mudaNome })(LoginNomeScreen);

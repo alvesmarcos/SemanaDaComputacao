@@ -6,11 +6,12 @@ import {
   StyleSheet,
   StatusBar,
   Picker,
-  Keyboard,
   CheckBox,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
+import { mudaFera } from '../../actions/LoginActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,16 +50,9 @@ class LoginFeraScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      value: true
-    };
     //--
     const { navigate } = this.props.navigation;
     this.nav = navigate;
-  }
-
-  componentWillMount() {
-    Keyboard.dismiss();
   }
 
   navigateHome() {
@@ -66,7 +60,7 @@ class LoginFeraScreen extends React.Component {
   }
 
   onChangeCheckBox = () => {
-    this.setState({ value: !this.state.value });
+    this.props.mudaFera(!this.props.fera);
   };
 
   render() {
@@ -77,13 +71,13 @@ class LoginFeraScreen extends React.Component {
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
-          <Text style={styles.helpText}>{'Estamos quase lá, só precisamos saber mais uma coisa ...'}</Text>
+          <Text style={styles.helpText}>{'Estamos quase lá '.concat(this.props.nome).concat(', só precisamos saber mais uma coisa ...')}</Text>
         
           <Text style={styles.text}>{'Você é fera?'}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <CheckBox
               onChange={this.onChangeCheckBox}
-              value={this.state.value}
+              value={this.props.fera}
             />
             <Text style={styles.labelCheckBox}>{'Sim, e quero um prêmio por isso'}</Text>
           </View>
@@ -100,4 +94,9 @@ class LoginFeraScreen extends React.Component {
   }
 }
 
-export default LoginFeraScreen;
+const mapStateToProps = state => ({
+  fera: state.LoginReducer.fera,
+  nome: state.LoginReducer.nome
+});
+
+export default connect(mapStateToProps, { mudaFera })(LoginFeraScreen);

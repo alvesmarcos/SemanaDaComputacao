@@ -7,7 +7,9 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { colors } from '../../styles';
+import { mudaEhInscricao } from '../../actions/LoginActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -36,10 +38,14 @@ class LoginSetupScreen extends React.Component {
   }
 
   navigateLoginNome() {
+    this.props.mudaEhInscricao(true);
+    //--
     this.nav('LoginNome');
   }
 
   navigateLoginEmail() {
+    this.props.mudaEhInscricao(false);
+    //--
     this.nav('LoginEmail');
   }
 
@@ -77,4 +83,4 @@ class LoginSetupScreen extends React.Component {
   }
 }
 
-export default LoginSetupScreen;
+export default connect(null, { mudaEhInscricao })(LoginSetupScreen);
