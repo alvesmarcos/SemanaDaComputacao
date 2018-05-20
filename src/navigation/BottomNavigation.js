@@ -5,14 +5,14 @@ import {
   ProgramacaoStack,
   NotificacaoStack,
   FaqStack,
-  UsuarioStack
+  TicketStack
 } from './StacksNavigation';
 import { colors } from '../styles';
 
 const BottomNavigation = TabNavigator(
   {
     Programacao: { screen: ProgramacaoStack },
-    Usuario: { screen: UsuarioStack },
+    Ticket: { screen: TicketStack },
     Faq: { screen: FaqStack },
     Notificacao: { screen: NotificacaoStack },
   },
@@ -26,8 +26,8 @@ const BottomNavigation = TabNavigator(
           case 'Programacao':
             iconName = 'calendar';
             break;
-          case 'Usuario':
-            iconName = 'user';
+          case 'Ticket':
+            iconName = 'tag';
             break;
           case 'Faq':
             iconName = 'message-circle';

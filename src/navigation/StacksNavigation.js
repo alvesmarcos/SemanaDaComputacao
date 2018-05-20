@@ -10,7 +10,7 @@ import {
   ProgramacaoScreen,
   NotificacaoScreen,
   FaqScreen,
-  UsuarioScreen,
+  TicketScreen,
   LoginSetupScreen,
   LoginEmailScreen,
   LoginSenhaScreen,
@@ -44,9 +44,25 @@ const ProgramacaoStack = StackNavigator(
   }
 );
 
-const UsuarioStack = StackNavigator({
-  Usuario: { screen: UsuarioScreen }
-});
+const TicketStack = StackNavigator(
+  {
+    Ticket: { screen: TicketScreen }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      title: 'Ingressos',
+      headerTitleStyle: {
+        fontFamily: 'Lato-Regular',
+        fontWeight: 'normal',
+      },
+      headerTintColor: '#424242',
+      headerStyle: {
+        backgroundColor: colors.white,
+        elevation: 5,
+      },
+    }),
+  }
+);
 
 const FaqStack = StackNavigator(
   {
@@ -115,6 +131,6 @@ export {
   ProgramacaoStack,
   NotificacaoStack,
   FaqStack,
-  UsuarioStack,
+  TicketStack,
   LoginStack
 };

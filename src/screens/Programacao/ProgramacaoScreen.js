@@ -27,12 +27,15 @@ class ProgramacaoScreen extends React.Component {
   componentButtonSwipeout(flag) {
     if (flag==='true') {
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-        <Feather
-          name={'mic'}
-          size={40}
-          color={colors.white}
-        />
+      <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
+        <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
+          <Feather
+            name={'mic'}
+            size={50}
+            color={colors.white}
+          />
+          </View>
+          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Palestra'}</Text>
       </View>
     );
   }
@@ -40,18 +43,21 @@ class ProgramacaoScreen extends React.Component {
     return (
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
       borderLeftColor: '#FAFAFA' }}>
-        <Feather
-          name={'star'}
-          size={40}
-          color={colors.white}
-        />
+          <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
+          <Feather
+            name={'star'}
+            size={50}
+            color={colors.white}
+          />
+          </View>
+          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Avaliar'}</Text>
       </View>
     );
   }
 
   if (flag==='pie-chart') {
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
         <Feather
           name={'shopping-cart'}
           size={40}
@@ -127,7 +133,7 @@ class ProgramacaoScreen extends React.Component {
           autoClose
           close
           accessibilityLabel='Item da Lista'
-          buttonWidth={72}
+          buttonWidth={130}
           backgroundColor='transparent'
         >
           <View style={{ flexDirection: 'row' }}>
@@ -158,7 +164,7 @@ class ProgramacaoScreen extends React.Component {
           autoClose
           close
           accessibilityLabel='Item da Lista'
-          buttonWidth={72}
+          buttonWidth={130}
           backgroundColor='transparent'
         >
           <View style={{ flexDirection: 'row' }}>

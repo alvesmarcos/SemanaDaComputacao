@@ -1,7 +1,7 @@
 import NotificacaoScreen from './Notificacao/NotificacaoScreen';
 import ProgramacaoScreen from './Programacao/ProgramacaoScreen';
 import FaqScreen from './Faq/FaqScreen';
-import UsuarioScreen from './Usuario/UsuarioScreen';
+import TicketScreen from './Ticket/TicketScreen';
 import LoginSetupScreen from './Login/LoginSetupScreen';
 import LoginEmailScreen from './Login/LoginEmailScreen';
 import LoginSenhaScreen from './Login/LoginSenhaScreen';
@@ -13,7 +13,7 @@ export {
   NotificacaoScreen,
   ProgramacaoScreen,
   FaqScreen,
-  UsuarioScreen,
+  TicketScreen,
   LoginSetupScreen,
   LoginEmailScreen,
   LoginSenhaScreen,
