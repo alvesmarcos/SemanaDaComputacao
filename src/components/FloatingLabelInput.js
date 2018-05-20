@@ -52,7 +52,7 @@ class FloatingLabelInput extends React.Component {
   }
 
   render() {
-    const { label, ...props } = this.props;
+    const { label, helpText, showHelpText, ...props } = this.props;
     const { isFocused } = this.state;
     //--
     const labelStyle = {
@@ -86,6 +86,7 @@ class FloatingLabelInput extends React.Component {
           tintColor={colors.white}
           autoFocus
         />
+        <Text style={{ left: 4, fontSize: 14,  fontFamily: 'Lato-Regular', color: colors.grey100 }}>{ helpText }</Text>
       </View>
     );
   }
