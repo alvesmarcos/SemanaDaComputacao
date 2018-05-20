@@ -25,7 +25,7 @@ const INITIAL_STATE = {
   ehInscricao: false
 };
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE_DEV, action) => {
   switch (action.type) {
     case MUDA_NOME_LOGIN:
       return { ...state, nome: action.payload };
@@ -38,7 +38,7 @@ export default (state = INITIAL_STATE, action) => {
     case MUDA_FERA_LOGIN:
       return { ...state, fera: action.payload };
     case MUDA_EH_INSCRICAO:
-      return { ...state, fera: action.payload };
+      return { ...state, ehInscricao: action.payload };
     default:
       return state;
   } 

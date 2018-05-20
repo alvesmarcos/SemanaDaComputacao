@@ -27,6 +27,6 @@ export const mudaFera = (valor) => (
   { type: MUDA_FERA_LOGIN, payload: valor }
 );
 
-export const mudaEhFera = (valor) => (
+export const mudaEhInscricao = (valor) => (
   { type: MUDA_EH_INSCRICAO, payload: valor }
 );
