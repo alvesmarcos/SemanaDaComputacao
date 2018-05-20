@@ -8,7 +8,7 @@ const Routes = StackNavigator(
     Login: { screen: LoginStack },
     Home: { screen: BottomNavigation },
   }, {
-    initialRouteName: 'Home',
+    initialRouteName: 'Login',
     navigationOptions: { header: null },
   }
 );
