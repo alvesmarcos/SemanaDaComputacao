@@ -3,12 +3,8 @@ import {
   View,
 } from 'react-native';
 import Routes from '../navigation/Routes';
+import { app as firebaseApp } from '../config';
 
-const Init = () => (
-  <View style={{ flex: 1 }}>
-    <Routes />
-  </View>
-);
+const Init = () => <Routes />;
 
 export default Init;
-
