@@ -8,7 +8,7 @@ import {
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import SemanaDaComputacao from './src/build/SemanaDaComputacao';
+import Init from './src/init';
 import reducers from './src/reducers';
 
 //-- retira warnings
@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <SemanaDaComputacao />
+        <Init />
       </Provider>
     );
   }
