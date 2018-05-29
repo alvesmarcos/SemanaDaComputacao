@@ -7,6 +7,7 @@ import {
   StatusBar,
   Picker,
   CheckBox,
+  BackHandler,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';

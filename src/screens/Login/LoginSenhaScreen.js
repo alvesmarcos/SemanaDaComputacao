@@ -6,7 +6,8 @@ import {
   StyleSheet,
   StatusBar,
   Picker,
-  Keyboard
+  Keyboard,
+  BackHandler,
 } from 'react-native';
 import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
@@ -49,6 +50,14 @@ class LoginSenhaScreen extends React.Component {
     this.navBack = goBack;
   }
 
+  componentDidMount() {
+    BackHandler.addEventListener('back_press', this.navigatePop);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('back_press', this.navigatePop);
+  }
+
   navigateLoginFera() {
     if (validateSenha(this.props.senha)) {
       Keyboard.dismiss();
@@ -70,13 +79,14 @@ class LoginSenhaScreen extends React.Component {
     }
   }
 
-  navigatePop() {
+  navigatePop = () => {
     // fecha teclado
     Keyboard.dismiss();
     this.setState({ statusBarColor: colors.deepPurple400 });
-    
     this.navBack();
-  }
+    //--
+    return true;
+  };
 
 
   onChange = (v) => {

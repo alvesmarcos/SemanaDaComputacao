@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   StatusBar,
-  Keyboard
+  Keyboard,
+  BackHandler,
 } from 'react-native';
 import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
@@ -48,6 +49,14 @@ class LoginNomeScreen extends React.Component {
     this.navBack = goBack;
   }
 
+  componentDidMount() {
+    BackHandler.addEventListener('back_press', this.navigatePop);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('back_press', this.navigatePop);
+  }
+
   navigateLoginCurso() {
     if (validateNome(this.props.nome)) {
       this.nav('LoginCurso');
@@ -64,13 +73,14 @@ class LoginNomeScreen extends React.Component {
     }
   }
 
-  navigatePop() {
+  navigatePop = () => {
     // fecha teclado
     Keyboard.dismiss();
     this.setState({ statusBarColor: colors.primaryDark });
 
     this.navBack();
-  }
+    return true;
+  };
 
   onChange = (v) => {
     this.props.mudaNome(v);

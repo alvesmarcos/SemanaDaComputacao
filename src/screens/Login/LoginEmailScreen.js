@@ -6,7 +6,8 @@ import {
   StyleSheet,
   StatusBar,
   Picker,
-  Keyboard
+  Keyboard,
+  BackHandler,
 } from 'react-native';
 import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
@@ -49,6 +50,14 @@ class LoginEmailScreen extends React.Component {
     this.navBack = goBack;
   }
 
+  componentDidMount() {
+    BackHandler.addEventListener('back_press', this.navigatePop);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('back_press', this.navigatePop);
+  }
+
   navigateLoginSenha() {
     if (validateEmail(this.props.email)) {
       this.nav('LoginSenha');
@@ -65,7 +74,7 @@ class LoginEmailScreen extends React.Component {
     }
   }
 
-  navigatePop() {
+  navigatePop = () => {
     // fecha teclado
     Keyboard.dismiss();
 
@@ -75,7 +84,9 @@ class LoginEmailScreen extends React.Component {
       this.setState({ statusBarColor: colors.primaryDark });
     }
     this.navBack();
-  }
+    //--
+    return true;
+  };
 
   onChange = (v) => {
     this.props.mudaEmail(v);
