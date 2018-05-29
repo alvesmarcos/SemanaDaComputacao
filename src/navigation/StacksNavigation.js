@@ -18,7 +18,7 @@ import {
   LoginCursoScreen,
   LoginNomeScreen,
 } from '../screens';
-import { transitionConfig } from '../util';
+import { transitionConfig } from '../config';
 import { HeaderRight } from '../components';
 
 
