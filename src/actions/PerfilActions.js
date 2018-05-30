@@ -50,3 +50,16 @@ export const cadastraUsuario = () => {
     }
   };
 };
+
+export const doLogin = () => {
+  // return funcao async
+  return async(dispatch, getState) => {
+    const { email, senha } = getState().PerfilReducer;
+    try {
+      const usuario = await firebase.auth().signInWithEmailAndPassword(email, senha);
+         
+    } catch (e) {
+      throw e;
+    }
+  }
+};

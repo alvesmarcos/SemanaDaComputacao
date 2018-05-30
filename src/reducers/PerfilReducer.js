@@ -13,7 +13,7 @@ const INITIAL_STATE_DEV = {
   nome: 'Marcos Alves',
   curso: 'Ciência da Computação',
   email: 'marcos.alves@cc.ci.ufpb.br',
-  senha: 'petcc',
+  senha: '12345678',
   fera: true,
   ehInscricao: true
 };
@@ -28,7 +28,7 @@ const INITIAL_STATE = {
   ehInscricao: false
 };
 
-export default (state = INITIAL_STATE, action) => {
+export default (state = INITIAL_STATE_DEV, action) => {
   switch (action.type) {
     case MUDA_ID_PERFIL:
       return { ...state, id: action.payload };

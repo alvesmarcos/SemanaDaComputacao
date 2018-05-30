@@ -8,12 +8,13 @@ import {
   Picker,
   Keyboard,
   BackHandler,
+  ActivityIndicator,
 } from 'react-native';
 import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaSenha } from '../../actions/PerfilActions';
+import { mudaSenha, doLogin } from '../../actions/PerfilActions';
 import { validateSenha } from '../../util';
 
 const styles = StyleSheet.create({
@@ -42,6 +43,7 @@ class LoginSenhaScreen extends React.Component {
 
     this.state = {
       statusBarColor: colors.blueGray800,
+      load: false,
     };
 
     //--
@@ -58,24 +60,44 @@ class LoginSenhaScreen extends React.Component {
     BackHandler.removeEventListener('back_press', this.navigatePop);
   }
 
-  navigateLoginFera() {
+  async navigateLoginFera() {
     if (validateSenha(this.props.senha)) {
       Keyboard.dismiss();
       if (this.props.ehInscricao) {
         this.nav('LoginFera');
       } else {
-        this.nav('Home');
+        this.setState({ load: true });
+        // -- logar no app
+        this.doLogin();
       }
     } else {
       Snackbar.show({
         title: 'Digite um senha válida',
         duration: Snackbar.LENGTH_SHORT,
         action: {
-            title: 'OK',
-            color: colors.primary,
-            onPress: () => { /* Do something. */ },
+          title: 'OK',
+          color: colors.primary,
+          onPress: () => { /* Do something. */ },
         },
       });
+    }
+  }
+
+  async doLogin() {
+    try {
+      // -- logar no app
+      await this.props.doLogin();
+    } catch (e) {
+      Snackbar.show({
+        title: 'Usuário ou senha inválidos',
+        duration: Snackbar.LENGTH_LONG,
+        action: {
+          title: 'OK',
+          color: colors.primary,
+          onPress: () => { /* Do something. */ },
+        },
+      });
+      this.setState({ load: false });
     }
   }
 
@@ -94,6 +116,8 @@ class LoginSenhaScreen extends React.Component {
   };
 
   render() {
+    const { load } = this.state;
+    const { ehInscricao } = this.props;
     return (
       <View style={styles.container}>
         <StatusBar
@@ -102,7 +126,7 @@ class LoginSenhaScreen extends React.Component {
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <FloatingLabelInput
-            label={this.props.ehInscricao ? 'Defina uma senha': 'Sua senha'}
+            label={this.props.ehInscricao ? 'Defina uma senha' : 'Sua senha'}
             helpText={this.props.ehInscricao ? 'A senha deve conter no mínimo 8 dígitos' : ''}
             value={this.props.senha}
             onChangeText={this.onChange}
@@ -111,16 +135,22 @@ class LoginSenhaScreen extends React.Component {
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
-          <TouchableOpacity
-            onPress={this.navigatePop}
-            style={{ backgroundColor: colors.blueGray600, borderColor: '#fff', borderWidth: 1, borderRadius: 5 }}>
-            <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.navigateLoginFera()}
-            style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
-            <Text style={[styles.buttonText, { color: colors.blueGray600 }]}>{'Próximo'}</Text>
-          </TouchableOpacity>
+          {load ?
+            <ActivityIndicator size={50} />
+            :
+            <View>
+              <TouchableOpacity
+                onPress={this.navigatePop}
+                style={{ backgroundColor: colors.blueGray600, borderColor: '#fff', borderWidth: 1, borderRadius: 5 }}>
+                <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.navigateLoginFera()}
+                style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
+                <Text style={[styles.buttonText, { color: colors.blueGray600 }]}>{ehInscricao ? 'Próximo' : 'Entrar'}</Text>
+              </TouchableOpacity>
+            </View>
+          }
         </View>
       </View>
     );
@@ -132,4 +162,4 @@ const mapStateToProps = state => ({
   ehInscricao: state.PerfilReducer.ehInscricao
 });
 
-export default connect(mapStateToProps, { mudaSenha })(LoginSenhaScreen);
+export default connect(mapStateToProps, { mudaSenha, doLogin })(LoginSenhaScreen);
