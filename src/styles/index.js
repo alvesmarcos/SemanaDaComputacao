@@ -19,7 +19,11 @@ const colors = {
   grey100: '#F5F5F5',
   grey900: '#212121',
   greyX: '#303030',
-  grey800: '#424242'
+  grey800: '#424242',
+  blueGray800: '#37474F',
+  blueGray600: '#546E7A',
+  pink700: '#C2185B',
+  pink800: '#AD1457',
 };
 
 export { colors };

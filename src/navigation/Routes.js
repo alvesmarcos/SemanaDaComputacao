@@ -11,7 +11,7 @@ const Routes = StackNavigator(
     StatusOk: { screen: StatusOkScreen },
     StatusFail: { screen: StatusFailScreen },
   }, {
-    initialRouteName: 'StatusFail',
+    initialRouteName: 'Login',
     navigationOptions: { header: null },
   }
 );

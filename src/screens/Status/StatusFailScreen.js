@@ -5,17 +5,41 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Entypo';
 import { colors } from '../../styles';
 
 class StatusFailScreen extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      statusBarColor: colors.pink800,
+      load: false,
+    };
+    //--
+    const { navigate, goBack, dispatch } = this.props.navigation;
+    this.nav = navigate;
+    this.navBack = goBack;
+    this.dispatch = dispatch;
+  }
+
+  reset() {
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Login' })]
+    });
+    this.dispatch(resetAction);
+  }
+
+
   render() {
     const { nome } = this.props;
     return (
-      <View style={{ flex: 1, backgroundColor: '#C2185B', padding: 16 }}>
+      <View style={{ flex: 1, backgroundColor: colors.pink700, padding: 16 }}>
         <StatusBar
-          backgroundColor={'#AD1457'}
+          backgroundColor={colors.pink800}
         />
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Icon
@@ -31,7 +55,7 @@ class StatusFailScreen extends React.Component {
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => false}
+            onPress={() => this.reset()}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
             <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular', color: '#C2185B' }}>{'Tentar Novamente'}</Text>
           </TouchableOpacity>

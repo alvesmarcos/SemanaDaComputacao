@@ -8,6 +8,7 @@ import {
   MUDA_EH_INSCRICAO,
 } from './types';
 import { references as r } from '../util';
+import { Alert} from 'react-native';
 
 export const mudaNome = (valor) => (
   { type: MUDA_NOME_PERFIL, payload: valor }
@@ -41,10 +42,10 @@ export const cadastraUsuario = () => {
       const usuario = await firebase.auth().createUserWithEmailAndPassword(email, senha);
       const uid = firebase.auth().currentUser.uid;
       // --
-      await firebase.database().ref(r.USUARIO.concat(uid)).set({ nome, curso, email, senha, fera });
+      await firebase.database().ref(r.USUARIO.concat(uid)).set({ nome, curso, email, fera });
       dispatch({ type: MUDA_ID_PERFIL, payload: uid });
     } catch (e) {
-      // console.log(e)
+      throw e;
     }
   };
 };

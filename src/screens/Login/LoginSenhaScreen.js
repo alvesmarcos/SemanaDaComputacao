@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
-    backgroundColor: colors.orange300
+    backgroundColor: colors.blueGray600
   },
   helpText: {
     fontSize: 14,
@@ -41,7 +41,7 @@ class LoginSenhaScreen extends React.Component {
     super(props);
 
     this.state = {
-      statusBarColor: colors.orange500
+      statusBarColor: colors.blueGray800,
     };
 
     //--
@@ -86,7 +86,7 @@ class LoginSenhaScreen extends React.Component {
     this.navBack();
     //--
     return true;
-  };
+  }
 
 
   onChange = (v) => {
@@ -112,14 +112,14 @@ class LoginSenhaScreen extends React.Component {
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => this.navigatePop()}
-            style={{ backgroundColor: colors.orange300, borderColor: '#fff', borderWidth: 1, borderRadius: 5 }}>
+            onPress={this.navigatePop}
+            style={{ backgroundColor: colors.blueGray600, borderColor: '#fff', borderWidth: 1, borderRadius: 5 }}>
             <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.navigateLoginFera()}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
-            <Text style={[styles.buttonText, { color: colors.orange300 }]}>{'Próximo'}</Text>
+            <Text style={[styles.buttonText, { color: colors.blueGray600 }]}>{'Próximo'}</Text>
           </TouchableOpacity>
         </View>
       </View>

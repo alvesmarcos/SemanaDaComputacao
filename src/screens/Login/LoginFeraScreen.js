@@ -8,6 +8,7 @@ import {
   Picker,
   CheckBox,
   BackHandler,
+  ActivityIndicator,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
@@ -51,30 +52,49 @@ class LoginFeraScreen extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      statusBarColor: colors.cyan600,
+      load: false,
+    };
     //--
-    const { navigate } = this.props.navigation;
+    const { navigate, goBack } = this.props.navigation;
     this.nav = navigate;
+    this.navBack = goBack;
   }
 
-  navigateHome() {
-    this.nav('Home');
-    this.props.cadastraUsuario();
+  async navigateToStatus() {
+    this.setState({ load: true });
+    try {
+      await this.props.cadastraUsuario();
+      // --
+      this.nav('StatusOk');
+    } catch (e) {
+      this.nav('StatusFail');
+    }
   }
+
+  navigatePop = () => {
+    // fecha teclado
+    this.setState({ statusBarColor: colors.blueGray800 });
+
+    this.navBack();
+  };
 
   onChangeCheckBox = () => {
     this.props.mudaFera(!this.props.fera);
   };
 
   render() {
+    const { load } = this.state;
     return (
       <View style={styles.container}>
         <StatusBar
-          backgroundColor={colors.cyan600}
+          backgroundColor={this.state.statusBarColor}
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <Text style={styles.helpText}>{'Estamos quase lá '.concat(this.props.nome).concat(', só precisamos saber mais uma coisa ...')}</Text>
-        
+
           <Text style={styles.text}>{'Você é fera?'}</Text>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <CheckBox
@@ -85,11 +105,22 @@ class LoginFeraScreen extends React.Component {
           </View>
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
-          <TouchableOpacity
-            onPress={() => this.navigateHome()}
-            style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
-            <Text style={[styles.buttonText, { color: colors.cyan500 }]}>{'Próximo'}</Text>
-          </TouchableOpacity>
+          { load ?
+          <ActivityIndicator size={50} />
+          :
+          <View>
+            <TouchableOpacity
+              onPress={() => this.navigatePop()}
+              style={{ backgroundColor: colors.cyan500, borderColor: '#fff', borderWidth: 1, borderRadius: 5 }}>
+              <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.navigateToStatus()}
+              style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
+              <Text style={[styles.buttonText, { color: colors.cyan500 }]}>{'Finalizar'}</Text>
+            </TouchableOpacity>
+          </View>
+          }
         </View>
       </View>
     );
