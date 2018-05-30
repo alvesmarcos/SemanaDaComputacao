@@ -6,6 +6,7 @@ import {
   MUDA_SENHA_PERFIL,
   MUDA_FERA_PERFIL,
   MUDA_EH_INSCRICAO,
+  MUDA_ID_PERFIL,
 } from './types';
 import { references as r } from '../util';
 import { Alert} from 'react-native';

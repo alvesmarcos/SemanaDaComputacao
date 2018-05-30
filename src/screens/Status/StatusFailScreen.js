@@ -25,7 +25,7 @@ class StatusFailScreen extends React.Component {
     this.dispatch = dispatch;
   }
 
-  reset() {
+  resetBack() {
     const resetAction = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'Login' })]
@@ -55,7 +55,7 @@ class StatusFailScreen extends React.Component {
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => this.reset()}
+            onPress={() => this.resetBack()}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
             <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular', color: '#C2185B' }}>{'Tentar Novamente'}</Text>
           </TouchableOpacity>

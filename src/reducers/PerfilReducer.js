@@ -24,14 +24,14 @@ const INITIAL_STATE = {
   curso: '',
   email: '',
   senha: '',
-  fera: false,
+  fera: true,
   ehInscricao: false
 };
 
-export default (state = INITIAL_STATE_DEV, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case MUDA_ID_PERFIL:
-      return { ...state, nome: action.payload };
+      return { ...state, id: action.payload };
     case MUDA_NOME_PERFIL:
       return { ...state, nome: action.payload };
     case MUDA_CURSO_PERFIL:

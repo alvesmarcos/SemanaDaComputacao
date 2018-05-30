@@ -9,6 +9,7 @@ import {
   CheckBox,
   BackHandler,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
@@ -74,7 +75,6 @@ class LoginFeraScreen extends React.Component {
   }
 
   navigatePop = () => {
-    // fecha teclado
     this.setState({ statusBarColor: colors.blueGray800 });
 
     this.navBack();

@@ -5,6 +5,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Entypo';
 import { colors } from '../../styles';
@@ -40,7 +41,24 @@ const frases = [
 ];
 
 class StatusOkScreen extends React.Component {
-  _random = (arr) => arr[Math.floor(Math.random()*arr.length)];
+  constructor(props) {
+    super(props);
+    //--
+    const { navigate, goBack, dispatch } = this.props.navigation;
+    this.nav = navigate;
+    this.navBack = goBack;
+    this.dispatch = dispatch;
+  }
+
+  resetForward() {
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })]
+    });
+    this.dispatch(resetAction);
+  }
+
+  _random = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
   render() {
     const { nome } = this.props;
@@ -57,13 +75,13 @@ class StatusOkScreen extends React.Component {
           />
           <Text style={{ color: '#fff', padding: 16, fontSize: 18, fontFamily: 'Lato-Regular', textAlign: 'center' }}>{'Conta Criada Com Sucesso!'}</Text>
           <View style={{ marginTop: 16, }}>
-            <Text style={{ color: '#fff', fontSize: 22, fontFamily: 'Lato-Regular',textAlign: 'center' }}>{nome}</Text>
+            <Text style={{ color: '#fff', fontSize: 22, fontFamily: 'Lato-Regular', textAlign: 'center' }}>{nome}</Text>
             <Text style={{ color: '#fff', fontSize: 18, fontFamily: 'Lato-Regular', textAlign: 'center', paddingTop: 16 }}>{this._random(frases)}</Text>
           </View>
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
           <TouchableOpacity
-            onPress={() => false}
+            onPress={() => this.resetForward()}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
             <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular', color: colors.orange300 }}>{'Entrar'}</Text>
           </TouchableOpacity>
@@ -77,4 +95,4 @@ const mapStateToProps = state => ({
   nome: state.PerfilReducer.nome,
 });
 
-export default connect(mapStateToProps, { })(StatusOkScreen);
+export default connect(mapStateToProps, {})(StatusOkScreen);
