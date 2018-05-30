@@ -12,7 +12,7 @@ import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaNome } from '../../actions/LoginActions';
+import { mudaNome } from '../../actions/PerfilActions';
 import { validateNome } from '../../util';
 
 const styles = StyleSheet.create({
@@ -118,7 +118,7 @@ class LoginNomeScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  nome: state.LoginReducer.nome
+  nome: state.PerfilReducer.nome
 });
 
 export default connect(mapStateToProps, { mudaNome })(LoginNomeScreen);

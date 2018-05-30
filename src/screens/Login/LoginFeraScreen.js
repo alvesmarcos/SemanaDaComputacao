@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaFera } from '../../actions/LoginActions';
+import { mudaFera, cadastraUsuario } from '../../actions/PerfilActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +58,7 @@ class LoginFeraScreen extends React.Component {
 
   navigateHome() {
     this.nav('Home');
+    this.props.cadastraUsuario();
   }
 
   onChangeCheckBox = () => {
@@ -96,8 +97,8 @@ class LoginFeraScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  fera: state.LoginReducer.fera,
-  nome: state.LoginReducer.nome
+  fera: state.PerfilReducer.fera,
+  nome: state.PerfilReducer.nome
 });
 
-export default connect(mapStateToProps, { mudaFera })(LoginFeraScreen);
+export default connect(mapStateToProps, { mudaFera, cadastraUsuario })(LoginFeraScreen);

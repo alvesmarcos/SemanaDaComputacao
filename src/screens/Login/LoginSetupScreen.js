@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
-import { mudaEhInscricao } from '../../actions/LoginActions';
+import { mudaEhInscricao } from '../../actions/PerfilActions';
 
 const styles = StyleSheet.create({
   container: {

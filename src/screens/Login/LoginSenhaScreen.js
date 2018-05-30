@@ -13,7 +13,7 @@ import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaSenha } from '../../actions/LoginActions';
+import { mudaSenha } from '../../actions/PerfilActions';
 import { validateSenha } from '../../util';
 
 const styles = StyleSheet.create({
@@ -128,8 +128,8 @@ class LoginSenhaScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  senha: state.LoginReducer.senha,
-  ehInscricao: state.LoginReducer.ehInscricao
+  senha: state.PerfilReducer.senha,
+  ehInscricao: state.PerfilReducer.ehInscricao
 });
 
 export default connect(mapStateToProps, { mudaSenha })(LoginSenhaScreen);

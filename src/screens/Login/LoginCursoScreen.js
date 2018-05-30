@@ -13,7 +13,7 @@ import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaCurso } from '../../actions/LoginActions';
+import { mudaCurso } from '../../actions/PerfilActions';
 import { validateCurso } from '../../util';
 
 const styles = StyleSheet.create({
@@ -118,7 +118,7 @@ class LoginCursoScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  curso: state.LoginReducer.curso
+  curso: state.PerfilReducer.curso
 });
 
 export default connect(mapStateToProps, { mudaCurso })(LoginCursoScreen);

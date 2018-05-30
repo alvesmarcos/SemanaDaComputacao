@@ -14,7 +14,7 @@ import { connect } from 'react-redux';
 import { validateEmail } from '../../util';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
-import { mudaEmail } from '../../actions/LoginActions';
+import { mudaEmail } from '../../actions/PerfilActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -124,8 +124,8 @@ class LoginEmailScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  email: state.LoginReducer.email,
-  ehInscricao: state.LoginReducer.ehInscricao
+  email: state.PerfilReducer.email,
+  ehInscricao: state.PerfilReducer.ehInscricao
 });
 
 
