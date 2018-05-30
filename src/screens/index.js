@@ -9,6 +9,7 @@ import LoginFeraScreen from './Login/LoginFeraScreen';
 import LoginCursoScreen from './Login/LoginCursoScreen';
 import LoginNomeScreen from './Login/LoginNomeScreen';
 import StatusOkScreen from './Status/StatusOkScreen';
+import StatusFailScreen from './Status/StatusFailScreen';
 
 export {
   NotificacaoScreen,
@@ -22,4 +23,5 @@ export {
   LoginCursoScreen,
   LoginNomeScreen,
   StatusOkScreen,
+  StatusFailScreen,
 };

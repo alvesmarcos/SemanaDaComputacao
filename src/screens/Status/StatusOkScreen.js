@@ -39,7 +39,7 @@ const frases = [
   'O segredo é um só: acreditar que tudo vai dar certo, porque vai!'
 ];
 
-class StatusOk extends React.Component {
+class StatusOkScreen extends React.Component {
   _random = (arr) => arr[Math.floor(Math.random()*arr.length)];
 
   render() {
@@ -65,7 +65,7 @@ class StatusOk extends React.Component {
           <TouchableOpacity
             onPress={() => false}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
-            <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular'}}>{'Entrar'}</Text>
+            <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular', color: colors.orange300 }}>{'Entrar'}</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -77,4 +77,4 @@ const mapStateToProps = state => ({
   nome: state.PerfilReducer.nome,
 });
 
-export default connect(mapStateToProps, { })(StatusOk);
+export default connect(mapStateToProps, { })(StatusOkScreen);
