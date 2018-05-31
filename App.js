@@ -8,7 +8,7 @@ import {
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-import Init from './src/init';
+import Routes from './src/navigation/Routes';
 import reducers from './src/reducers';
 
 //-- retira warnings
@@ -20,7 +20,7 @@ export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Init />
+        <Routes />
       </Provider>
     );
   }

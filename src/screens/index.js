@@ -10,6 +10,7 @@ import LoginCursoScreen from './Login/LoginCursoScreen';
 import LoginNomeScreen from './Login/LoginNomeScreen';
 import StatusOkScreen from './Status/StatusOkScreen';
 import StatusFailScreen from './Status/StatusFailScreen';
+import Init from './Init';
 
 export {
   NotificacaoScreen,
@@ -24,4 +25,5 @@ export {
   LoginNomeScreen,
   StatusOkScreen,
   StatusFailScreen,
+  Init,
 };
