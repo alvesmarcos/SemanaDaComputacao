@@ -7,9 +7,9 @@ import {
   MUDA_FERA_PERFIL,
   MUDA_EH_INSCRICAO,
   MUDA_ID_PERFIL,
+  MUDA_CAMPOS_PERFIL,
 } from './types';
 import { references as r } from '../util';
-import { Alert} from 'react-native';
 
 export const mudaNome = (valor) => (
   { type: MUDA_NOME_PERFIL, payload: valor }
@@ -35,6 +35,10 @@ export const mudaEhInscricao = (valor) => (
   { type: MUDA_EH_INSCRICAO, payload: valor }
 );
 
+export const mudaCamposPerfil = (campos) => (
+  { type: MUDA_CAMPOS_PERFIL, payload: campos }
+);
+
 export const cadastraUsuario = () => {
   // return funcao async
   return async (dispatch, getState) => {
@@ -56,8 +60,9 @@ export const doLogin = () => {
   return async(dispatch, getState) => {
     const { email, senha } = getState().PerfilReducer;
     try {
-      const usuario = await firebase.auth().signInWithEmailAndPassword(email, senha);
-         
+      const { user } = await firebase.auth().signInWithEmailAndPassword(email, senha);
+      const snapshot = await firebase.database().ref(r.USUARIO.concat(user.uid)).once('value');
+      dispatch({ type: MUDA_CAMPOS_PERFIL, payload: { id: user.uid, ...snapshot.val() } });
     } catch (e) {
       throw e;
     }

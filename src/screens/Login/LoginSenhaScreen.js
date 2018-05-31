@@ -9,13 +9,17 @@ import {
   Keyboard,
   BackHandler,
   ActivityIndicator,
+  Alert,
+  AsyncStorage,
 } from 'react-native';
 import Snackbar from 'react-native-snackbar';
+import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
 import { mudaSenha, doLogin } from '../../actions/PerfilActions';
 import { validateSenha } from '../../util';
+import { constants as c } from '../../util';
 
 const styles = StyleSheet.create({
   container: {
@@ -47,9 +51,10 @@ class LoginSenhaScreen extends React.Component {
     };
 
     //--
-    const { navigate, goBack } = this.props.navigation;
+    const { navigate, goBack, dispatch } = this.props.navigation;
     this.nav = navigate;
     this.navBack = goBack;
+    this.dispatch = dispatch;
   }
 
   componentDidMount() {
@@ -87,6 +92,8 @@ class LoginSenhaScreen extends React.Component {
     try {
       // -- logar no app
       await this.props.doLogin();
+      await this.storeUsuario();
+      this.resetForward();
     } catch (e) {
       Snackbar.show({
         title: 'Usuário ou senha inválidos',
@@ -98,6 +105,24 @@ class LoginSenhaScreen extends React.Component {
         },
       });
       this.setState({ load: false });
+    }
+  }
+
+  resetForward() {
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })]
+    });
+    this.dispatch(resetAction);
+  }
+
+
+  async storeUsuario() {
+    const { id, nome, curso, email, fera } = this.props;
+    try {
+      await AsyncStorage.setItem(c.SUPER_STORE, JSON.stringify({ id, nome, curso, email, fera }));
+    } catch (e) {
+      Alert.alert('Semana da Computação', 'Memória insuficiente, tente mais tarde!');
     }
   }
 
@@ -158,6 +183,11 @@ class LoginSenhaScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  id: state.PerfilReducer.id,
+  nome: state.PerfilReducer.nome,
+  curso: state.PerfilReducer.curso,
+  email: state.PerfilReducer.email,
+  fera: state.PerfilReducer.fera,
   senha: state.PerfilReducer.senha,
   ehInscricao: state.PerfilReducer.ehInscricao
 });

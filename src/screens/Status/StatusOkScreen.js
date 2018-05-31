@@ -4,11 +4,13 @@ import {
   StatusBar,
   Text,
   TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import Icon from 'react-native-vector-icons/Entypo';
 import { colors } from '../../styles';
+import { constants as c } from '../../util';
 
 const frases = [
   'Não deixe que as pessoas te façam desistir daquilo que você mais quer na vida. Acredite. Lute. Conquiste. E acima de tudo, seja feliz.',
@@ -48,6 +50,19 @@ class StatusOkScreen extends React.Component {
     this.nav = navigate;
     this.navBack = goBack;
     this.dispatch = dispatch;
+  }
+
+  componentDidMount() {
+    this.storeUsuario(); 
+  }
+
+  async storeUsuario() {
+    const { id, nome, curso, email, fera } = this.props;
+    try {
+      await AsyncStorage.setItem(c.SUPER_STORE, JSON.stringify({ id, nome, curso, email, fera }));
+    } catch (e) {
+      Alert.alert('Semana da Computação', 'Memória insuficiente, tente mais tarde!');
+    }
   }
 
   resetForward() {
@@ -92,7 +107,11 @@ class StatusOkScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  id: state.PerfilReducer.id,
   nome: state.PerfilReducer.nome,
+  curso: state.PerfilReducer.curso,
+  email: state.PerfilReducer.email,
+  fera: state.PerfilReducer.fera,
 });
 
 export default connect(mapStateToProps, {})(StatusOkScreen);

@@ -3,7 +3,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  StatusBar,
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';

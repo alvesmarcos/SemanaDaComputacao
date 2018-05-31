@@ -13,6 +13,7 @@ const Routes = StackNavigator(
     StatusFail: { screen: StatusFailScreen },
   }, {
     initialRouteName: 'Init',
+    headerMode: 'screen',
     navigationOptions: { header: null },
   }
 );

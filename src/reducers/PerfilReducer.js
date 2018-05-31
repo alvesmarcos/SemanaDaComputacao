@@ -6,13 +6,14 @@ import {
   MUDA_FERA_PERFIL,
   MUDA_EH_INSCRICAO,
   MUDA_ID_PERFIL,
+  MUDA_CAMPOS_PERFIL,
 } from '../actions/types';
 
 const INITIAL_STATE_DEV = {
   id: '',
   nome: 'Marcos Alves',
   curso: 'Ciência da Computação',
-  email: 'marcos.alves@cc.ci.ufpb.br',
+  email: 'marcos@mail.com',
   senha: '12345678',
   fera: true,
   ehInscricao: true
@@ -44,6 +45,16 @@ export default (state = INITIAL_STATE_DEV, action) => {
       return { ...state, fera: action.payload };
     case MUDA_EH_INSCRICAO:
       return { ...state, ehInscricao: action.payload };
+    case MUDA_CAMPOS_PERFIL:
+      return { 
+        ...state, 
+        id: action.payload.id,
+        nome: action.payload.nome,
+        curso: action.payload.curso,
+        email: action.payload.email,
+        senha: action.payload.senha,
+        fera: action.payload.fera
+      };
     default:
       return state;
   } 

@@ -3,10 +3,16 @@ import {
   View,
   StatusBar,
   Image,
+  AsyncStorage,
+  Alert,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { NavigationActions } from 'react-navigation';
 import { app as firebaseApp } from '../../config';
 import { colors } from '../../styles'; 
- 
+import { constants as c } from '../../util';
+import { mudaCamposPerfil } from '../../actions/PerfilActions'; 
+
 const imageSDC = require('../../../assets/img/logo-sem-fundo-branca.png');
 
 class Init extends React.Component {
@@ -14,11 +20,39 @@ class Init extends React.Component {
     super(props);
     
     this.cores = [
-      { body: colors.primary , header: colors.primaryDark },
       { body: colors.orange300 , header: colors.orange500 },
-      { body: colors.deepPurple300 , header: colors.deepPurple400 },
+      { body: colors.green400 , header: colors.green600 },
       { body: colors.cyan500 , header: colors.cyan600 },
     ];
+
+    const { dispatch, navigate } = this.props.navigation;
+    this.nav = navigate;
+    this.dispatch = dispatch;
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.logado(), 2000);
+  }
+
+  async logado() {
+    try {
+      const value = await AsyncStorage.getItem(c.SUPER_STORE);
+      let routeName = '';
+      // --
+      if (value !== null) {
+        routeName = 'Home';
+        this.props.mudaCamposPerfil(JSON.parse(value));
+      } else {
+        routeName = 'Login';
+      }
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName })]
+      });
+      this.dispatch(resetAction);
+    } catch (e) {
+      Alert.alert('Semana da Computação', 'Aconteceu um erro na inicialização do aplicativo, tente mais tarde!');
+    }
   }
 
   _random = (arr) => arr[Math.floor(Math.random() * arr.length)];
@@ -40,4 +74,4 @@ class Init extends React.Component {
   }
 }
 
-export default Init;
+export default connect(null, { mudaCamposPerfil })(Init);

@@ -5,5 +5,6 @@ import {
   validateSenha,
 } from './validations';
 import references from './references';
+import constants from './constants';
 
-export { validateEmail, validateSenha, validateNome, validateCurso, references };
+export { validateEmail, validateSenha, validateNome, validateCurso, references, constants };
