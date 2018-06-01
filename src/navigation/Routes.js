@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { LoginStack } from './StacksNavigation';
 import BottomNavigation from './BottomNavigation';
-import { Init, StatusOkScreen, StatusFailScreen } from '../screens';
+import { Init, StatusOkScreen, StatusFailScreen, MensagemScreen } from '../screens';
 
 const Routes = StackNavigator(
   { 
@@ -11,10 +11,11 @@ const Routes = StackNavigator(
     Home: { screen: BottomNavigation },
     StatusOk: { screen: StatusOkScreen },
     StatusFail: { screen: StatusFailScreen },
+    MensagemScreen: { screen: MensagemScreen },
   }, {
-    initialRouteName: 'Init',
-    headerMode: 'screen',
-    navigationOptions: { header: null },
+    initialRouteName: 'MensagemScreen',
+    // headerMode: 'screen',
+    // navigationOptions: { header: null },
   }
 );
 
