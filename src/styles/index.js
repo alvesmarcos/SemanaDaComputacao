@@ -12,6 +12,7 @@ const colors = {
   deepPurple400: '#7E57C2',
   orange300: '#FFB74D',
   orange500: '#FF9800',
+  gray300: '#e0e0e0',
   grey600: '#bdbdbd',
   cyan500: '#00BCD4',
   cyan600: '#00ACC1',

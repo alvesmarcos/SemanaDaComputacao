@@ -2,20 +2,34 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { LoginStack } from './StacksNavigation';
 import BottomNavigation from './BottomNavigation';
-import { Init, StatusOkScreen, StatusFailScreen, MensagemScreen } from '../screens';
+import { Init, StatusOkScreen, StatusFailScreen, NotificacaoModal } from '../screens';
 
 const Routes = StackNavigator(
-  { 
-    Init: { screen: Init },
-    Login: { screen: LoginStack },
-    Home: { screen: BottomNavigation },
-    StatusOk: { screen: StatusOkScreen },
-    StatusFail: { screen: StatusFailScreen },
-    MensagemScreen: { screen: MensagemScreen },
+  {
+    Init: { 
+      screen: Init, 
+      navigationOptions: { header: null } 
+    },
+    Login: { 
+      screen: LoginStack,
+      navigationOptions: { header: null } 
+    },
+    Home: { 
+      screen: BottomNavigation,
+      navigationOptions: { header: null },
+    },
+    StatusOk: {
+      screen: StatusOkScreen,
+      navigationOptions: { header: null } 
+    },
+    StatusFail: {
+      screen: StatusFailScreen,
+      navigationOptions: { header: null } 
+    },
+    NotificacaoModal: { screen: NotificacaoModal },
   }, {
-    initialRouteName: 'MensagemScreen',
+    initialRouteName: 'Init',
     // headerMode: 'screen',
-    // navigationOptions: { header: null },
   }
 );
 

@@ -47,7 +47,7 @@ export const cadastraUsuario = () => {
       const usuario = await firebase.auth().createUserWithEmailAndPassword(email, senha);
       const uid = firebase.auth().currentUser.uid;
       // --
-      await firebase.database().ref(r.USUARIO.concat(uid)).set({ nome, curso, email, fera });
+      await firebase.database().ref(r.USUARIOS.concat(uid)).set({ nome, curso, email, fera });
       dispatch({ type: MUDA_ID_PERFIL, payload: uid });
     } catch (e) {
       throw e;
@@ -61,7 +61,7 @@ export const doLogin = () => {
     const { email, senha } = getState().PerfilReducer;
     try {
       const { user } = await firebase.auth().signInWithEmailAndPassword(email, senha);
-      const snapshot = await firebase.database().ref(r.USUARIO.concat(user.uid)).once('value');
+      const snapshot = await firebase.database().ref(r.USUARIOS.concat(user.uid)).once('value');
       dispatch({ type: MUDA_CAMPOS_PERFIL, payload: { id: user.uid, ...snapshot.val() } });
     } catch (e) {
       throw e;

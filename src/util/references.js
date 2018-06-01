@@ -1,9 +1,9 @@
 export const references = {
-  USUARIO: 'usuario/',
+  USUARIOS: 'usuario/',
   GERAL: 'geral/',
   PROGRAMACAO: 'programacao/',
-  NOTIFICACAO: 'notificacao/',
-  INGRESSO: 'ingresso/',
+  NOTIFICACOES: 'notificacoes/',
+  INGRESSOS: 'ingresso/',
   FAQ: 'faq/',
 };
 

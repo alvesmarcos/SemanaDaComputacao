@@ -108,10 +108,10 @@ const NotificacaoStack = StackNavigator(
         backgroundColor: colors.white,
         elevation: 5,
       },
-      headerRight: (
-        <MaterialIcons.Button size={22} name="refresh" color={colors.grey800} backgroundColor={colors.white}
-      onPress={() => navigation.goBack(null)} />
-      ),
+      // headerRight: (
+      //   <MaterialIcons.Button size={22} name="refresh" color={colors.grey800} backgroundColor={colors.white}
+      // onPress={() => navigation.goBack(null)} />
+      // ),
     }),
   }
 );

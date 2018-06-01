@@ -12,6 +12,7 @@ import { app as firebaseApp } from '../../config';
 import { colors } from '../../styles'; 
 import { constants as c } from '../../util';
 import { mudaCamposPerfil } from '../../actions/PerfilActions'; 
+import { carregaNotificacoes } from '../../actions/NotificacaoActions';
 
 const imageSDC = require('../../../assets/img/logo-sem-fundo-branca.png');
 
@@ -42,6 +43,8 @@ class Init extends React.Component {
       if (value !== null) {
         routeName = 'Home';
         this.props.mudaCamposPerfil(JSON.parse(value));
+        // carregamentos de dados do app vindo  do banco
+        await this.props.carregaNotificacoes();
       } else {
         routeName = 'Login';
       }
@@ -51,7 +54,7 @@ class Init extends React.Component {
       });
       this.dispatch(resetAction);
     } catch (e) {
-      Alert.alert('Semana da Computação', 'Aconteceu um erro na inicialização do aplicativo, tente mais tarde!');
+      Alert.alert('Semana da Computação', e.toString());
     }
   }
 
@@ -74,4 +77,4 @@ class Init extends React.Component {
   }
 }
 
-export default connect(null, { mudaCamposPerfil })(Init);
+export default connect(null, { mudaCamposPerfil, carregaNotificacoes })(Init);

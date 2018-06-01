@@ -5,23 +5,30 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { mudaCamposNotificacao } from '../../actions/NotificacaoActions';
 import { colors } from '../../styles';
 
-const data = [
-  { id: '1', autor: 'Centro de Informática', cor: colors.primary, sigla: 'CI', titulo: 'Important updates to Udacitys terms of use and privacy policy', corpo: 'As a valued member of our Udacity Community, we want to let you know that we are making some changes'},
-  { id: '1', autor: 'Centro Acadêmico Ciência da Computação', cor: colors.orange300, sigla: 'CI', titulo: 'Important updates to Udacitys terms of use and privacy policy', corpo: 'As a valued member of our Udacity Community, we want to let you know that we are making some changes'},
-  { id: '1', autor: 'Centro de Informática', cor: colors.lightBlue400, sigla: 'CI', titulo: 'Important updates to Udacitys terms of use and privacy policy', corpo: 'As a valued member of our Udacity Community, we want to let you know that we are making some changes'},
-  { id: '1', autor: 'Centro de Informática', cor: colors.green400, sigla: 'CI', titulo: 'Important updates to Udacitys terms of use and privacy policy', corpo: 'As a valued member of our Udacity Community, we want to let you know that we are making some changes'},
-];
-
 class NotificacaoScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    const { navigate } = this.props.navigation;
+    this.nav = navigate;
+  }
+
+  goNotificacaoModal(item) {
+    this.props.mudaCamposNotificacao(item);
+    this.nav('NotificacaoModal', { barColor: item.barColor });
+  }
+
   renderItem(item) {
     return (
       <View>
         <View style={{ borderTopWidth: 1, borderTopColor: '#eee' }} />
-        <TouchableOpacity style={{ padding: 16, flexDirection: 'row', backgroundColor: colors.white }}>
-          <View style={{ backgroundColor: item.cor, width: 60, height: 60, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ color: colors.white, fontSize: 30, }}>{item.sigla}</Text>
+        <TouchableOpacity onPress={() => this.goNotificacaoModal(item)} style={{ padding: 16, flexDirection: 'row', backgroundColor: colors.white }}>
+          <View style={{ backgroundColor: item.barColor, width: 60, height: 60, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ color: colors.white, fontSize: 30, }}>{item.abreviatura}</Text>
           </View>
           <View style={{ flexDirection: 'column', paddingLeft: 16, flex: 1 }}>
             <Text style={{ color: colors.grey800, fontSize: 16, fontFamily: 'Lato-Bold' }} numberOfLines={1}>{item.autor}</Text>
@@ -34,11 +41,12 @@ class NotificacaoScreen extends React.Component {
   }
 
   render() {
+    const { listaNotificacoes } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: colors.white, padding: 0 }}>
         <FlatList 
           keyExtractor={item => item.id}
-          data={data}
+          data={listaNotificacoes}
           renderItem={({item}) => this.renderItem(item)}
         />
       </View>
@@ -46,4 +54,8 @@ class NotificacaoScreen extends React.Component {
   }
 }
 
-export default NotificacaoScreen;
+const mapStateToProps = state => ({
+  listaNotificacoes: state.NotificacaoReducer.listaNotificacoes,
+});
+
+export default connect(mapStateToProps, { mudaCamposNotificacao })(NotificacaoScreen);
