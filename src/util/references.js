@@ -3,7 +3,7 @@ export const references = {
   GERAL: 'geral/',
   PROGRAMACAO: 'programacao/',
   NOTIFICACOES: 'notificacoes/',
-  INGRESSOS: 'ingresso/',
+  INGRESSOS: 'ingressos/',
   FAQ: 'faq/',
 };
 

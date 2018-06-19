@@ -101,7 +101,7 @@ class LoginFeraScreen extends React.Component {
               onChange={this.onChangeCheckBox}
               value={this.props.fera}
             />
-            <Text style={styles.labelCheckBox}>{'Sim, e quero um prêmio por isso'}</Text>
+            <Text style={styles.labelCheckBox}>{'Sim e quero um prêmio por isso'}</Text>
           </View>
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>

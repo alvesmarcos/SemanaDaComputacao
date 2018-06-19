@@ -80,14 +80,14 @@ const FaqStack = StackNavigator(
         backgroundColor: colors.white,
         elevation: 5,
       },
-      headerRight: (
-        <View style={{ flexDirection: 'row' }}>
-        <MaterialIcons.Button size={22} name="view-list" color={colors.grey800} backgroundColor={colors.white}
-      onPress={() => navigation.goBack(null)} />
-       <MaterialIcons.Button size={22} name="edit" color={colors.grey800} backgroundColor={colors.white}
-       onPress={() => navigation.goBack(null)} />
-       </View>
-      ),
+      // headerRight: (
+      //   <View style={{ flexDirection: 'row' }}>
+      //   <MaterialIcons.Button size={22} name="view-list" color={colors.grey800} backgroundColor={colors.white}
+      // onPress={() => navigation.goBack(null)} />
+      //  <MaterialIcons.Button size={22} name="edit" color={colors.grey800} backgroundColor={colors.white}
+      //  onPress={() => navigation.goBack(null)} />
+      //  </View>
+      // ),
     }),
   }
 );

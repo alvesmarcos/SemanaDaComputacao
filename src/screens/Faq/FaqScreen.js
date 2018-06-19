@@ -46,7 +46,7 @@ class FaqScreen extends React.Component {
                 />
               </View>
               <View style={{ alignItems: 'center', backgroundColor: colors.deepPurple400, padding: 10 }}>
-                <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 18}}>{'Intercâmbio'}</Text>
+                <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 18}}>{'Laboratórios'}</Text>
               </View>
           </View>
           <View style={{ flex: 0.5, backgroundColor: colors.orange300, marginLeft: 1 }}>
