@@ -25,7 +25,6 @@ class NotificacaoScreen extends React.Component {
   renderItem(item) {
     return (
       <View>
-        <View style={{ borderTopWidth: 1, borderTopColor: '#eee' }} />
         <TouchableOpacity onPress={() => this.goNotificacaoModal(item)} style={{ padding: 16, flexDirection: 'row', backgroundColor: colors.white }}>
           <View style={{ backgroundColor: item.barColor, width: 60, height: 60, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{ color: colors.white, fontSize: 30, }}>{item.abreviatura}</Text>
@@ -36,6 +35,7 @@ class NotificacaoScreen extends React.Component {
             <Text style={{ fontSize: 14, fontFamily: 'Lato-Regular', marginTop: 10 }} numberOfLines={1}>{item.corpo}</Text>
           </View>
         </TouchableOpacity>
+        <View style={{ borderTopWidth: 1, borderTopColor: '#eee' }} />
       </View>
     );
   }

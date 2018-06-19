@@ -4,10 +4,13 @@ import {
   StatusBar,
   View,
   Picker,
+  FlatList,
 } from 'react-native';
+import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import Feather from 'react-native-vector-icons/Feather';
 import Swipeout from 'react-native-swipeout';
+import { constants as c } from '../../util';
 
 const swipeoutBtns1 = [
   {
@@ -24,22 +27,35 @@ class ProgramacaoScreen extends React.Component {
     };
   }
 
-  componentButtonSwipeout(flag) {
-    if (flag==='true') {
-    return (
-      <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
-        <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
-          <Feather
-            name={'mic'}
-            size={50}
-            color={colors.white}
-          />
-          </View>
-          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Palestra'}</Text>
-      </View>
-    );
-  }
-  if (flag==='nada') {
+  componentButtonSwipeout(tipo) {
+    if (tipo===c.PALESTRA) {
+      return (
+        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
+          <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
+            <Feather
+              name={'mic'}
+              size={50}
+              color={colors.white}
+            />
+            </View>
+            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Palestra'}</Text>
+        </View>
+      );
+    }
+    if (tipo===c.ORGANIZACAO) {
+      return (
+        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center'}}>
+            <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
+            <Feather
+              name={'align-justify'}
+              size={50}
+              color={colors.white}
+            />
+            </View>
+            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Descrição'}</Text>
+        </View>
+      );
+    }
     return (
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
       borderLeftColor: '#FAFAFA' }}>
@@ -55,59 +71,77 @@ class ProgramacaoScreen extends React.Component {
     );
   }
 
-  if (flag==='pie-chart') {
-    return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-        <Feather
-          name={'shopping-cart'}
-          size={40}
-          color={colors.white}
-        />
-      </View>
-    );
-  }
-    return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1,
-      borderLeftColor: '#FAFAFA' }}>
-        <Feather
-          name={'share-2'}
-          size={40}
-          color={colors.white}
-        />
-      </View>
-    );
-  }
-
-  tipoButton() {
-    return [
-      {
-        component: this.componentButtonSwipeout('true'),
-        backgroundColor: colors.cyan500,
-      },
-      {
-        component: this.componentButtonSwipeout('nada'),
-        backgroundColor: colors.cyan500,
-      }
-    ];
+  tipoButton(tipo) {
+    if (c.PALESTRA === tipo) {
+      return [
+        {
+          component: this.componentButtonSwipeout('PALESTRA'),
+          backgroundColor: colors.cyan500,
+        },
+        {
+          component: this.componentButtonSwipeout(),
+          backgroundColor: colors.cyan500,
+        }
+      ];
+    }
+    if (c.ORGANIZACAO === tipo) {
+      return [
+        {
+          component: this.componentButtonSwipeout('ORGANIZACAO'),
+          backgroundColor: colors.orange300,
+        },
+        {
+          component: this.componentButtonSwipeout(),
+          backgroundColor: colors.orange300,
+        }
+      ];
+    }
   }
 
-  tipoButton1() {
-    return [
-      {
-        component: this.componentButtonSwipeout('pie-chart'),
-        backgroundColor: colors.orange300,
-      },
-      {
-        component: this.componentButtonSwipeout('nada'),
-        backgroundColor: colors.orange300,
-      }
-    ];
+  renderItem(item) {
+    const swipeoutBtns = this.tipoButton(item.tipo);
+    return (
+      <Swipeout
+          right={swipeoutBtns}
+          autoClose
+          close
+          accessibilityLabel='Item da Lista'
+          buttonWidth={130}
+          backgroundColor='transparent'
+        >
+          <View style={{ flexDirection: 'row' }}>
+            <View style={{ flex: 0.98, padding: 16, borderBottomColor: colors.grey100, borderBottomWidth: 1 }}>
+              <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16 }}>{item.nome}</Text>
+              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Feather name={'calendar'} size={18} color={colors.grey400} />
+                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{item.data}</Text>
+                </View>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Feather name={'clock'} size={18} color={colors.grey400} />
+                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{item.horario}</Text>
+                </View>
+              </View>
+              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Feather name={'map-pin'} size={18} color={colors.grey400} />
+                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{item.local}</Text>
+                </View>
+              </View>
+            </View>
+            { item.tipo === c.PALESTRA &&
+              <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
+            }
+            { item.tipo === c.ORGANIZACAO &&
+              <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
+            }
+          </View>
+        </Swipeout>
+    );
   }
 
   render() {
-    const swipeoutBtns = this.tipoButton();
-    const swipeoutBtns1 = this.tipoButton1();
-
+    const { dia1 } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         <StatusBar
@@ -128,71 +162,18 @@ class ProgramacaoScreen extends React.Component {
             <Picker.Item label="Sexta-feira" value="34" />
           </Picker>
         </View>
-        <Swipeout
-          right={swipeoutBtns}
-          autoClose
-          close
-          accessibilityLabel='Item da Lista'
-          buttonWidth={130}
-          backgroundColor='transparent'
-        >
-          <View style={{ flexDirection: 'row' }}>
-            <View style={{ flex: 0.98, padding: 16, borderBottomColor: colors.grey100, borderBottomWidth: 0 }}>
-              <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16 }}>{'Descobrindo o poder infinito'}</Text>
-              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'calendar'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'09/07'}</Text>
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'clock'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'08h - 08h45min'}</Text>
-                </View>
-              </View>
-              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'map-pin'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'Auditório - Centro de Informática'}</Text>
-                </View>
-              </View>
-            </View>
-            <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
-          </View>
-        </Swipeout>
-        <Swipeout
-          right={swipeoutBtns1}
-          autoClose
-          close
-          accessibilityLabel='Item da Lista'
-          buttonWidth={130}
-          backgroundColor='transparent'
-        >
-          <View style={{ flexDirection: 'row' }}>
-            <View style={{ flex: 0.98, padding: 16, borderBottomColor: colors.grey100, borderBottomWidth: 1 }}>
-              <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16 }}>{'Coffee Break'}</Text>
-              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'calendar'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'09/07'}</Text>
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'clock'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'10h - 10h30min'}</Text>
-                </View>
-              </View>
-              <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Feather name={'map-pin'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{'Aquário - Centro de Informática'}</Text>
-                </View>
-              </View>
-            </View>
-            <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
-          </View>
-        </Swipeout>
+        <FlatList 
+          keyExtractor={item => item.id}
+          data={dia1}
+          renderItem={({item}) => this.renderItem(item)}
+        />
       </View>
     );
   }
 }
 
-export default ProgramacaoScreen;
+const mapStateToProps = state => ({
+  dia1: state.ProgramacaoReducer.dia1,
+});
+
+export default connect(mapStateToProps, {})(ProgramacaoScreen);
