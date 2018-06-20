@@ -11,7 +11,14 @@ export const carregaProgramacao = () => {
       dia1.push(child.val());
     });
 
-    dispatch({ type: MUDA_PROGRAMACAO, payload: { dia1 }});
+    const snapshot2 = await firebase.database().ref(r.PROGRAMACAO.concat('2/')).orderByChild('ordem').once('value');
+    const dia2 = [];
+    //-- 
+    snapshot2.forEach(child => {
+      dia2.push(child.val());
+    });
+
+    dispatch({ type: MUDA_PROGRAMACAO, payload: { dia1, dia2 }});
     //--
   }
 };

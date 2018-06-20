@@ -11,8 +11,8 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case MUDA_PROGRAMACAO:
-      const { dia1 } = action.payload;
-      return { ...state, dia1 };
+      const { dia1, dia2 } = action.payload;
+      return { ...state, dia1, dia2 };
     default:
       return state;
   }

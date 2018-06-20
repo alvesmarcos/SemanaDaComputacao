@@ -12,94 +12,89 @@ import Feather from 'react-native-vector-icons/Feather';
 import Swipeout from 'react-native-swipeout';
 import { constants as c } from '../../util';
 
-const swipeoutBtns1 = [
-  {
-    text: 'Button'
-  }
-];
-
 class ProgramacaoScreen extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      language: ''
+      dia: '1'
     };
   }
 
-  componentButtonSwipeout(tipo) {
-    if (tipo===c.PALESTRA) {
-      return (
-        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
-          <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
-            <Feather
-              name={'mic'}
-              size={50}
-              color={colors.white}
-            />
-            </View>
-            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Palestra'}</Text>
-        </View>
-      );
+  itemButton(tipo) {
+    if (tipo === c.PALESTRA) {
+      return { iconNome: 'mic', texto: 'Palestra' };
+    } else if (tipo === c.ABERTURA) {
+      return { iconNome: 'align-justify', texto: 'Sobre' };
+    } else if (tipo === c.CHECKIN) {
+      return { iconNome: 'tag', texto: 'Informações' };
+    } else if (tipo === c.COFFEE_BREAK) {
+      return { iconNome: 'shopping-cart', texto: 'Cardápio' };
+    } else if (tipo === c.EMPRESA) {
+      return { iconNome: 'briefcase', texto: 'Empresa' };
     }
-    if (tipo===c.ORGANIZACAO) {
+    return { iconNome: 'star', texto: 'Avaliar' };
+  }
+
+  componentButtonSwipeout(tipo) {
+    const { iconNome, texto } = this.itemButton(tipo);
+    if (texto === 'Avaliar') {
       return (
-        <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center'}}>
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
+        borderLeftColor: '#FAFAFA' }}>
             <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
             <Feather
-              name={'align-justify'}
+              name={iconNome}
               size={50}
               color={colors.white}
             />
             </View>
-            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Descrição'}</Text>
+            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{texto}</Text>
         </View>
       );
     }
     return (
-      <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
-      borderLeftColor: '#FAFAFA' }}>
-          <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
+        <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
           <Feather
-            name={'star'}
+            name={iconNome}
             size={50}
             color={colors.white}
           />
           </View>
-          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Avaliar'}</Text>
+          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{texto}</Text>
       </View>
     );
   }
 
   tipoButton(tipo) {
-    if (c.PALESTRA === tipo) {
-      return [
-        {
-          component: this.componentButtonSwipeout('PALESTRA'),
-          backgroundColor: colors.cyan500,
-        },
-        {
-          component: this.componentButtonSwipeout(),
-          backgroundColor: colors.cyan500,
-        }
-      ];
+    let color = '';
+    
+    if (tipo === c.PALESTRA) {
+      color =  colors.cyan500;
+    } else if (tipo === c.ABERTURA) {
+      color = colors.orange300;
+    } else if (tipo === c.COFFEE_BREAK) {
+      color = colors.primary;
+    } else if (tipo === c.CHECKIN) {
+      color = colors.orange300;
+    } else if (tipo === c.EMPRESA) {
+      color = colors.deepPurple400;
     }
-    if (c.ORGANIZACAO === tipo) {
-      return [
-        {
-          component: this.componentButtonSwipeout('ORGANIZACAO'),
-          backgroundColor: colors.orange300,
-        },
-        {
-          component: this.componentButtonSwipeout(),
-          backgroundColor: colors.orange300,
-        }
-      ];
-    }
+    return [
+      {
+        component: this.componentButtonSwipeout(tipo),
+        backgroundColor: color,
+      },
+      {
+        component: this.componentButtonSwipeout(),
+        backgroundColor: color,
+      }
+    ];
   }
 
   renderItem(item) {
-    const swipeoutBtns = this.tipoButton(item.tipo);
+    const swipeoutBtns = this.tipoButton(item.categoria);
     return (
       <Swipeout
           right={swipeoutBtns}
@@ -111,7 +106,7 @@ class ProgramacaoScreen extends React.Component {
         >
           <View style={{ flexDirection: 'row' }}>
             <View style={{ flex: 0.98, padding: 16, borderBottomColor: colors.grey100, borderBottomWidth: 1 }}>
-              <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16 }}>{item.nome}</Text>
+              <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16 }} numberOfLines={1}>{item.nome}</Text>
               <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Feather name={'calendar'} size={18} color={colors.grey400} />
@@ -119,7 +114,7 @@ class ProgramacaoScreen extends React.Component {
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Feather name={'clock'} size={18} color={colors.grey400} />
-                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{item.horario}</Text>
+                  <Text style={{ paddingLeft: 16, fontFamily: 'Lato-Regular', fontSize: 16 }}>{item.horaInicio}</Text>
                 </View>
               </View>
               <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -129,11 +124,20 @@ class ProgramacaoScreen extends React.Component {
                 </View>
               </View>
             </View>
-            { item.tipo === c.PALESTRA &&
+            { item.categoria === c.PALESTRA &&
               <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
             }
-            { item.tipo === c.ORGANIZACAO &&
+            { item.categoria === c.ABERTURA &&
               <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
+            }
+            { item.categoria === c.CHECKIN &&
+              <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
+            }
+            { item.categoria === c.COFFEE_BREAK &&
+              <View style={{ backgroundColor: colors.primary, flex: 0.02 }} />
+            }
+            { item.categoria === c.EMPRESA &&
+              <View style={{ backgroundColor: colors.deepPurple400, flex: 0.02 }} />
             }
           </View>
         </Swipeout>
@@ -141,7 +145,7 @@ class ProgramacaoScreen extends React.Component {
   }
 
   render() {
-    const { dia1 } = this.props;
+    const { dia1, dia2 } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         <StatusBar
@@ -151,22 +155,52 @@ class ProgramacaoScreen extends React.Component {
         <View style={{ height: 55, backgroundColor: colors.white, padding: 16, elevation: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}>{'Julho 2018'}</Text>
           <Picker
-            selectedValue={this.state.language}
+            selectedValue={this.state.dia}
             style={{ width: 140, fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}
             mode={'dropdown'}
-            onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}>
-            <Picker.Item label="Segunda-feira" value="19" />
-            <Picker.Item label="Terça-feira" value="20" />
-            <Picker.Item label="Quarta-feira" value="21" />
-            <Picker.Item label="Quinta-feira" value="23" />
-            <Picker.Item label="Sexta-feira" value="34" />
+            onValueChange={(itemValue) => this.setState({ dia: itemValue })}>
+            <Picker.Item label="Segunda-feira" value="1" />
+            <Picker.Item label="Terça-feira" value="2" />
+            <Picker.Item label="Quarta-feira" value="3" />
+            <Picker.Item label="Quinta-feira" value="4" />
+            <Picker.Item label="Sexta-feira" value="5" />
           </Picker>
         </View>
-        <FlatList 
-          keyExtractor={item => item.id}
-          data={dia1}
-          renderItem={({item}) => this.renderItem(item)}
-        />
+        { this.state.dia === '1' &&
+          <FlatList 
+            keyExtractor={item => item.id}
+            data={dia1}
+            renderItem={({item}) => this.renderItem(item)}
+          />
+        }
+         { this.state.dia === '2' &&
+          <FlatList 
+            keyExtractor={item => item.id}
+            data={dia2}
+            renderItem={({item}) => this.renderItem(item)}
+          />
+        }
+         { this.state.dia === '3' &&
+          <FlatList 
+            keyExtractor={item => item.id}
+            data={dia1}
+            renderItem={({item}) => this.renderItem(item)}
+          />
+        }
+         { this.state.dia === '4' &&
+          <FlatList 
+            keyExtractor={item => item.id}
+            data={dia1}
+            renderItem={({item}) => this.renderItem(item)}
+          />
+        }
+         { this.state.dia === '5' &&
+          <FlatList 
+            keyExtractor={item => item.id}
+            data={dia1}
+            renderItem={({item}) => this.renderItem(item)}
+          />
+        }
       </View>
     );
   }
@@ -174,6 +208,7 @@ class ProgramacaoScreen extends React.Component {
 
 const mapStateToProps = state => ({
   dia1: state.ProgramacaoReducer.dia1,
+  dia2: state.ProgramacaoReducer.dia2,
 });
 
 export default connect(mapStateToProps, {})(ProgramacaoScreen);

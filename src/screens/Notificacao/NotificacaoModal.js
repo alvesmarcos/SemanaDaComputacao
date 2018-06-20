@@ -24,7 +24,7 @@ class NotificacaoModal extends React.Component {
   });
 
   render() {
-    const { autor, sigla, abreviatura, barColor, corpo, darkBarColor, data, titulo } = this.props;
+    const { autor, abreviatura, barColor, corpo, darkBarColor, data, titulo } = this.props;
     return (
       <ScrollView style={{ flexGrow: 1, backgroundColor: colors.white }}>
         <StatusBar
