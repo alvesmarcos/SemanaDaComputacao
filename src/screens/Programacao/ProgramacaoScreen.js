@@ -32,6 +32,10 @@ class ProgramacaoScreen extends React.Component {
       return { iconNome: 'shopping-cart', texto: 'Cardápio' };
     } else if (tipo === c.EMPRESA) {
       return { iconNome: 'briefcase', texto: 'Empresa' };
+    }  else if (tipo === c.CORRIDA_ROBOS) {
+      return { iconNome: 'flag', texto: 'Regras' };
+    } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
+      return { iconNome: 'message-square', texto: 'Temas' };
     }
     return { iconNome: 'star', texto: 'Avaliar' };
   }
@@ -79,7 +83,11 @@ class ProgramacaoScreen extends React.Component {
     } else if (tipo === c.CHECKIN) {
       color = colors.orange300;
     } else if (tipo === c.EMPRESA) {
-      color = colors.deepPurple400;
+      color = colors.cyan500;
+    } else if (tipo === c.CORRIDA_ROBOS) {
+      color = colors.orange300;
+    } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
+      color = colors.deepPurple300;
     }
     return [
       {
@@ -137,7 +145,13 @@ class ProgramacaoScreen extends React.Component {
               <View style={{ backgroundColor: colors.primary, flex: 0.02 }} />
             }
             { item.categoria === c.EMPRESA &&
-              <View style={{ backgroundColor: colors.deepPurple400, flex: 0.02 }} />
+              <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
+            }
+            { item.categoria === c.DE_ALUNO_PARA_ALUNO &&
+              <View style={{ backgroundColor: colors.deepPurple300 , flex: 0.02 }} />
+            }
+            { item.categoria === c.CORRIDA_ROBOS &&
+              <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
             }
           </View>
         </Swipeout>
@@ -145,7 +159,7 @@ class ProgramacaoScreen extends React.Component {
   }
 
   render() {
-    const { dia1, dia2 } = this.props;
+    const { dia1, dia2, dia3, dia4, dia5 } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         <StatusBar
@@ -183,21 +197,21 @@ class ProgramacaoScreen extends React.Component {
          { this.state.dia === '3' &&
           <FlatList 
             keyExtractor={item => item.id}
-            data={dia1}
+            data={dia3}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
          { this.state.dia === '4' &&
           <FlatList 
             keyExtractor={item => item.id}
-            data={dia1}
+            data={dia4}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
          { this.state.dia === '5' &&
           <FlatList 
             keyExtractor={item => item.id}
-            data={dia1}
+            data={dia5}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
@@ -209,6 +223,9 @@ class ProgramacaoScreen extends React.Component {
 const mapStateToProps = state => ({
   dia1: state.ProgramacaoReducer.dia1,
   dia2: state.ProgramacaoReducer.dia2,
+  dia3: state.ProgramacaoReducer.dia3,
+  dia4: state.ProgramacaoReducer.dia4,
+  dia5: state.ProgramacaoReducer.dia5,
 });
 
 export default connect(mapStateToProps, {})(ProgramacaoScreen);
