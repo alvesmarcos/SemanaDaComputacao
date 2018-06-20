@@ -2,16 +2,29 @@ import React from 'react';
 import {
   View,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import { colors } from '../../styles';
 
 class FaqScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    const { navigate } = this.props.navigation;
+    this.nav = navigate;
+  }
+  
+  goFaqModal(item) {
+    // this.props.mudaCamposNotificacao(item);
+    this.nav('FaqModal');
+  }
+
   render() {
     return (
       <View style={{ flex: 1, flexDirection: 'column', backgroundColor: colors.windowBackground, padding: 2 }}>
         <View style={{ flex: 0.5, flexDirection: 'row'}}>
-          <View style={{ flex: 0.5, backgroundColor: colors.cyan500, marginRight: 1, flexDirection: 'column'}}>
+          <TouchableOpacity onPress={() => this.goFaqModal()} style={{ flex: 0.5, backgroundColor: colors.cyan500, marginRight: 1, flexDirection: 'column'}}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
               <Feather
                 name={'clipboard'}
@@ -22,7 +35,7 @@ class FaqScreen extends React.Component {
             <View style={{ alignItems: 'center', backgroundColor: colors.cyan600, padding: 10 }}>
               <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 18}}>{'Curso'}</Text>
             </View>
-          </View>
+          </TouchableOpacity>
           <View style={{ flex: 0.5, backgroundColor: colors.primary, marginLeft: 1 }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
               <Feather
