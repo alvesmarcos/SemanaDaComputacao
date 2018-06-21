@@ -14,6 +14,7 @@ import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
 import { mudaNome } from '../../actions/PerfilActions';
 import { validateNome } from '../../util';
+import { TextField } from 'react-native-material-textfield';
 
 const styles = StyleSheet.create({
   container: {
@@ -58,6 +59,8 @@ class LoginNomeScreen extends React.Component {
   // }
 
   navigateLoginCurso() {
+    // fecha teclado
+    Keyboard.dismiss();
     if (validateNome(this.props.nome)) {
       this.nav('LoginCurso');
     } else {
@@ -94,10 +97,15 @@ class LoginNomeScreen extends React.Component {
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
-          <FloatingLabelInput
+          <TextField
             label={'Nome e sobrenome'}
             value={this.props.nome}
             onChangeText={this.onChange}
+            fontSize={22}
+            tintColor={colors.white}
+            baseColor={colors.white}
+            labelTextStyle={{ fontFamily: 'Lato-Regular', color: '#fff'}}
+            textColor={colors.white}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>

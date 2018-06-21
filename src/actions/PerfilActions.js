@@ -62,7 +62,7 @@ export const doLogin = () => {
     const { email, senha } = getState().PerfilReducer;
     try {
       const { user } = await firebase.auth().signInWithEmailAndPassword(email, senha);
-      const snapshot = await firebase.database().ref(r.USUARIOS.concat(user.uid)).once('value');
+      const snapshot = await firebase.database().ref(r.USUARIOS.concat(user.uid).concat('/')).once('value');
       dispatch({ type: MUDA_CAMPOS_PERFIL, payload: { id: user.uid, ...snapshot.val() } });
     } catch (e) {
       throw e;

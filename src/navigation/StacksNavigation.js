@@ -7,6 +7,7 @@ import {
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { StackNavigator } from 'react-navigation';
+import { NavigationActions } from 'react-navigation';
 import { colors } from '../styles';
 import {
   ProgramacaoScreen,
@@ -23,12 +24,10 @@ import {
 import { transitionConfig } from '../config';
 import { ToolbarDropdown } from '../components';
 import { constants as c } from '../util';
-import { doLogout } from '../actions/PerfilActions';
 
 const logout = async() => {
   try {
     await AsyncStorage.removeItem(c.SUPER_STORE);
-    await doLogout();
   } catch (e) {
     Alert.alert('Semana da Computação', 'Ocorreu uma falha no logout');
   }
@@ -78,7 +77,11 @@ const TicketStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        navigation.navigate('Login')
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'Login' })]
+        });
+        navigation.dispatch(resetAction);
       }} />)
     }),
   }
@@ -102,7 +105,11 @@ const FaqStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        navigation.navigate('Login')
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'Login' })]
+        });
+        navigation.dispatch(resetAction);
       }} />)
       // headerRight: (
       //   <View style={{ flexDirection: 'row' }}>
@@ -134,7 +141,11 @@ const NotificacaoStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        navigation.navigate('Login')
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [NavigationActions.navigate({ routeName: 'Login' })]
+        });
+        navigation.dispatch(resetAction);
       }} />)
       // headerRight: (
       //   <MaterialIcons.Button size={22} name="refresh" color={colors.grey800} backgroundColor={colors.white}

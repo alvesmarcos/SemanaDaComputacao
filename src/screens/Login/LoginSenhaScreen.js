@@ -15,11 +15,15 @@ import {
 import Snackbar from 'react-native-snackbar';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
+import { TextField } from 'react-native-material-textfield';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
 import { mudaSenha, doLogin } from '../../actions/PerfilActions';
 import { validateSenha } from '../../util';
 import { constants as c } from '../../util';
+import { carregaNotificacoes } from '../../actions/NotificacaoActions';
+import { carregaTickets } from '../../actions/TicketActions';
+import { carregaProgramacao } from '../../actions/ProgramacaoActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -66,6 +70,8 @@ class LoginSenhaScreen extends React.Component {
   // }
 
   async navigateLoginFera() {
+    // fecha teclado
+    Keyboard.dismiss();
     if (validateSenha(this.props.senha)) {
       Keyboard.dismiss();
       if (this.props.ehInscricao) {
@@ -88,11 +94,24 @@ class LoginSenhaScreen extends React.Component {
     }
   }
 
+  carregaDados = async() => {
+    try {
+      // carregamentos de dados do app vindo  do banco
+      await this.props.carregaNotificacoes();
+      await this.props.carregaTickets();
+      await this.props.carregaProgramacao(); 
+    } catch (e) {
+      Alert.alert('Semana da Computação', 'Falha ao carregar os dados do aplicativo');
+    }
+  };
+
   async doLogin() {
     try {
       // -- logar no app
       await this.props.doLogin();
       await this.storeUsuario();
+      await this.carregaDados();
+
       this.resetForward();
     } catch (e) {
       Snackbar.show({
@@ -109,11 +128,7 @@ class LoginSenhaScreen extends React.Component {
   }
 
   resetForward() {
-    const resetAction = NavigationActions.reset({
-      index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'Home' })]
-    });
-    this.dispatch(resetAction);
+    this.nav('Home');
   }
 
 
@@ -150,13 +165,18 @@ class LoginSenhaScreen extends React.Component {
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
-          <FloatingLabelInput
+          <TextField
             label={this.props.ehInscricao ? 'Defina uma senha' : 'Sua senha'}
-            helpText={this.props.ehInscricao ? 'A senha deve conter no mínimo 8 dígitos' : ''}
             value={this.props.senha}
             onChangeText={this.onChange}
             keyboardType={'numeric'}
             secureTextEntry={true}
+            fontSize={22}
+            tintColor={colors.white}
+            baseColor={colors.white}
+            labelTextStyle={{ fontFamily: 'Lato-Regular', color: '#fff'}}
+            textColor={colors.white}
+            title={this.props.ehInscricao ? 'A senha deve conter no mínimo 8 dígitos' : ''}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
@@ -192,4 +212,4 @@ const mapStateToProps = state => ({
   ehInscricao: state.PerfilReducer.ehInscricao
 });
 
-export default connect(mapStateToProps, { mudaSenha, doLogin })(LoginSenhaScreen);
+export default connect(mapStateToProps, { mudaSenha, doLogin, carregaNotificacoes, carregaProgramacao, carregaTickets })(LoginSenhaScreen);

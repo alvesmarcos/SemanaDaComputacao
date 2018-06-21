@@ -7,6 +7,7 @@ import {
   MUDA_EH_INSCRICAO,
   MUDA_ID_PERFIL,
   MUDA_CAMPOS_PERFIL,
+  LOGOUT,
 } from '../actions/types';
 
 const INITIAL_STATE_DEV = {
@@ -29,7 +30,7 @@ const INITIAL_STATE = {
   ehInscricao: false
 };
 
-export default (state = INITIAL_STATE_DEV, action) => {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case MUDA_ID_PERFIL:
       return { ...state, id: action.payload };
@@ -55,6 +56,8 @@ export default (state = INITIAL_STATE_DEV, action) => {
         senha: action.payload.senha,
         fera: action.payload.fera
       };
+    case LOGOUT: 
+      return state.INITIAL_STATE;
     default:
       return state;
   } 

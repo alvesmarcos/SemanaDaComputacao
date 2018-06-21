@@ -15,6 +15,7 @@ import { validateEmail } from '../../util';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
 import { mudaEmail } from '../../actions/PerfilActions';
+import { TextField } from 'react-native-material-textfield';
 
 const styles = StyleSheet.create({
   container: {
@@ -59,6 +60,8 @@ class LoginEmailScreen extends React.Component {
   // }
 
   navigateLoginSenha() {
+    // fecha teclado
+    Keyboard.dismiss();
     if (validateEmail(this.props.email)) {
       this.nav('LoginSenha');
     } else {
@@ -100,10 +103,15 @@ class LoginEmailScreen extends React.Component {
           barStyle={'light-content'}
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
-          <FloatingLabelInput
+          <TextField
             label={'Seu e-mail'}
             value={this.props.email}
             onChangeText={this.onChange}
+            fontSize={22}
+            tintColor={colors.white}
+            baseColor={colors.white}
+            labelTextStyle={{ fontFamily: 'Lato-Regular', color: '#fff'}}
+            textColor={colors.white}
           />
         </View>
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>

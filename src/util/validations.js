@@ -7,7 +7,7 @@ const validateEmail = (email) => {
 const validateSenha = (senha) => {
   try {
     const len = senha.length;
-    if (len >= 8) {
+    if (len >= 8 && /^\d+$/.test(senha)) {
       return true; 
     }
   } catch (e) {
