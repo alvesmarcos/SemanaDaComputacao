@@ -49,13 +49,13 @@ class LoginNomeScreen extends React.Component {
     this.navBack = goBack;
   }
 
-  componentDidMount() {
-    BackHandler.addEventListener('back_press', this.navigatePop);
-  }
+  // componentDidMount() {
+  //   BackHandler.addEventListener('back_press', this.navigatePop);
+  // }
 
-  componentWillUnmount() {
-    BackHandler.removeEventListener('back_press', this.navigatePop);
-  }
+  // componentWillUnmount() {
+  //   BackHandler.removeEventListener('back_press', this.navigatePop);
+  // }
 
   navigateLoginCurso() {
     if (validateNome(this.props.nome)) {

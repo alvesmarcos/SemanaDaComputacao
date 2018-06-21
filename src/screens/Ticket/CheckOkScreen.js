@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
-import { carregaTickets } from '../../actions/TicketActions';
+import { carregaTickets, realizaCheckIn } from '../../actions/TicketActions';
 import Icon from 'react-native-vector-icons/Feather';
 import { colors } from '../../styles';
 import { constants as c } from '../../util';
@@ -29,10 +29,12 @@ class CheckOkScreen extends React.Component {
   async resetForward() {
     this.setState({ load: true });
     try {
+      await this.props.realizaCheckIn();
       await this.props.carregaTickets();
       // --
       this.nav('Home');
     } catch (e) {
+      Alert.alert('Semana da Computação', 'Ocorreu um erro inesperado ao confirmar a sua presença!');
       this.nav('Home');
     }
   }
@@ -80,4 +82,4 @@ const mapStateToProps = state => ({
   horario: state.TicketReducer.horario,
 });
 
-export default connect(mapStateToProps, {carregaTickets})(CheckOkScreen);
+export default connect(mapStateToProps, {carregaTickets, realizaCheckIn})(CheckOkScreen);

@@ -3,6 +3,7 @@ import {
   View,
   StatusBar,
   Text,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import QRCodeScanner from 'react-native-qrcode-scanner';
@@ -56,11 +57,11 @@ class ScannerScreen extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  id: '',
-  data: '',
-  dia: '',
-  evento: '',
-  horario: '',
+  id: state.TicketReducer.id,
+  data: state.TicketReducer.data,
+  dia: state.TicketReducer.dia,
+  evento: state.TicketReducer.evento,
+  horario: state.TicketReducer.horario,
 });
 
 export default connect(mapStateToProps, {})(ScannerScreen);

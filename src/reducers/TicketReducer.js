@@ -4,10 +4,10 @@ const INITIAL_STATE = {
   listaIngressos: [],
   ativo: true,
   id: '',
-  data: '09 de Julho de 2018',
+  data: '',
   dia: '',
-  evento: '19 Semana da Computação',
-  horario: '07h30min - 17h30min',
+  evento: '',
+  horario: '',
 };
 
 export default (state = INITIAL_STATE, action) => {

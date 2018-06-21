@@ -57,13 +57,13 @@ class LoginSenhaScreen extends React.Component {
     this.dispatch = dispatch;
   }
 
-  componentDidMount() {
-    BackHandler.addEventListener('back_press', this.navigatePop);
-  }
+  // componentDidMount() {
+  //   BackHandler.addEventListener('back_press', this.navigatePop);
+  // }
 
-  componentWillUnmount() {
-    BackHandler.removeEventListener('back_press', this.navigatePop);
-  }
+  // componentWillUnmount() {
+  //   BackHandler.removeEventListener('back_press', this.navigatePop);
+  // }
 
   async navigateLoginFera() {
     if (validateSenha(this.props.senha)) {

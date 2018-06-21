@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 import { references as r } from '../util';
-import { MUDA_LISTA_INGRESSOS, MUDA_INGRESSO } from './types';
+import { MUDA_LISTA_INGRESSOS, MUDA_INGRESSO, CHECKIN_REALIZADO } from './types';
 import uuidv1 from 'uuid/v1';
 import { colors } from '../styles';
 
@@ -12,13 +12,13 @@ export const carregaTickets = () => {
       const { id } = getState().PerfilReducer;
       const snapshot = await firebase.database().ref(r.INGRESSOS).orderByChild('dia').once('value');
       const listagem = [];
-      const snapshot1 = await firebase.database().ref(r.CHECKIN).once('value');
-
       //-- 
       snapshot.forEach(child => {
         const ingresso = child.val();
         listagem.push({ ...ingresso, cor: ingresso.ativo ? colors.orange300 : colors.pink700 });
       });
+
+      const snapshot1 = await firebase.database().ref(r.CHECKIN).once('value');      
       // --
       snapshot1.forEach(child => {
         const check = child.val();
