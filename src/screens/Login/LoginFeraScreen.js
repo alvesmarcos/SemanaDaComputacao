@@ -15,6 +15,9 @@ import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import { FloatingLabelInput } from '../../components';
 import { mudaFera, cadastraUsuario } from '../../actions/PerfilActions';
+import { carregaNotificacoes } from '../../actions/NotificacaoActions';
+import { carregaTickets } from '../../actions/TicketActions';
+import { carregaProgramacao } from '../../actions/ProgramacaoActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -63,10 +66,22 @@ class LoginFeraScreen extends React.Component {
     this.navBack = goBack;
   }
 
+  carregaDados = async() => {
+    try {
+      // carregamentos de dados do app vindo  do banco
+      await this.props.carregaNotificacoes();
+      await this.props.carregaTickets();
+      await this.props.carregaProgramacao(); 
+    } catch (e) {
+      Alert.alert('Semana da Computação', 'Falha ao carregar os dados do aplicativo');
+    }
+  };
+
   async navigateToStatus() {
     this.setState({ load: true });
     try {
       await this.props.cadastraUsuario();
+      await this.carregaDados();
       // --
       this.nav('StatusOk');
     } catch (e) {
@@ -132,4 +147,4 @@ const mapStateToProps = state => ({
   nome: state.PerfilReducer.nome
 });
 
-export default connect(mapStateToProps, { mudaFera, cadastraUsuario })(LoginFeraScreen);
+export default connect(mapStateToProps, { mudaFera, cadastraUsuario, carregaNotificacoes, carregaProgramacao, carregaTickets  })(LoginFeraScreen);
