@@ -2,7 +2,7 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { LoginStack } from './StacksNavigation';
 import BottomNavigation from './BottomNavigation';
-import { Init, StatusOkScreen, StatusFailScreen, NotificacaoModal, FaqModal } from '../screens';
+import { Init, StatusOkScreen, StatusFailScreen, NotificacaoModal, FaqModal, ScannerScreen, CheckOkScreen, CheckFailScreen } from '../screens';
 
 const Routes = StackNavigator(
   {
@@ -26,10 +26,25 @@ const Routes = StackNavigator(
       screen: StatusFailScreen,
       navigationOptions: { header: null } 
     },
-    NotificacaoModal: { screen: NotificacaoModal },
-    FaqModal: { screen: FaqModal },
+    NotificacaoModal: { 
+      screen: NotificacaoModal 
+    },
+    FaqModal: { 
+      screen: FaqModal 
+    },
+    Scanner: { 
+      screen: ScannerScreen,
+    },
+    CheckOk: {
+      screen: CheckOkScreen,
+      navigationOptions: { header: null } 
+    },
+    CheckFail: {
+      screen: CheckFailScreen,
+      navigationOptions: { header: null } 
+    }
   }, {
-    initialRouteName: 'Init',
+    initialRouteName: 'CheckFail',
     // headerMode: 'screen',
   }
 );

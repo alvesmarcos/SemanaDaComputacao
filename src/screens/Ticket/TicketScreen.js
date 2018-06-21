@@ -8,9 +8,22 @@ import {
 import { connect } from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Dash from 'react-native-dash';
+import { mudaIngresso } from '../../actions/TicketActions';
 import { colors } from '../../styles';
 
 class TicketScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    const { navigate } = this.props.navigation;
+    this.nav = navigate;
+  }
+
+  goScannerScreen(item) {
+    this.props.mudaIngresso(item);
+    this.nav('Scanner');
+  }
+
   renderItem(item) {
     return (
       <View style={{ marginBottom: 4 }}>
@@ -31,7 +44,7 @@ class TicketScreen extends React.Component {
             <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}>{this.props.nome}</Text>
             <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}>{'R$ 0,00'}</Text>
           </View>
-          <TouchableOpacity style={{ flexDirection: 'row' }}>
+          <TouchableOpacity onPress={() => this.goScannerScreen(item)} style={{ flexDirection: 'row' }}>
             <FontAwesome
               name={'qrcode'}
               size={80}
@@ -64,4 +77,4 @@ const mapStateToProps = state => ({
   nome: state.PerfilReducer.nome
 });
 
-export default connect(mapStateToProps, {})(TicketScreen);
+export default connect(mapStateToProps, { mudaIngresso })(TicketScreen);

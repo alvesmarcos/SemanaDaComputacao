@@ -1,6 +1,8 @@
 import * as firebase from 'firebase';
 import { references as r } from '../util';
-import { MUDA_LISTA_INGRESSOS } from './types';
+import { MUDA_LISTA_INGRESSOS, MUDA_INGRESSO } from './types';
+
+export const mudaIngresso = (campos) => ({ type: MUDA_INGRESSO, payload: campos });
 
 export const carregaTickets = () => {
   return async(dispatch) => {

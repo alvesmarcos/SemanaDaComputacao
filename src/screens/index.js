@@ -12,6 +12,9 @@ import StatusOkScreen from './Status/StatusOkScreen';
 import StatusFailScreen from './Status/StatusFailScreen';
 import NotificacaoModal from './Notificacao/NotificacaoModal';
 import FaqModal from './Faq/FaqModal';
+import ScannerScreen from './Ticket/ScannerScreen';
+import CheckOkScreen from './Ticket/CheckOkScreen';
+import CheckFailScreen from './Ticket/CheckFailScreen';
 import Init from './Init';
 
 export {
@@ -29,5 +32,8 @@ export {
   StatusFailScreen,
   Init,
   NotificacaoModal,
+  ScannerScreen,
   FaqModal,
+  CheckOkScreen,
+  CheckFailScreen,
 };
