@@ -76,6 +76,10 @@ const TicketStack = StackNavigator(
         backgroundColor: colors.white,
         elevation: 5,
       },
+      headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
+        await logout();
+        navigation.navigate('Login')
+      }} />)
     }),
   }
 );
@@ -96,6 +100,10 @@ const FaqStack = StackNavigator(
         backgroundColor: colors.white,
         elevation: 5,
       },
+      headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
+        await logout();
+        navigation.navigate('Login')
+      }} />)
       // headerRight: (
       //   <View style={{ flexDirection: 'row' }}>
       //   <MaterialIcons.Button size={22} name="view-list" color={colors.grey800} backgroundColor={colors.white}
@@ -124,6 +132,10 @@ const NotificacaoStack = StackNavigator(
         backgroundColor: colors.white,
         elevation: 5,
       },
+      headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
+        await logout();
+        navigation.navigate('Login')
+      }} />)
       // headerRight: (
       //   <MaterialIcons.Button size={22} name="refresh" color={colors.grey800} backgroundColor={colors.white}
       // onPress={() => navigation.goBack(null)} />

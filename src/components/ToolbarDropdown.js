@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, NativeModules, findNodeHandle } from 'react-native';
+import { View, StyleSheet, NativeModules, findNodeHandle, Alert } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
   const UIManager = NativeModules.UIManager;
 
   export default class ToolbarDropdown extends Component {
     onMenuPressed = (labels) => {
-      const { onPress } = this.props;
+      const { onPress  } = this.props;
 
       UIManager.showPopupMenu(
         findNodeHandle(this.menu),
@@ -14,7 +14,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
         () => {},
         (result, index) => {
           if (onPress) {
-            onPress({ action: 'menu', result, index });
+            if (index === 0) {
+              onPress({ action: 'menu', result, index });
+            }
           }
         },
       );
@@ -24,7 +26,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
       const { labels } = this.props;
 
       return (
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', backgroundColor: '#fff' }}>
           <View>
             <View
               ref={c => this.menu = c}
