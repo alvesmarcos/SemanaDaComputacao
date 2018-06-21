@@ -8,6 +8,7 @@ import {
   MUDA_EH_INSCRICAO,
   MUDA_ID_PERFIL,
   MUDA_CAMPOS_PERFIL,
+  LOGOUT,
 } from './types';
 import { references as r } from '../util';
 
@@ -67,4 +68,15 @@ export const doLogin = () => {
       throw e;
     }
   }
+};
+
+export const doLogout = () => {
+  return async(dispatch) => {
+    try {
+      await firebase.auth().signOut();
+      dispatch({ type: LOGOUT })
+    } catch (e) {
+      throw e;
+    }
+  };
 };

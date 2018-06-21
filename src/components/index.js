@@ -1,3 +1,4 @@
 import FloatingLabelInput from './FloatingLabelInput';
+import ToolbarDropdown from './ToolbarDropdown';
 
-export { FloatingLabelInput };
+export { FloatingLabelInput, ToolbarDropdown };

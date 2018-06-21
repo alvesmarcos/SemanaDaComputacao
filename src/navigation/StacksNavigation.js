@@ -1,6 +1,8 @@
 import React from 'react';
 import {
-  View
+  View,
+  AsyncStorage,
+  Alert,
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -19,8 +21,18 @@ import {
   LoginNomeScreen,
 } from '../screens';
 import { transitionConfig } from '../config';
-import { HeaderRight } from '../components';
+import { ToolbarDropdown } from '../components';
+import { constants as c } from '../util';
+import { doLogout } from '../actions/PerfilActions';
 
+const logout = async() => {
+  try {
+    await AsyncStorage.removeItem(c.SUPER_STORE);
+    await doLogout();
+  } catch (e) {
+    Alert.alert('Semana da Computação', 'Ocorreu uma falha no logout');
+  }
+};
 
 const ProgramacaoStack = StackNavigator(
   {
@@ -40,6 +52,10 @@ const ProgramacaoStack = StackNavigator(
         borderBottomWidth: 1,
         borderBottomColor: colors.grey100
       },
+      headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
+        await logout();
+        navigation.navigate('Login')
+      }} />)
     }),
   }
 );
