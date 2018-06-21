@@ -77,11 +77,7 @@ const TicketStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        const resetAction = NavigationActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'Login' })]
-        });
-        navigation.dispatch(resetAction);
+        navigation.navigate('Login')
       }} />)
     }),
   }
@@ -105,11 +101,7 @@ const FaqStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        const resetAction = NavigationActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'Login' })]
-        });
-        navigation.dispatch(resetAction);
+        navigation.navigate('Login')
       }} />)
       // headerRight: (
       //   <View style={{ flexDirection: 'row' }}>
@@ -141,11 +133,7 @@ const NotificacaoStack = StackNavigator(
       },
       headerRight: (<ToolbarDropdown  labels={['Logout']} onPress={async() => { 
         await logout();
-        const resetAction = NavigationActions.reset({
-          index: 0,
-          actions: [NavigationActions.navigate({ routeName: 'Login' })]
-        });
-        navigation.dispatch(resetAction);
+        navigation.navigate('Login')
       }} />)
       // headerRight: (
       //   <MaterialIcons.Button size={22} name="refresh" color={colors.grey800} backgroundColor={colors.white}
