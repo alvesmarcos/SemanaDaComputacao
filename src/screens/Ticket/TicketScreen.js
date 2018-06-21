@@ -4,6 +4,7 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -20,8 +21,14 @@ class TicketScreen extends React.Component {
   }
 
   goScannerScreen(item) {
-    this.props.mudaIngresso(item);
-    this.nav('Scanner');
+    if (item.cor === colors.green400) {
+      Alert.alert('Semana da Computação', 'Você já realizou check-in desse ingresso!');
+    } else if (item.cor === colors.pink700) {
+      Alert.alert('Semana da Computação', 'Lamentamos, mas esse ingresso não é mais válido!');
+    } else {
+      this.props.mudaIngresso(item);
+      this.nav('Scanner');
+    }
   }
 
   renderItem(item) {
@@ -52,7 +59,7 @@ class TicketScreen extends React.Component {
             />
           </TouchableOpacity>
         </View>
-        <View style={{ flexDirection: 'column', alignItems: 'center', backgroundColor: colors.orange300, paddingTop: 6 }}>
+        <View style={{ flexDirection: 'column', alignItems: 'center', backgroundColor: item.cor, paddingTop: 6 }}>
           <View style={{ backgroundColor: colors.white, width: 15, height: 15, borderRadius: 7, marginBottom: -7 }} />
         </View>
       </View>

@@ -5,6 +5,7 @@ export const references = {
   NOTIFICACOES: 'v1/notificacoes/',
   INGRESSOS: 'v1/ingressos/',
   FAQ: 'v1/faq/',
+  CHECKIN: 'v1/checkin/'
 };
 
 export default references;

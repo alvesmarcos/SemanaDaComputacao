@@ -44,7 +44,7 @@ const Routes = StackNavigator(
       navigationOptions: { header: null } 
     }
   }, {
-    initialRouteName: 'CheckFail',
+    initialRouteName: 'Init',
     // headerMode: 'screen',
   }
 );
