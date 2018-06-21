@@ -26,7 +26,11 @@ class CheckFailScreen extends React.Component {
   }
 
   resetBack() {
-    this.navBack();
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })]
+    });
+    this.dispatch(resetAction);
   }
 
 

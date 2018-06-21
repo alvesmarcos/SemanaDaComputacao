@@ -32,10 +32,18 @@ class CheckOkScreen extends React.Component {
       await this.props.realizaCheckIn();
       await this.props.carregaTickets();
       // --
-      this.nav('Home');
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: 'Home' })]
+      });
+      this.dispatch(resetAction);
     } catch (e) {
       Alert.alert('Semana da Computação', 'Ocorreu um erro inesperado ao confirmar a sua presença!');
-      this.nav('Home');
+      const resetAction = NavigationActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({ routeName: 'Home' })]
+      });
+      this.dispatch(resetAction);
     }
   }
 
