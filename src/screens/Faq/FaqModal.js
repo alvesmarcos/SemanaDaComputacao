@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View,
   StatusBar,
-  ScrollView,
+  FlatList,
   Text,
 } from 'react-native';
 import { connect } from 'react-redux';
@@ -12,53 +12,92 @@ import { colors } from '../../styles';
 
 class FaqModal extends React.Component {
   static navigationOptions =  ({ navigation }) => ({
-    title: 'Sobre Curso',
+    title: 'FAQ '.concat(navigation.state.params.categoria),
     headerTitleStyle: {
       fontFamily: 'Lato-Regular',
       fontWeight: 'normal',
     },
     headerTintColor: colors.white,
     headerStyle: {
-      backgroundColor: colors.cyan500,
+      backgroundColor: navigation.state.params.barColor,
       elevation: 5,
     },
   });
 
-  render() {
+  constructor(props) {
+    super(props);
+    // -- check das categorias do faq    
+    const categorias = this.props.navigation.state.params.categoria;
+    this.listagem = [];
+
+    switch(categorias) {
+      case 'Curso':
+        this.listagem = this.props.cursos;
+        break;
+      case 'Auxílios':
+        this.listagem = this.props.auxilios;
+        break;
+      case 'Laboratórios':
+        this.listagem = this.props.laboratorios;
+        break;
+      case 'Monitoria':
+        this.listagem = this.props.monitorias;
+        break;
+      case 'Coordenação':
+        this.listagem = this.props.coordenacao;
+        break;
+      case 'Geral':
+        this.listagem = this.props.geral;
+        break;
+    };
+  }
+
+
+  renderItem(item) {
+    const { fotoUrl, pergunta, resposta, username } = item;
     return (
-      <ScrollView style={{ flexGrow: 1, padding: 8 }}>
-        <StatusBar
-          backgroundColor={colors.cyan600}
-        />
-        <View style={{ backgroundColor: '#fff', elevation: 5 }}>
-          <View style={{ flexDirection: 'row', padding: 8 }}>
-            <View style={{ flex: 0.8, flexDirection: 'column' }}>
-              <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 16 }}>{'Quantos períodos tem o curso de Ciência da Computação?'}</Text>
-            </View>
-            <View style={{ flex: 0.2, alignItems: 'flex-end', }}>
-              <UserAvatar name="Avishay Bar" src={'https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg'} size={40} />
-            </View>
+      <View style={{ backgroundColor: '#fff', elevation: 5 }}>
+        <View style={{ flexDirection: 'row', padding: 8 }}>
+          <View style={{ flex: 0.8, flexDirection: 'column' }}>
+            <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 16 }}>{pergunta}</Text>
           </View>
-          <View style={{ borderTopColor: '#fafafa', borderBottomColor: '#fafafa', borderTopWidth: 1, borderBottomWidth: 1, backgroundColor: '#fafafa', padding: 8 }}>
-            <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 14 }}>{'O curso de Ciência da computação possui 8 períodos'}</Text>
-          </View>
-          <View style={{padding: 8}}>
-          <Text style={{ fontFamily: 'Lato-Italic', color: colors.grey800, fontSize: 14 }}>{'Respondido por @alvesmarcos'}</Text>
+          <View style={{ flex: 0.2, alignItems: 'flex-end', }}>
+            <UserAvatar name="Avishay Bar" src={fotoUrl} size={40} />
           </View>
         </View>
-      </ScrollView>
+        <View style={{ borderTopColor: '#fafafa', borderBottomColor: '#fafafa', borderTopWidth: 1, borderBottomWidth: 1, backgroundColor: '#fafafa', padding: 8 }}>
+          <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 14 }}>{resposta}</Text>
+        </View>
+        <View style={{padding: 8}}>
+          <Text style={{ fontFamily: 'Lato-Italic', color: colors.grey800, fontSize: 14 }}>{'Respondido por '.concat(username)}</Text>
+        </View>
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1, padding: 8, backgroundColor: '#fafafa' }}>
+        <StatusBar
+          backgroundColor={this.props.navigation.state.params.darkBarColor}
+        />
+         <FlatList 
+          keyExtractor={item => item.id}
+          data={this.listagem}
+          renderItem={({item}) => this.renderItem(item)}
+        />
+      </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  abreviatura: state.NotificacaoReducer.abreviatura,
-  autor: state.NotificacaoReducer.autor,
-  barColor: state.NotificacaoReducer.barColor,
-  corpo: state.NotificacaoReducer.corpo,
-  darkBarColor: state.NotificacaoReducer.darkBarColor,
-  data: state.NotificacaoReducer.data,
-  titulo: state.NotificacaoReducer.titulo,
+  cursos: state.FaqReducer.cursos,
+  auxilios: state.FaqReducer.auxilios,
+  laboratorios: state.FaqReducer.laboratorios,
+  monitorias: state.FaqReducer.monitorias,
+  coordenacao: state.FaqReducer.coordenacao,
+  geral: state.FaqReducer.geral
 });
 
 export default connect(mapStateToProps, {})(FaqModal);

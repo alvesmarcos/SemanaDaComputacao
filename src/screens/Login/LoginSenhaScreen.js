@@ -17,13 +17,13 @@ import { NavigationActions } from 'react-navigation';
 import { connect } from 'react-redux';
 import { TextField } from 'react-native-material-textfield';
 import { colors } from '../../styles';
-import { FloatingLabelInput } from '../../components';
 import { mudaSenha, doLogin } from '../../actions/PerfilActions';
 import { validateSenha } from '../../util';
 import { constants as c } from '../../util';
 import { carregaNotificacoes } from '../../actions/NotificacaoActions';
 import { carregaTickets } from '../../actions/TicketActions';
 import { carregaProgramacao } from '../../actions/ProgramacaoActions';
+import { carregaFaq } from '../../actions/FaqActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -100,6 +100,7 @@ class LoginSenhaScreen extends React.Component {
       await this.props.carregaNotificacoes();
       await this.props.carregaTickets();
       await this.props.carregaProgramacao(); 
+      await this.props.carregaFaq();
     } catch (e) {
       Alert.alert('Semana da Computação', 'Falha ao carregar os dados do aplicativo');
     }
@@ -212,4 +213,4 @@ const mapStateToProps = state => ({
   ehInscricao: state.PerfilReducer.ehInscricao
 });
 
-export default connect(mapStateToProps, { mudaSenha, doLogin, carregaNotificacoes, carregaProgramacao, carregaTickets })(LoginSenhaScreen);
+export default connect(mapStateToProps, { mudaSenha, doLogin, carregaFaq, carregaNotificacoes, carregaProgramacao, carregaTickets })(LoginSenhaScreen);
