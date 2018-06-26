@@ -36,6 +36,16 @@ class ProgramacaoScreen extends React.Component {
       return { iconNome: 'flag', texto: 'Regras' };
     } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
       return { iconNome: 'message-square', texto: 'Temas' };
+    } else if (tipo === c.APRESENTACAO) {
+      return { iconNome: 'mic', texto: 'Apresentação' };
+    } else if (tipo === c.LABORATORIO) {
+      return { iconNome: 'monitor', texto: 'Laboratório' };
+    } else if (tipo === c.MINICURSO) {
+      return { iconNome: 'clipboard', texto: 'Minicurso' };
+    } else if (tipo === c.GAMEDAY) {
+      return { iconNome: 'grid', texto: 'Jogos' };
+    } else if (tipo === c.MARATONA_PROGRAMACAO) {
+      return { iconNome: 'align-justify', texto: 'Regras' };
     }
     return { iconNome: 'star', texto: 'Avaliar' };
   }
@@ -88,6 +98,16 @@ class ProgramacaoScreen extends React.Component {
       color = colors.orange300;
     } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
       color = colors.deepPurple300;
+    } else if (tipo === c.APRESENTACAO) {
+      color = colors.cyan500;
+    } else if (tipo === c.LABORATORIO) {
+      color = colors.orange300;
+    } else if (tipo === c.MINICURSO) {
+      color = colors.deepPurple300;
+    } else if (tipo === c.GAMEDAY) {
+      color = colors.green400;
+    } else if (tipo === c.MARATONA_PROGRAMACAO) {
+      color = colors.lightBlue400;
     }
     return [
       {
@@ -152,6 +172,21 @@ class ProgramacaoScreen extends React.Component {
             }
             { item.categoria === c.CORRIDA_ROBOS &&
               <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
+            }
+            { item.categoria === c.APRESENTACAO &&
+              <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
+            }
+            { item.categoria === c.LABORATORIO &&
+              <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
+            }
+            { item.categoria === c.MINICURSO &&
+              <View style={{ backgroundColor: colors.deepPurple300, flex: 0.02 }} />
+            }
+            { item.categoria === c.GAMEDAY &&
+              <View style={{ backgroundColor: colors.green400, flex: 0.02 }} />
+            }
+             { item.categoria === c.MARATONA_PROGRAMACAO &&
+              <View style={{ backgroundColor: colors.lightBlue400, flex: 0.02 }} />
             }
           </View>
         </Swipeout>

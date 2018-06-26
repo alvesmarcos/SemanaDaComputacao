@@ -48,7 +48,7 @@ export const cadastraUsuario = () => {
       const usuario = await firebase.auth().createUserWithEmailAndPassword(email, senha);
       const uid = firebase.auth().currentUser.uid;
       // --
-      await firebase.database().ref(r.USUARIOS.concat(uid)).set({ id: uid, nome, curso, email, fera });
+      await firebase.database().ref(r.USUARIOS.concat(uid)).set({ id: uid, nome, curso, email, fera, modo: 'mobile' });
       dispatch({ type: MUDA_ID_PERFIL, payload: uid });
     } catch (e) {
       throw e;
