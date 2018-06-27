@@ -7,6 +7,7 @@ import {
   Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
+import Snackbar from 'react-native-snackbar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Dash from 'react-native-dash';
 import { mudaIngresso } from '../../actions/TicketActions';
@@ -22,9 +23,25 @@ class TicketScreen extends React.Component {
 
   goScannerScreen(item) {
     if (item.cor === colors.green400) {
-      Alert.alert('Semana da Computação', 'Você já realizou check-in desse ingresso!');
+      Snackbar.show({
+        title: 'Esse ingresso já foi usado!',
+        duration: Snackbar.LENGTH_LONG,
+        action: {
+          title: 'OK',
+          color: colors.primary,
+          onPress: () => { /* Do something. */ },
+        },
+      });
     } else if (item.cor === colors.pink700) {
-      Alert.alert('Semana da Computação', 'Lamentamos, mas esse ingresso não é mais válido!');
+      Snackbar.show({
+        title: 'Esse ingresso não é mais válido!',
+        duration: Snackbar.LENGTH_LONG,
+        action: {
+          title: 'OK',
+          color: colors.primary,
+          onPress: () => { /* Do something. */ },
+        },
+      });
     } else {
       this.props.mudaIngresso(item);
       this.nav('Scanner');
