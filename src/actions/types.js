@@ -16,3 +16,4 @@ export const LOGOUT = 'LOGOUT';
 export const MUDA_FAQ = 'MUDA_FAQ';
 export const MUDA_RATING_NOME = 'MUDA_RATING_NOME';
 export const ITEM_AVALIADO = 'ITEM_AVALIADO';
+export const MUDA_LISTA_AVALIACAO = 'MUDA_LISTA_AVALIACAO';

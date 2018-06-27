@@ -16,6 +16,7 @@ import { carregaNotificacoes } from '../../actions/NotificacaoActions';
 import { carregaTickets } from '../../actions/TicketActions';
 import { carregaProgramacao } from '../../actions/ProgramacaoActions';
 import { carregaFaq } from '../../actions/FaqActions';
+import { carregaAvaliacoes } from '../../actions/RatingActions';
 
 const imageSDC = require('../../../assets/img/logo-sem-fundo-branca.png');
 
@@ -51,6 +52,7 @@ class Init extends React.Component {
         await this.props.carregaTickets();
         await this.props.carregaProgramacao();
         await this.props.carregaFaq();
+        await this.props.carregaAvaliacoes();
       } else {
         routeName = 'Login';
       }
@@ -83,4 +85,4 @@ class Init extends React.Component {
   }
 }
 
-export default connect(null, { mudaCamposPerfil, carregaNotificacoes, carregaTickets, carregaProgramacao, carregaFaq })(Init);
+export default connect(null, { carregaAvaliacoes, mudaCamposPerfil, carregaNotificacoes, carregaTickets, carregaProgramacao, carregaFaq })(Init);

@@ -19,6 +19,7 @@ import { carregaNotificacoes } from '../../actions/NotificacaoActions';
 import { carregaTickets } from '../../actions/TicketActions';
 import { carregaProgramacao } from '../../actions/ProgramacaoActions';
 import { carregaFaq } from '../../actions/FaqActions';
+import { carregaAvaliacoes } from '../../actions/RatingActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -74,8 +75,10 @@ class LoginFeraScreen extends React.Component {
       await this.props.carregaTickets();
       await this.props.carregaProgramacao(); 
       await this.props.carregaFaq();
+      await this.props.carregaAvaliacoes();
     } catch (e) {
       Alert.alert('Semana da Computação', 'Falha ao carregar os dados do aplicativo');
+      BackHandler.exitApp();
     }
   };
 
@@ -149,4 +152,4 @@ const mapStateToProps = state => ({
   nome: state.PerfilReducer.nome
 });
 
-export default connect(mapStateToProps, { mudaFera, cadastraUsuario, carregaNotificacoes, carregaProgramacao, carregaFaq, carregaTickets  })(LoginFeraScreen);
+export default connect(mapStateToProps, { carregaAvaliacoes, mudaFera, cadastraUsuario, carregaNotificacoes, carregaProgramacao, carregaFaq, carregaTickets  })(LoginFeraScreen);

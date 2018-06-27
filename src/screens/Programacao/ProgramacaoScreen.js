@@ -3,10 +3,12 @@ import {
   Text,
   StatusBar,
   View,
+  Alert,
   Picker,
   FlatList,
   TouchableOpacity
 } from 'react-native';
+import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import Feather from 'react-native-vector-icons/Feather';
@@ -27,54 +29,88 @@ class ProgramacaoScreen extends React.Component {
     this.navBack = goBack;
   }
 
-  goRatingScreen(nome, id) {
+  goRatingScreen(item) {
+    const { listagemAvaliacoes, listaIngressos } = this.props;
+    const { nome, id, dia } = item;
+    
+    for (let i = 0; i < listagemAvaliacoes.length; ++i) {
+      if (listagemAvaliacoes[i].itemId === id) {
+        Snackbar.show({
+          title: 'Esse item já avaliado!',
+          duration: Snackbar.LENGTH_LONG,
+          action: {
+            title: 'OK',
+            color: colors.primary,
+            onPress: () => { /* Do something. */ },
+          },
+        });
+        return;
+      }
+    }
+    for (let i = 0; i < listaIngressos.length; ++i) {
+      if ((listaIngressos[i].cor === colors.pink700 || listaIngressos[i].cor === colors.orange300)
+          && dia === listaIngressos[i].dia) {
+        Snackbar.show({
+          title: 'Você não pode avaliar o item sem participar!',
+          duration: Snackbar.LENGTH_LONG,
+          action: {
+            title: 'OK',
+            color: colors.primary,
+            onPress: () => { /* Do something. */ },
+          },
+        });
+        return;
+      } 
+    }
+
     this.props.mudaRatingNome({ nome, id });
     this.nav('Rating');
   }
 
-  itemButton(tipo) {
-    if (tipo === c.PALESTRA) {
+  itemButton(item) {
+    const { categoria } = item;
+
+    if (categoria === c.PALESTRA) {
       return { iconNome: 'mic', texto: 'Palestra' };
-    } else if (tipo === c.ABERTURA) {
+    } else if (categoria === c.ABERTURA) {
       return { iconNome: 'align-justify', texto: 'Sobre' };
-    } else if (tipo === c.CHECKIN) {
+    } else if (categoria === c.CHECKIN) {
       return { iconNome: 'tag', texto: 'Informações' };
-    } else if (tipo === c.COFFEE_BREAK) {
+    } else if (categoria === c.COFFEE_BREAK) {
       return { iconNome: 'shopping-cart', texto: 'Cardápio' };
-    } else if (tipo === c.EMPRESA) {
+    } else if (categoria === c.EMPRESA) {
       return { iconNome: 'briefcase', texto: 'Empresa' };
-    }  else if (tipo === c.CORRIDA_ROBOS) {
+    }  else if (categoria === c.CORRIDA_ROBOS) {
       return { iconNome: 'flag', texto: 'Regras' };
-    } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
+    } else if (categoria === c.DE_ALUNO_PARA_ALUNO) {
       return { iconNome: 'message-square', texto: 'Temas' };
-    } else if (tipo === c.APRESENTACAO) {
+    } else if (categoria === c.APRESENTACAO) {
       return { iconNome: 'mic', texto: 'Apresentação' };
-    } else if (tipo === c.LABORATORIO) {
+    } else if (categoria === c.LABORATORIO) {
       return { iconNome: 'monitor', texto: 'Laboratório' };
-    } else if (tipo === c.MINICURSO) {
+    } else if (categoria === c.MINICURSO) {
       return { iconNome: 'clipboard', texto: 'Minicurso' };
-    } else if (tipo === c.GAMEDAY) {
+    } else if (categoria === c.GAMEDAY) {
       return { iconNome: 'grid', texto: 'Jogos' };
-    } else if (tipo === c.MARATONA_PROGRAMACAO) {
+    } else if (categoria === c.MARATONA_PROGRAMACAO) {
       return { iconNome: 'align-justify', texto: 'Regras' };
     }
-    return { iconNome: 'star', texto: 'Avaliar' };
   }
 
-  componentButtonSwipeout(tipo, nome, id) {
-    const { iconNome, texto } = this.itemButton(tipo);
-    if (texto === 'Avaliar') {
+  componentButtonSwipeout(item, n) {
+    const { iconNome, texto } = this.itemButton(item);
+    if (n === 2) {
       return (
-        <TouchableOpacity onPress={() => this.goRatingScreen(nome, id)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
+        <TouchableOpacity onPress={() => this.goRatingScreen(item)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
         borderLeftColor: '#FAFAFA' }}>
             <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
             <Feather
-              name={iconNome}
+              name={'star'}
               size={50}
               color={colors.white}
             />
             </View>
-            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{texto}</Text>
+            <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Avaliar'}</Text>
         </TouchableOpacity>
       );
     }
@@ -92,48 +128,49 @@ class ProgramacaoScreen extends React.Component {
     );
   }
 
-  tipoButton(tipo, nome, id) {
+  tipoButton(item) {
+    const { categoria } = item;
     let color = '';
     
-    if (tipo === c.PALESTRA) {
+    if (categoria === c.PALESTRA) {
       color =  colors.cyan500;
-    } else if (tipo === c.ABERTURA) {
+    } else if (categoria === c.ABERTURA) {
       color = colors.orange300;
-    } else if (tipo === c.COFFEE_BREAK) {
+    } else if (categoria === c.COFFEE_BREAK) {
       color = colors.primary;
-    } else if (tipo === c.CHECKIN) {
+    } else if (categoria === c.CHECKIN) {
       color = colors.orange300;
-    } else if (tipo === c.EMPRESA) {
+    } else if (categoria === c.EMPRESA) {
       color = colors.cyan500;
-    } else if (tipo === c.CORRIDA_ROBOS) {
+    } else if (categoria === c.CORRIDA_ROBOS) {
       color = colors.orange300;
-    } else if (tipo === c.DE_ALUNO_PARA_ALUNO) {
+    } else if (categoria === c.DE_ALUNO_PARA_ALUNO) {
       color = colors.deepPurple300;
-    } else if (tipo === c.APRESENTACAO) {
+    } else if (categoria === c.APRESENTACAO) {
       color = colors.cyan500;
-    } else if (tipo === c.LABORATORIO) {
+    } else if (categoria === c.LABORATORIO) {
       color = colors.orange300;
-    } else if (tipo === c.MINICURSO) {
+    } else if (categoria === c.MINICURSO) {
       color = colors.deepPurple300;
-    } else if (tipo === c.GAMEDAY) {
+    } else if (categoria === c.GAMEDAY) {
       color = colors.green400;
-    } else if (tipo === c.MARATONA_PROGRAMACAO) {
+    } else if (categoria === c.MARATONA_PROGRAMACAO) {
       color = colors.lightBlue400;
     }
     return [
       {
-        component: this.componentButtonSwipeout(tipo, nome, id),
+        component: this.componentButtonSwipeout(item, 1),
         backgroundColor: color,
       },
       {
-        component: this.componentButtonSwipeout('', nome, id),
+        component: this.componentButtonSwipeout(item, 2),
         backgroundColor: color,
       }
     ];
   }
 
   renderItem(item) {
-    const swipeoutBtns = this.tipoButton(item.categoria, item.nome, item.id);
+    const swipeoutBtns = this.tipoButton(item);
     return (
       <Swipeout
           right={swipeoutBtns}
@@ -272,6 +309,8 @@ const mapStateToProps = state => ({
   dia3: state.ProgramacaoReducer.dia3,
   dia4: state.ProgramacaoReducer.dia4,
   dia5: state.ProgramacaoReducer.dia5,
+  listagemAvaliacoes: state.RatingReducer.listagemAvaliacoes,
+  listaIngressos: state.TicketReducer.listaIngressos,
 });
 
 export default connect(mapStateToProps, {mudaRatingNome})(ProgramacaoScreen);
