@@ -101,7 +101,7 @@ class ProgramacaoScreen extends React.Component {
     const { iconNome, texto } = this.itemButton(item);
     if (n === 2) {
       return (
-        <TouchableOpacity onPress={() => this.goRatingScreen(item)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
+        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
         borderLeftColor: '#FAFAFA' }}>
             <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
             <Feather
@@ -111,7 +111,7 @@ class ProgramacaoScreen extends React.Component {
             />
             </View>
             <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Avaliar'}</Text>
-        </TouchableOpacity>
+        </View>
       );
     }
     return (
@@ -165,6 +165,7 @@ class ProgramacaoScreen extends React.Component {
       {
         component: this.componentButtonSwipeout(item, 2),
         backgroundColor: color,
+        onPress: () => this.goRatingScreen(item)
       }
     ];
   }
