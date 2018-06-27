@@ -27,8 +27,8 @@ class ProgramacaoScreen extends React.Component {
     this.navBack = goBack;
   }
 
-  goRatingScreen(nome) {
-    this.props.mudaRatingNome(nome);
+  goRatingScreen(nome, id) {
+    this.props.mudaRatingNome({ nome, id });
     this.nav('Rating');
   }
 
@@ -61,11 +61,11 @@ class ProgramacaoScreen extends React.Component {
     return { iconNome: 'star', texto: 'Avaliar' };
   }
 
-  componentButtonSwipeout(tipo, nome) {
+  componentButtonSwipeout(tipo, nome, id) {
     const { iconNome, texto } = this.itemButton(tipo);
     if (texto === 'Avaliar') {
       return (
-        <TouchableOpacity onPress={() => this.goRatingScreen(nome)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
+        <TouchableOpacity onPress={() => this.goRatingScreen(nome, id)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
         borderLeftColor: '#FAFAFA' }}>
             <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
             <Feather
@@ -92,7 +92,7 @@ class ProgramacaoScreen extends React.Component {
     );
   }
 
-  tipoButton(tipo, nome) {
+  tipoButton(tipo, nome, id) {
     let color = '';
     
     if (tipo === c.PALESTRA) {
@@ -122,18 +122,18 @@ class ProgramacaoScreen extends React.Component {
     }
     return [
       {
-        component: this.componentButtonSwipeout(tipo, nome),
+        component: this.componentButtonSwipeout(tipo, nome, id),
         backgroundColor: color,
       },
       {
-        component: this.componentButtonSwipeout('', nome),
+        component: this.componentButtonSwipeout('', nome, id),
         backgroundColor: color,
       }
     ];
   }
 
   renderItem(item) {
-    const swipeoutBtns = this.tipoButton(item.categoria, item.nome);
+    const swipeoutBtns = this.tipoButton(item.categoria, item.nome, item.id);
     return (
       <Swipeout
           right={swipeoutBtns}

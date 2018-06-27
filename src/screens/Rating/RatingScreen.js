@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import { connect } from 'react-redux';
+import { avaliarItem } from '../../actions/RatingActions';
 import { colors } from '../../styles';
 
 class RatingScreen extends React.Component {
@@ -53,9 +54,20 @@ class RatingScreen extends React.Component {
     });
   }
 
+  submeterAvaliacao = async() => {
+    this.setState({ load: true });
+    const { starCount } = this.state;
+    try {
+      await this.props.avaliarItem(this.startToWord(starCount));
+    } catch (e) {
+      Alert.alert('Semana da Computação','Erro inesperado ao submeter sua avaliação');
+    }
+    this.setState({ load: false });
+  };
+
   render() {
     const { load, starCount } = this.state;
-    const { ratingNome } = this.props;
+    const { ratingNome, ratingId } = this.props;
     const avaliacao = this.startToWord(starCount);
     //--
     return (
@@ -87,7 +99,7 @@ class RatingScreen extends React.Component {
           <ActivityIndicator size={50} />
           :
           <TouchableOpacity
-            onPress={() => false}
+            onPress={this.submeterAvaliacao}
             style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
             <Text style={{ padding: 16, alignSelf: 'center', fontSize: 16, fontFamily: 'Lato-Regular', color: colors.cyan500 }}>{'Submeter'}</Text>
           </TouchableOpacity>
@@ -100,6 +112,7 @@ class RatingScreen extends React.Component {
 
 const mapStateToProps = state => ({
   ratingNome: state.RatingReducer.ratingNome,
+  ratingId: state.RatingReducer.ratingId,
 });
 
-export default connect(mapStateToProps, {})(RatingScreen);
+export default connect(mapStateToProps, {avaliarItem})(RatingScreen);

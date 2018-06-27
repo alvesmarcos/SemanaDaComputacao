@@ -15,3 +15,4 @@ export const CHECKIN_REALIZADO = 'CHECKIN_REALIZADO';
 export const LOGOUT = 'LOGOUT';
 export const MUDA_FAQ = 'MUDA_FAQ';
 export const MUDA_RATING_NOME = 'MUDA_RATING_NOME';
+export const ITEM_AVALIADO = 'ITEM_AVALIADO';
