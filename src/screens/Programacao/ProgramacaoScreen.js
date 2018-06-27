@@ -5,12 +5,14 @@ import {
   View,
   Picker,
   FlatList,
+  TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
 import { colors } from '../../styles';
 import Feather from 'react-native-vector-icons/Feather';
 import Swipeout from 'react-native-swipeout';
 import { constants as c } from '../../util';
+import { mudaRatingNome } from '../../actions/RatingActions';
 
 class ProgramacaoScreen extends React.Component {
   constructor(props) {
@@ -19,6 +21,15 @@ class ProgramacaoScreen extends React.Component {
     this.state = {
       dia: '1'
     };
+    //--
+    const { navigate, goBack } = this.props.navigation;
+    this.nav = navigate;
+    this.navBack = goBack;
+  }
+
+  goRatingScreen(nome) {
+    this.props.mudaRatingNome(nome);
+    this.nav('Rating');
   }
 
   itemButton(tipo) {
@@ -50,11 +61,11 @@ class ProgramacaoScreen extends React.Component {
     return { iconNome: 'star', texto: 'Avaliar' };
   }
 
-  componentButtonSwipeout(tipo) {
+  componentButtonSwipeout(tipo, nome) {
     const { iconNome, texto } = this.itemButton(tipo);
     if (texto === 'Avaliar') {
       return (
-        <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
+        <TouchableOpacity onPress={() => this.goRatingScreen(nome)} style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
         borderLeftColor: '#FAFAFA' }}>
             <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
             <Feather
@@ -64,7 +75,7 @@ class ProgramacaoScreen extends React.Component {
             />
             </View>
             <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{texto}</Text>
-        </View>
+        </TouchableOpacity>
       );
     }
     return (
@@ -81,7 +92,7 @@ class ProgramacaoScreen extends React.Component {
     );
   }
 
-  tipoButton(tipo) {
+  tipoButton(tipo, nome) {
     let color = '';
     
     if (tipo === c.PALESTRA) {
@@ -111,18 +122,18 @@ class ProgramacaoScreen extends React.Component {
     }
     return [
       {
-        component: this.componentButtonSwipeout(tipo),
+        component: this.componentButtonSwipeout(tipo, nome),
         backgroundColor: color,
       },
       {
-        component: this.componentButtonSwipeout(),
+        component: this.componentButtonSwipeout('', nome),
         backgroundColor: color,
       }
     ];
   }
 
   renderItem(item) {
-    const swipeoutBtns = this.tipoButton(item.categoria);
+    const swipeoutBtns = this.tipoButton(item.categoria, item.nome);
     return (
       <Swipeout
           right={swipeoutBtns}
@@ -263,4 +274,4 @@ const mapStateToProps = state => ({
   dia5: state.ProgramacaoReducer.dia5,
 });
 
-export default connect(mapStateToProps, {})(ProgramacaoScreen);
+export default connect(mapStateToProps, {mudaRatingNome})(ProgramacaoScreen);

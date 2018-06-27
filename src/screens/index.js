@@ -15,6 +15,7 @@ import FaqModal from './Faq/FaqModal';
 import ScannerScreen from './Ticket/ScannerScreen';
 import CheckOkScreen from './Ticket/CheckOkScreen';
 import CheckFailScreen from './Ticket/CheckFailScreen';
+import RatingScreen from './Rating/RatingScreen';
 import Init from './Init';
 
 export {
@@ -36,4 +37,5 @@ export {
   FaqModal,
   CheckOkScreen,
   CheckFailScreen,
+  RatingScreen,
 };

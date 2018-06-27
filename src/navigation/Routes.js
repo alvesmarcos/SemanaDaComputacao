@@ -2,7 +2,17 @@ import React from 'react';
 import { StackNavigator } from 'react-navigation';
 import { LoginStack } from './StacksNavigation';
 import BottomNavigation from './BottomNavigation';
-import { Init, StatusOkScreen, StatusFailScreen, NotificacaoModal, FaqModal, ScannerScreen, CheckOkScreen, CheckFailScreen } from '../screens';
+import { 
+  Init,
+  StatusOkScreen,
+  StatusFailScreen,
+  NotificacaoModal,
+  FaqModal,
+  ScannerScreen,
+  CheckOkScreen,
+  CheckFailScreen,
+  RatingScreen,
+} from '../screens';
 
 const Routes = StackNavigator(
   {
@@ -42,6 +52,9 @@ const Routes = StackNavigator(
     CheckFail: {
       screen: CheckFailScreen,
       navigationOptions: { header: null } 
+    },
+    Rating: {
+      screen: RatingScreen,
     }
   }, {
     initialRouteName: 'Init',
