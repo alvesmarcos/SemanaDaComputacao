@@ -243,7 +243,7 @@ class ProgramacaoScreen extends React.Component {
   }
 
   render() {
-    const { dia1, dia2, dia3, dia4, dia5 } = this.props;
+    const { dia1, dia2, dia3, dia4, dia5, mes, ano } = this.props;
     return (
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         <StatusBar
@@ -251,7 +251,7 @@ class ProgramacaoScreen extends React.Component {
           barStyle={'light-content'}
         />
         <View style={{ height: 55, backgroundColor: colors.white, padding: 16, elevation: 5, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}>{'Julho 2018'}</Text>
+          <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}>{mes.concat(' ').concat(ano)}</Text>
           <Picker
             selectedValue={this.state.dia}
             style={{ width: 140, fontFamily: 'Lato-Regular', fontSize: 16, color: colors.grey800 }}
@@ -312,6 +312,8 @@ const mapStateToProps = state => ({
   dia5: state.ProgramacaoReducer.dia5,
   listagemAvaliacoes: state.RatingReducer.listagemAvaliacoes,
   listaIngressos: state.TicketReducer.listaIngressos,
+  mes: state.GeneralReducer.mes,
+  ano: state.GeneralReducer.ano,
 });
 
 export default connect(mapStateToProps, {mudaRatingNome})(ProgramacaoScreen);

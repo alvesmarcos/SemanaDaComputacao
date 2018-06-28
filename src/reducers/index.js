@@ -5,6 +5,7 @@ import TicketReducer from './TicketReducer';
 import ProgramacaoReducer from './ProgramacaoReducer';
 import FaqReducer from './FaqReducer';
 import RatingReducer from './RatingReducer';
+import GeneralReducer from './GeneralReducer';
 
 export default combineReducers({
   PerfilReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   ProgramacaoReducer,
   FaqReducer,
   RatingReducer,
+  GeneralReducer,
 });

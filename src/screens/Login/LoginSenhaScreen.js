@@ -25,6 +25,7 @@ import { carregaTickets } from '../../actions/TicketActions';
 import { carregaProgramacao } from '../../actions/ProgramacaoActions';
 import { carregaFaq } from '../../actions/FaqActions';
 import { carregaAvaliacoes } from '../../actions/RatingActions';
+import { carregaDadosGerais } from '../../actions/GeneralActions';
 
 const styles = StyleSheet.create({
   container: {
@@ -103,6 +104,7 @@ class LoginSenhaScreen extends React.Component {
       await this.props.carregaProgramacao(); 
       await this.props.carregaFaq();
       await this.props.carregaAvaliacoes();
+      await this.props.carregaDadosGerais();
     } catch (e) {
       Alert.alert('Semana da Computação', 'Falha ao carregar os dados do aplicativo');
       BackHandler.exitApp();
@@ -216,4 +218,4 @@ const mapStateToProps = state => ({
   ehInscricao: state.PerfilReducer.ehInscricao
 });
 
-export default connect(mapStateToProps, { carregaAvaliacoes, mudaSenha, doLogin, carregaFaq, carregaNotificacoes, carregaProgramacao, carregaTickets })(LoginSenhaScreen);
+export default connect(mapStateToProps, { carregaDadosGerais, carregaAvaliacoes, mudaSenha, doLogin, carregaFaq, carregaNotificacoes, carregaProgramacao, carregaTickets })(LoginSenhaScreen);
