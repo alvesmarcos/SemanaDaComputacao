@@ -41,9 +41,9 @@ export const carregaTickets = () => {
 export const realizaCheckIn = () => {
   return async(dispatch, getState) => {
     try {
-      const { dia, id } = getState().TicketReducer;
+      const { id } = getState().TicketReducer;
       const uuid = uuidv1();
-      await firebase.database().ref(r.CHECKIN.concat(uuid)).set({ id: uuid, dia, ingressoId: id, usuarioId: getState().PerfilReducer.id });
+      await firebase.database().ref(r.CHECKIN.concat(uuid)).set({ id: uuid, ingressoId: id, usuarioId: getState().PerfilReducer.id });
       dispatch({ type: CHECKIN_REALIZADO });
     } catch (e) {
       throw e;

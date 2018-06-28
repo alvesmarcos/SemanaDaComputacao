@@ -51,7 +51,7 @@ class ProgramacaoScreen extends React.Component {
       if ((listaIngressos[i].cor === colors.pink700 || listaIngressos[i].cor === colors.orange300)
           && dia === listaIngressos[i].dia) {
         Snackbar.show({
-          title: 'Você não pode avaliar o item sem participar!',
+          title: 'Valide seu ingresso para avaliar!',
           duration: Snackbar.LENGTH_LONG,
           action: {
             title: 'OK',

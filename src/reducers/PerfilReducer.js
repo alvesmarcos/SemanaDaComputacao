@@ -57,7 +57,7 @@ export default (state = INITIAL_STATE, action) => {
         fera: action.payload.fera
       };
     case LOGOUT: 
-      return state.INITIAL_STATE;
+      return INITIAL_STATE;
     default:
       return state;
   } 
