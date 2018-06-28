@@ -131,6 +131,7 @@ class ProgramacaoScreen extends React.Component {
   tipoButton(item) {
     const { categoria } = item;
     let color = '';
+    let routeName = '';
     
     if (categoria === c.PALESTRA) {
       color =  colors.cyan500;
@@ -140,6 +141,7 @@ class ProgramacaoScreen extends React.Component {
       color = colors.primary;
     } else if (categoria === c.CHECKIN) {
       color = colors.orange300;
+      routeName = 'ProgramacaoCheckModal';
     } else if (categoria === c.EMPRESA) {
       color = colors.cyan500;
     } else if (categoria === c.CORRIDA_ROBOS) {
@@ -161,6 +163,7 @@ class ProgramacaoScreen extends React.Component {
       {
         component: this.componentButtonSwipeout(item, 1),
         backgroundColor: color,
+        onPress: () => this.nav(routeName)
       },
       {
         component: this.componentButtonSwipeout(item, 2),

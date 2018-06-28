@@ -16,6 +16,7 @@ import ScannerScreen from './Ticket/ScannerScreen';
 import CheckOkScreen from './Ticket/CheckOkScreen';
 import CheckFailScreen from './Ticket/CheckFailScreen';
 import RatingScreen from './Rating/RatingScreen';
+import ProgramacaoCheckModal from './Programacao/ProgramacaoCheckModal';
 import Init from './Init';
 
 export {
@@ -38,4 +39,5 @@ export {
   CheckOkScreen,
   CheckFailScreen,
   RatingScreen,
+  ProgramacaoCheckModal,
 };
