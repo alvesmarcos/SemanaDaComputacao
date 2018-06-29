@@ -16,19 +16,19 @@ class NotificacaoModal extends React.Component {
       fontFamily: 'Lato-Regular',
       fontWeight: 'normal',
     },
-    headerTintColor: colors.white,
+    headerTintColor: '#424242',
     headerStyle: {
-      backgroundColor: navigation.state.params.barColor,
+      backgroundColor: '#fff',
       elevation: 5,
     },
   });
 
   render() {
-    const { autor, abreviatura, barColor, corpo, darkBarColor, data, titulo } = this.props;
+    const { autor, abreviatura, barColor, corpo, data, titulo } = this.props;
     return (
       <ScrollView style={{ flexGrow: 1, backgroundColor: colors.white }}>
         <StatusBar
-          backgroundColor={darkBarColor}
+          backgroundColor={'#e0e0e0'}
         />
         <View style={{ padding: 16 }}>
           <Text style={{ fontSize: 22, fontFamily: 'Lato-Regular', color: colors.grey800}}>{titulo}</Text>

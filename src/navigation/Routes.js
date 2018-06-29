@@ -12,7 +12,7 @@ import {
   CheckOkScreen,
   CheckFailScreen,
   RatingScreen,
-  ProgramacaoCheckModal,
+  ProgramacaoItemModal,
 } from '../screens';
 
 const Routes = StackNavigator(
@@ -57,8 +57,8 @@ const Routes = StackNavigator(
     Rating: {
       screen: RatingScreen,
     },
-    ProgramacaoCheckModal: {
-      screen: ProgramacaoCheckModal,
+    ProgramacaoItemModal: {
+      screen: ProgramacaoItemModal,
     }
   }, {
     initialRouteName: 'Init',

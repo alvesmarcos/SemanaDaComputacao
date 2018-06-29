@@ -73,17 +73,17 @@ class ProgramacaoScreen extends React.Component {
     if (categoria === c.PALESTRA) {
       return { iconNome: 'mic', texto: 'Palestra' };
     } else if (categoria === c.ABERTURA) {
-      return { iconNome: 'align-justify', texto: 'Sobre' };
+      return { iconNome: 'mic', texto: 'Palestra' };
     } else if (categoria === c.CHECKIN) {
-      return { iconNome: 'tag', texto: 'Informações' };
+      return { iconNome: 'tag', texto: 'Check-in & Inscrições' };
     } else if (categoria === c.COFFEE_BREAK) {
-      return { iconNome: 'shopping-cart', texto: 'Cardápio' };
+      return { iconNome: 'shopping-cart', texto: 'Lazer' };
     } else if (categoria === c.EMPRESA) {
       return { iconNome: 'briefcase', texto: 'Empresa' };
     }  else if (categoria === c.CORRIDA_ROBOS) {
-      return { iconNome: 'flag', texto: 'Regras' };
+      return { iconNome: 'award', texto: 'Competição' };
     } else if (categoria === c.DE_ALUNO_PARA_ALUNO) {
-      return { iconNome: 'message-square', texto: 'Temas' };
+      return { iconNome: 'message-square', texto: 'Debate' };
     } else if (categoria === c.APRESENTACAO) {
       return { iconNome: 'mic', texto: 'Apresentação' };
     } else if (categoria === c.LABORATORIO) {
@@ -91,14 +91,13 @@ class ProgramacaoScreen extends React.Component {
     } else if (categoria === c.MINICURSO) {
       return { iconNome: 'clipboard', texto: 'Minicurso' };
     } else if (categoria === c.GAMEDAY) {
-      return { iconNome: 'grid', texto: 'Jogos' };
+      return { iconNome: 'award', texto: 'Competição' };
     } else if (categoria === c.MARATONA_PROGRAMACAO) {
-      return { iconNome: 'align-justify', texto: 'Regras' };
+      return { iconNome: 'award', texto: 'Competição' };
     }
   }
 
   componentButtonSwipeout(item, n) {
-    const { iconNome, texto } = this.itemButton(item);
     if (n === 2) {
       return (
         <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center',  borderLeftWidth: 1,
@@ -118,52 +117,65 @@ class ProgramacaoScreen extends React.Component {
       <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center' }}>
         <View style={{ flex: 1, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
           <Feather
-            name={iconNome}
+            name={'info'}
             size={50}
             color={colors.white}
           />
           </View>
-          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{texto}</Text>
+          <Text style={{ fontSize: 16, fontFamily: 'Lato-Regular', color: colors.white, marginBottom: 16 }}>{'Info'}</Text>
       </View>
     );
   }
 
   tipoButton(item) {
     const { categoria } = item;
+    const { iconNome, texto } = this.itemButton(item);
+
     let color = '';
-    let routeName = '';
+    let darkColor = '';
     
     if (categoria === c.PALESTRA) {
       color =  colors.cyan500;
+      darkColor = colors.cyan600;
     } else if (categoria === c.ABERTURA) {
-      color = colors.orange300;
+      color = colors.cyan500;
+      darkColor = colors.cyan500;
     } else if (categoria === c.COFFEE_BREAK) {
       color = colors.primary;
+      darkColor = colors.primaryDark;
     } else if (categoria === c.CHECKIN) {
       color = colors.orange300;
-      routeName = 'ProgramacaoCheckModal';
+      darkColor = colors.orange500;
     } else if (categoria === c.EMPRESA) {
       color = colors.cyan500;
+      darkColor = colors.cyan600;
     } else if (categoria === c.CORRIDA_ROBOS) {
       color = colors.orange300;
+      darkColor = colors.orange500;
     } else if (categoria === c.DE_ALUNO_PARA_ALUNO) {
       color = colors.deepPurple300;
+      darkColor = colors.deepPurple400;
     } else if (categoria === c.APRESENTACAO) {
       color = colors.cyan500;
+      darkColor = colors.cyan600;
     } else if (categoria === c.LABORATORIO) {
       color = colors.orange300;
+      darkColor = colors.orange500;
     } else if (categoria === c.MINICURSO) {
       color = colors.deepPurple300;
+      darkColor = colors.deepPurple400;
     } else if (categoria === c.GAMEDAY) {
-      color = colors.green400;
+      color = colors.primary;
+      darkColor = colors.primaryDark;
     } else if (categoria === c.MARATONA_PROGRAMACAO) {
       color = colors.lightBlue400;
+      darkColor = colors.lightBlue400;
     }
     return [
       {
         component: this.componentButtonSwipeout(item, 1),
         backgroundColor: color,
-        onPress: () => this.nav(routeName)
+        onPress: () => this.nav('ProgramacaoItemModal', { barColor: color, darkBarColor: darkColor, iconNome, texto, item })
       },
       {
         component: this.componentButtonSwipeout(item, 2),
@@ -204,11 +216,8 @@ class ProgramacaoScreen extends React.Component {
                 </View>
               </View>
             </View>
-            { item.categoria === c.PALESTRA &&
+            { (item.categoria === c.PALESTRA || item.categoria === c.ABERTURA) &&
               <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
-            }
-            { item.categoria === c.ABERTURA &&
-              <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
             }
             { item.categoria === c.CHECKIN &&
               <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
@@ -235,7 +244,7 @@ class ProgramacaoScreen extends React.Component {
               <View style={{ backgroundColor: colors.deepPurple300, flex: 0.02 }} />
             }
             { item.categoria === c.GAMEDAY &&
-              <View style={{ backgroundColor: colors.green400, flex: 0.02 }} />
+              <View style={{ backgroundColor: colors.primary, flex: 0.02 }} />
             }
              { item.categoria === c.MARATONA_PROGRAMACAO &&
               <View style={{ backgroundColor: colors.lightBlue400, flex: 0.02 }} />
