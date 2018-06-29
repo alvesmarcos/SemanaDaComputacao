@@ -60,17 +60,17 @@ class FaqModal extends React.Component {
       <View style={{ elevation: 5, backgroundColor: '#fff', flexDirection: 'column', margin: 8 }}>
         <View style={{ flexDirection: 'row', padding: 16 }}>
           <View style={{ flex: 0.8, flexDirection: 'column' }}>
-            <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 16 }}>{pergunta}</Text>
+            <Text style={{ fontFamily: 'Lato-Bold', color: colors.grey800, fontSize: 16 }}>{pergunta}</Text>
           </View>
           <View style={{ flex: 0.2, alignItems: 'flex-end', }}>
             <UserAvatar name="Avishay Bar" src={fotoUrl} size={40} />
           </View>
         </View>
         <View style={{ borderTopColor: '#fafafa', borderBottomColor: '#fafafa', borderTopWidth: 1, borderBottomWidth: 1, backgroundColor: '#fafafa', padding: 16 }}>
-          <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 14 }}>{resposta}</Text>
+          <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 16 }}>{resposta}</Text>
         </View>
         <View style={{padding: 16 }}>
-          <Text style={{ fontFamily: 'Lato-Italic', color: colors.grey800, fontSize: 14 }}>{'Respondido por '.concat(username)}</Text>
+          <Text style={{ fontFamily: 'Lato-Italic', color: colors.grey800, fontSize: 16 }}>{'Respondido por '.concat(username)}</Text>
         </View>
       </View>
     );

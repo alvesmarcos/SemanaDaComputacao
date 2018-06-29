@@ -17,7 +17,7 @@ class ProgramacaoCheckModal extends React.Component {
     },
     headerTintColor: colors.white,
     headerStyle: {
-      backgroundColor: colors.orange300,
+      backgroundColor: colors.deepPurple300,
       elevation: 0,
     },
   });
@@ -29,16 +29,16 @@ class ProgramacaoCheckModal extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
-        <StatusBar backgroundColor={colors.orange500} />
-        <View style={{ backgroundColor: colors.orange300, height: 80, flexDirection: 'row', justifyContent: 'center', elevation: 5 }}>
+        <StatusBar backgroundColor={colors.deepPurple400} />
+        <View style={{ backgroundColor: colors.deepPurple300, height: 80, flexDirection: 'row', justifyContent: 'center', elevation: 5 }}>
           <Feather
-            name={'clock'}
+            name={'briefcase'}
             size={50}
             color={colors.white}
           />
-          <View style={{ marginLeft: 20  }}>
-            <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 14, marginBottom: 4 }}>{'Horário de início desta atividade'}</Text>
-            <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 26, textAlign: 'center' }}>{'07h30min'}</Text>
+          <View style={{ marginLeft: 16  }}>
+            <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 14, marginBottom: 4, textAlign: 'center' }}>{'Categoria da atividade'}</Text>
+            <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 26, textAlign: 'center' }}>{'Empresa'}</Text>
           </View>
         </View>
         <ScrollView>
@@ -67,13 +67,13 @@ class ProgramacaoCheckModal extends React.Component {
           
           <View style={{ flexDirection: 'row' }}>
             <Feather
-              name={'layers'}
+              name={'clock'}
               size={20}
               color={'gray'}
             />
-            <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16, marginLeft: 12 }}>{'Categoria'}</Text>
+            <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16, marginLeft: 12 }}>{'Início'}</Text>
           </View>
-          <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 32, marginTop: 4 }}>{'Check-in & Inscrições'}</Text>
+          <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 32, marginTop: 4 }}>{'08h45min'}</Text>
           <View style={{ borderTopWidth: 1, borderTopColor: '#eee', marginVertical: 16 }} />
           
           <View style={{ flexDirection: 'row' }}>
@@ -85,6 +85,17 @@ class ProgramacaoCheckModal extends React.Component {
             <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16, marginLeft: 12 }}>{'Término'}</Text>
           </View>
           <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 32, marginTop: 4 }}>{'17h45min'}</Text>
+          <View style={{ borderTopWidth: 1, borderTopColor: '#eee', marginVertical: 16 }} />
+
+          <View style={{ flexDirection: 'row' }}>
+            <Feather
+              name={'calendar'}
+              size={20}
+              color={'gray'}
+            />
+            <Text style={{ fontFamily: 'Lato-Bold', fontSize: 16, marginLeft: 12 }}>{'Data'}</Text>
+          </View>
+          <Text style={{ fontFamily: 'Lato-Regular', fontSize: 16, marginLeft: 32, marginTop: 4 }}>{'09/07'}</Text>
           <View style={{ borderTopWidth: 1, borderTopColor: '#eee', marginVertical: 16 }} />
 
           <View style={{ flexDirection: 'row' }}>
