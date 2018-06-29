@@ -6,6 +6,7 @@ import {
   Text,
 } from 'react-native';
 import { connect } from 'react-redux';
+import Feather from 'react-native-vector-icons/Feather';
 import UserAvatar from 'react-native-user-avatar';
 import { colors } from '../../styles';
 
@@ -56,8 +57,8 @@ class FaqModal extends React.Component {
   renderItem(item) {
     const { fotoUrl, pergunta, resposta, username } = item;
     return (
-      <View style={{ backgroundColor: '#fff', elevation: 5 }}>
-        <View style={{ flexDirection: 'row', padding: 8 }}>
+      <View style={{ elevation: 5, backgroundColor: '#fff', flexDirection: 'column', margin: 8 }}>
+        <View style={{ flexDirection: 'row', padding: 16 }}>
           <View style={{ flex: 0.8, flexDirection: 'column' }}>
             <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 16 }}>{pergunta}</Text>
           </View>
@@ -65,10 +66,10 @@ class FaqModal extends React.Component {
             <UserAvatar name="Avishay Bar" src={fotoUrl} size={40} />
           </View>
         </View>
-        <View style={{ borderTopColor: '#fafafa', borderBottomColor: '#fafafa', borderTopWidth: 1, borderBottomWidth: 1, backgroundColor: '#fafafa', padding: 8 }}>
+        <View style={{ borderTopColor: '#fafafa', borderBottomColor: '#fafafa', borderTopWidth: 1, borderBottomWidth: 1, backgroundColor: '#fafafa', padding: 16 }}>
           <Text style={{ fontFamily: 'Lato-Regular', color: colors.grey800, fontSize: 14 }}>{resposta}</Text>
         </View>
-        <View style={{padding: 8}}>
+        <View style={{padding: 16 }}>
           <Text style={{ fontFamily: 'Lato-Italic', color: colors.grey800, fontSize: 14 }}>{'Respondido por '.concat(username)}</Text>
         </View>
       </View>
@@ -77,7 +78,7 @@ class FaqModal extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, padding: 8, backgroundColor: '#fafafa' }}>
+      <View style={{ flex: 1, backgroundColor: '#fafafa' }}>
         <StatusBar
           backgroundColor={this.props.navigation.state.params.darkBarColor}
         />
