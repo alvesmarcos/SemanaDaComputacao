@@ -24,7 +24,7 @@ class NotificacaoModal extends React.Component {
   });
 
   render() {
-    const { autor, abreviatura, barColor, corpo, data, titulo } = this.props;
+    const { autor, abreviatura, barColor, corpo, dataExtenso, titulo } = this.props;
     return (
       <ScrollView style={{ flexGrow: 1, backgroundColor: colors.white }}>
         <StatusBar
@@ -40,7 +40,7 @@ class NotificacaoModal extends React.Component {
           </View>
           <View style={{ flexDirection: 'column', paddingLeft: 16, flex: 1, alignSelf: 'center' }}>
             <Text style={{ color: colors.grey800, fontSize: 16, fontFamily: 'Lato-Bold' }} numberOfLines={1}>{autor}</Text>
-            <Text style={{ fontSize: 14, fontFamily: 'Lato-Regular', marginTop: 8 }} numberOfLines={1}>{data}</Text>
+            <Text style={{ fontSize: 14, fontFamily: 'Lato-Regular', marginTop: 8 }} numberOfLines={1}>{dataExtenso}</Text>
           </View>
         </View>
         <View style={{ padding: 16 }}>
@@ -58,6 +58,7 @@ const mapStateToProps = state => ({
   corpo: state.NotificacaoReducer.corpo,
   darkBarColor: state.NotificacaoReducer.darkBarColor,
   data: state.NotificacaoReducer.data,
+  dataExtenso: state.NotificacaoReducer.dataExtenso,
   titulo: state.NotificacaoReducer.titulo,
 });
 

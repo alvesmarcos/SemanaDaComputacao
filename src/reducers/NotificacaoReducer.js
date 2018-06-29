@@ -20,12 +20,13 @@ const INITIAL_STATE = {
   darkBarColor: '',
   data: '',
   titulo: '',
+  dataExtenso: ''
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
     case MUDA_CAMPOS_NOTIFICACAO:
-      const { abreviatura, autor, barColor, corpo, darkBarColor, data, titulo } = action.payload;
+      const { abreviatura, autor, barColor, corpo, darkBarColor, data, titulo, dataExtenso } = action.payload;
       return {
         ...state,
         abreviatura,
@@ -35,6 +36,7 @@ export default (state = INITIAL_STATE, action) => {
         darkBarColor,
         data,
         titulo,
+        dataExtenso
       };
     case MUDA_LISTA_NOTIFICACAO:
       return { ...state, listaNotificacoes: action.payload };

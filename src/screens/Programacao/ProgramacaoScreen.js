@@ -85,7 +85,7 @@ class ProgramacaoScreen extends React.Component {
     } else if (categoria === c.DE_ALUNO_PARA_ALUNO) {
       return { iconNome: 'message-square', texto: 'Debate' };
     } else if (categoria === c.APRESENTACAO) {
-      return { iconNome: 'mic', texto: 'Apresentação' };
+      return { iconNome: 'mic', texto: 'Palestra' };
     } else if (categoria === c.LABORATORIO) {
       return { iconNome: 'monitor', texto: 'Laboratório' };
     } else if (categoria === c.MINICURSO) {

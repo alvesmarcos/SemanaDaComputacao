@@ -7,14 +7,14 @@ export const mudaCamposNotificacao = campos => ({ type: MUDA_CAMPOS_NOTIFICACAO,
 export const carregaNotificacoes = () => {
   return async(dispatch) => {
     try {
-      const snapshot = await firebase.database().ref(r.NOTIFICACOES).once('value');
+      const snapshot = await firebase.database().ref(r.NOTIFICACOES).orderByChild('data').once('value');
       const listagem = [];
       //-- 
       snapshot.forEach(child => {
         listagem.push(child.val());
       });
 
-      dispatch({ type: MUDA_LISTA_NOTIFICACAO, payload: listagem });
+      dispatch({ type: MUDA_LISTA_NOTIFICACAO, payload: listagem.reverse() });
       //--
     } catch (e) {
       throw e;

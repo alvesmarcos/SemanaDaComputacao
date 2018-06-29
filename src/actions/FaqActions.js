@@ -5,7 +5,7 @@ import { references as r } from '../util';
 export const carregaFaq = () => {
   return async(dispatch) => {
     try {
-      const snapshot = await firebase.database().ref(r.FAQ.concat('cursos/')).once('value');
+      const snapshot = await firebase.database().ref(r.FAQ.concat('cursos/')).orderByChild('data').once('value');
       const cursos = [];
       //-- 
       snapshot.forEach(child => {
@@ -13,7 +13,7 @@ export const carregaFaq = () => {
       });
       //--
 
-      const snapshot1 = await firebase.database().ref(r.FAQ.concat('auxilios/')).once('value');
+      const snapshot1 = await firebase.database().ref(r.FAQ.concat('auxilios/')).orderByChild('data').once('value');
       const auxilios = [];
        //-- 
        snapshot1.forEach(child => {
@@ -21,7 +21,7 @@ export const carregaFaq = () => {
       });
       //--
 
-      const snapshot2 = await firebase.database().ref(r.FAQ.concat('laboratorios/')).once('value');
+      const snapshot2 = await firebase.database().ref(r.FAQ.concat('laboratorios/')).orderByChild('data').once('value');
       const laboratorios = [];
        //-- 
        snapshot2.forEach(child => {
@@ -29,7 +29,7 @@ export const carregaFaq = () => {
       });
       //--
 
-      const snapshot3 = await firebase.database().ref(r.FAQ.concat('monitorias/')).once('value');
+      const snapshot3 = await firebase.database().ref(r.FAQ.concat('monitorias/')).orderByChild('data').once('value');
       const monitorias = [];
        //-- 
        snapshot3.forEach(child => {
@@ -37,7 +37,7 @@ export const carregaFaq = () => {
       });
       //--
 
-      const snapshot4 = await firebase.database().ref(r.FAQ.concat('coordenacoes/')).once('value');
+      const snapshot4 = await firebase.database().ref(r.FAQ.concat('coordenacoes/')).orderByChild('data').once('value');
       const coordenacoes = [];
        //-- 
        snapshot4.forEach(child => {
@@ -45,14 +45,21 @@ export const carregaFaq = () => {
       });
       //--
 
-      const snapshot5 = await firebase.database().ref(r.FAQ.concat('geral/')).once('value');
+      const snapshot5 = await firebase.database().ref(r.FAQ.concat('geral/')).orderByChild('data').once('value');
       const geral = [];
        //-- 
        snapshot5.forEach(child => {
         geral.push(child.val());
       });
       //--
-      dispatch({ type: MUDA_FAQ, payload: { cursos, auxilios, laboratorios, monitorias, coordenacoes, geral }});
+      dispatch({ type: MUDA_FAQ, payload: { 
+        cursos: cursos.reverse(), 
+        auxilios: auxilios.reverse(),
+        laboratorios: laboratorios.reverse(),
+        monitorias: monitorias.reverse(), 
+        coordenacoes: coordenacoes.reverse(),
+        geral: geral.reverse() 
+      }});
     } catch (e) {
       throw e;
     }

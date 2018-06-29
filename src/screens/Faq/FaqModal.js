@@ -45,7 +45,7 @@ class FaqModal extends React.Component {
         this.listagem = this.props.monitorias;
         break;
       case 'Coordenação':
-        this.listagem = this.props.coordenacao;
+        this.listagem = this.props.coordenacoes;
         break;
       case 'Geral':
         this.listagem = this.props.geral;
@@ -59,7 +59,7 @@ class FaqModal extends React.Component {
     return (
       <View style={{ elevation: 5, backgroundColor: '#fff', flexDirection: 'column', margin: 8 }}>
         <View style={{ flexDirection: 'row', padding: 16 }}>
-          <View style={{ flex: 0.8, flexDirection: 'column' }}>
+          <View style={{ flex: 0.8, flexDirection: 'column', justifyContent: 'center' }}>
             <Text style={{ fontFamily: 'Lato-Bold', color: colors.grey800, fontSize: 16 }}>{pergunta}</Text>
           </View>
           <View style={{ flex: 0.2, alignItems: 'flex-end', }}>
@@ -97,7 +97,7 @@ const mapStateToProps = state => ({
   auxilios: state.FaqReducer.auxilios,
   laboratorios: state.FaqReducer.laboratorios,
   monitorias: state.FaqReducer.monitorias,
-  coordenacao: state.FaqReducer.coordenacao,
+  coordenacoes: state.FaqReducer.coordenacoes,
   geral: state.FaqReducer.geral
 });
 

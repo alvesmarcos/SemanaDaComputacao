@@ -5,20 +5,20 @@ const INITIAL_STATE = {
   auxilios: [],
   laboratorios: [],
   monitorias: [],
-  coordenacao: [],
+  coordenacoes: [],
   geral: []
 };
 
 export default (state=INITIAL_STATE, action) => {
   switch(action.type) {
     case MUDA_FAQ:
-      const { cursos, auxilios, laboratorios, monitorias, coordenacao, geral } = action.payload;
+      const { cursos, auxilios, laboratorios, monitorias, coordenacoes, geral } = action.payload;
       return { ...state, 
         cursos, 
         auxilios, 
         laboratorios, 
         monitorias, 
-        coordenacao, 
+        coordenacoes, 
         geral
       };
     default:
