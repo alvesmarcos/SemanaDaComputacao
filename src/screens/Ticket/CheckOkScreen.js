@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import Snackbar from 'react-native-snackbar';
 import { connect } from 'react-redux';
 import { carregaTickets, realizaCheckIn } from '../../actions/TicketActions';
 import Icon from 'react-native-vector-icons/Feather';
@@ -35,6 +36,15 @@ class CheckOkScreen extends React.Component {
       const resetAction = NavigationActions.reset({
         index: 0,
         actions: [NavigationActions.navigate({ routeName: 'Home' })]
+      });
+      Snackbar.show({
+        title: 'Bem vindo! Já registramos sua presença',
+        duration: Snackbar.LENGTH_LONG,
+        action: {
+          title: 'OK',
+          color: colors.green400,
+          onPress: () => { /* Do something. */ },
+        },
       });
       this.dispatch(resetAction);
     } catch (e) {

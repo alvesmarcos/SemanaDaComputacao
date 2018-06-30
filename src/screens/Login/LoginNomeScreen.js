@@ -98,7 +98,7 @@ class LoginNomeScreen extends React.Component {
         />
         <View style={{ flex: 1, justifyContent: 'center', flexDirection: 'column' }}>
           <TextField
-            label={'Nome e sobrenome'}
+            label={'Seu nome'}
             value={this.props.nome}
             onChangeText={this.onChange}
             fontSize={22}

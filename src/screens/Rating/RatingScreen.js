@@ -65,20 +65,19 @@ class RatingScreen extends React.Component {
     try {
       await this.props.avaliarItem(this.startToWord(starCount));
       await this.props.carregaAvaliacoes();
-
+      Snackbar.show({
+        title: 'Obrigado! Já registramos sua avaliação',
+        duration: Snackbar.LENGTH_LONG,
+        action: {
+          title: 'OK',
+          color: colors.green400,
+          onPress: () => { /* Do something. */ },
+        },
+      });
     } catch (e) {
       Alert.alert('Semana da Computação','Erro inesperado ao submeter sua avaliação');
       BackHandler.exitApp();
     }
-    Snackbar.show({
-      title: 'Obrigado, já registramos sua avaliação!',
-      duration: Snackbar.LENGTH_LONG,
-      action: {
-        title: 'OK',
-        color: colors.green400,
-        onPress: () => { /* Do something. */ },
-      },
-    });
     this.navBack();
 
     this.setState({ load: false });
