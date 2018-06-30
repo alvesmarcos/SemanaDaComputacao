@@ -1,0 +1,676 @@
+{
+  "v1" : {
+    "faq" : {
+      "auxilios" : {
+        "d0e0c8a6-7b65-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "d0e0c8a6-7b65-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "Onde posso encontrar os editais do auxílios fornecidos pela Universidade?",
+          "resposta" : "É possível acompanhar todos os auxílios em http://bit.do/auxilios-ufpb",
+          "username" : "@alvesmarcos"
+        }
+      },
+      "coordenacoes" : {
+        "5e669cf4-7b62-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "5e669cf4-7b62-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "Quem é o coordenador do curso de Ciência da Computação?",
+          "resposta" : "O atual coordenador do curso é Gustavo Henrique Matos Bezerra Motta tendo como seu vice Alan Kelon Oliveira de Moraes",
+          "username" : "@alvesmarcos"
+        }
+      },
+      "cursos" : {
+        "b8116e04-7767-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "b8116e04-7767-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "Quantos períodos tem o curso de Ciência da Computação?",
+          "resposta" : "O curso de Ciência da computação possui 8 períodos",
+          "username" : "@alvesmarcos"
+        }
+      },
+      "geral" : {
+        "c20f30c2-7b5d-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "c20f30c2-7b5d-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "O que é CRA?",
+          "resposta" : "O CRA (Coeficiente de Rendimento Acadêmico) é a média das disciplinas já cursadas levando em consideração seus pesos (carga horária)",
+          "username" : "@alvesmarcos"
+        }
+      },
+      "laboratorios" : {
+        "04990bf0-7b65-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "04990bf0-7b65-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "Posso ingressar em algum laboratório mesmo sendo fera?",
+          "resposta" : "Sim, não existe nenhuma restrição",
+          "username" : "@alvesmarcos"
+        }
+      },
+      "monitorias" : {
+        "6c5109d6-7b66-11e8-adc0-fa7ae01bbebc" : {
+          "data" : "2018-06-29",
+          "fotoUrl" : "https://pbs.twimg.com/profile_images/767903718461345792/GcizPkFq_400x400.jpg",
+          "id" : "6c5109d6-7b66-11e8-adc0-fa7ae01bbebc",
+          "pergunta" : "Posso ser monitor de uma disciplina sendo fera?",
+          "resposta" : "Não. É necessário que você tenha cursado a disciplina desejada",
+          "username" : "@alvesmarcos"
+        }
+      }
+    },
+    "geral" : {
+      "d25ffd08-7b12-11e8-adc0-fa7ae01bbebc" : {
+        "ano" : 2018,
+        "ativo" : true,
+        "diaFim" : 13,
+        "diaInicio" : 9,
+        "id" : "d25ffd08-7b12-11e8-adc0-fa7ae01bbebc",
+        "mes" : "Julho",
+        "nome" : "19 Semana da Computação"
+      }
+    },
+    "ingressos" : {
+      "907df3b4-7364-11e8-adc0-fa7ae01bbebc" : {
+        "ativo" : true,
+        "data" : "09 de Julho de 2018",
+        "dia" : 1,
+        "evento" : "19ª Semana da Computação",
+        "horario" : "7h - 18h",
+        "id" : "907df3b4-7364-11e8-adc0-fa7ae01bbebc"
+      },
+      "907df6f2-7364-11e8-adc0-fa7ae01bbebc" : {
+        "ativo" : true,
+        "data" : "10 de Julho de 2018",
+        "dia" : 2,
+        "evento" : "19ª Semana da Computação",
+        "horario" : "7h - 18h",
+        "id" : "907df6f2-7364-11e8-adc0-fa7ae01bbebc"
+      },
+      "907df86e-7364-11e8-adc0-fa7ae01bbebc" : {
+        "ativo" : true,
+        "data" : "11 de Julho de 2018",
+        "dia" : 3,
+        "evento" : "19ª Semana da Computação",
+        "horario" : "7h - 18h",
+        "id" : "907df86e-7364-11e8-adc0-fa7ae01bbebc"
+      },
+      "907df99a-7364-11e8-adc0-fa7ae01bbebc" : {
+        "ativo" : true,
+        "data" : "13 de Julho de 2018",
+        "dia" : 5,
+        "evento" : "19ª Semana da Computação",
+        "horario" : "7h - 18h",
+        "id" : "907df99a-7364-11e8-adc0-fa7ae01bbebc"
+      },
+      "907dfabc-7364-11e8-adc0-fa7ae01bbebc" : {
+        "ativo" : true,
+        "data" : "12 de Julho de 2018",
+        "dia" : 4,
+        "evento" : "19ª Semana da Computação",
+        "horario" : "7h - 18h",
+        "id" : "907dfabc-7364-11e8-adc0-fa7ae01bbebc"
+      }
+    },
+    "notificacoes" : {
+      "80b2384a-6541-11e8-adc0-fa7ae01bbebc" : {
+        "abreviatura" : "PC",
+        "autor" : "PET Computação",
+        "barColor" : "#29B6F6",
+        "corpo" : "Todo período o PET-Computação organiza a Semana da Computação para dar boas-vindas aos ingressantes do cursos de Ciência da Computação, Engenharia de Computação e Matemática Computacional.",
+        "darkBarColor" : "#039BE5",
+        "data" : "2018-06-29",
+        "dataExtenso" : "29 de Junho de 2018",
+        "id" : "80b2384a-6541-11e8-adc0-fa7ae01bbebc",
+        "titulo" : "Bem vindo a Semana da Computação"
+      }
+    },
+    "programacao" : [ null, {
+      "49d82072-7415-11e8-a229-fa7ae01bbebc" : {
+        "autor" : "Derzu Omaia",
+        "categoria" : "PALESTRA",
+        "contato" : "derzu@ci.ufpb.br",
+        "data" : "09/07",
+        "descricao" : "Simulação átomo e suas interações com outros átomos gerando moléculas, proteínas, até os primeiros seres vivos unicelulares. A partir desses seres o universo evolui chegando em animais e seres inteligentes. A evolução continua quebrando o tempo atual e gerando sociedades mais avançadas que a nossa atual, causando o paradigma temporal da evolução.",
+        "horaFim" : "11h00min",
+        "horaInicio" : "10h20min",
+        "id" : "49d82072-7415-11e8-a229-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Do átomo à origem da vida, da vida unicelular à vida inteligente"
+      },
+      "49d82964-7415-11e8-a229-fa7ae01bbebc" : {
+        "autor" : "Rodrigo da Cruz Fujioka",
+        "categoria" : "PALESTRA",
+        "contato" : "rodrigofujioka@gmail.com",
+        "data" : "09/07",
+        "descricao" : "Gerenciamento e motivação de times de TI com OKR",
+        "horaFim" : "14h40min",
+        "horaInicio" : "14h00min",
+        "id" : "49d82964-7415-11e8-a229-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Preparação para o mercado de trabalho"
+      },
+      "49d82aae-7415-11e8-a229-fa7ae01bbebc" : {
+        "autor" : "Karine Heloise Felix de Sousa",
+        "categoria" : "PALESTRA",
+        "contato" : "karinesousa@lc.ci.ufpb.br",
+        "data" : "09/07",
+        "descricao" : "Vou mostrar em minha palestra que sair da universidade apenas com a bagagem teórica não é um problema para quem participa de empresas juniores. O movimento que busca aliar a teoria com a prática. As Empresas juniores não pagam bolsas, mas valorizam os estudantes universitários, e dão a possibilidade de os jovens gerenciarem desde o marketing até questões financeiras fazendo com que a experiência seja atraente. O principal objetivo das empresas juniores é a transformação tanto pessoal quanto profissional dos estudantes.",
+        "horaFim" : "15h30min",
+        "horaInicio" : "14h50min",
+        "id" : "49d82aae-7415-11e8-a229-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Empresa Júnior: como me tornar um empreendedor ainda na universidade"
+      },
+      "49d82bd0-7415-11e8-a229-fa7ae01bbebc" : {
+        "categoria" : "COFFEE-BREAK",
+        "data" : "09/07",
+        "descricao" : "-",
+        "horaFim" : "16h00min",
+        "horaInicio" : "15h40min",
+        "id" : "49d82bd0-7415-11e8-a229-fa7ae01bbebc",
+        "local" : "Aquário - Centro de Informática",
+        "nome" : "Coffee Break"
+      },
+      "49d82df6-7415-11e8-a229-fa7ae01bbebc" : {
+        "autor" : "Marisardo Bezerra de Medeiros Filho",
+        "categoria" : "PALESTRA",
+        "contato" : "marisardo@gmail.com",
+        "data" : "09/07",
+        "descricao" : "Vamos discutir o desenvolvimento de jogos Free-to-Play para dispositivos móveis, um dos mercados mais rentáveis e o que mais cresce na área de games. Será ilustrado o caso do Game Lab Estácio, um projeto que visa desenvolver jogos comerciais F2P Mobile para o mercado internacional.",
+        "horaFim" : "17h30min",
+        "horaInicio" : "16h50min",
+        "id" : "49d82df6-7415-11e8-a229-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "F2P Mobile Games - Desenvolvendo Games Comerciais no Projeto Game Lab Estácio"
+      },
+      "4e081f96-7373-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CHECKIN",
+        "data" : "09/07",
+        "descricao" : "Para fazer o credenciamente tenha o ingresso em mãos de forma digital ou impressa, caso você deseje evitar filas tenha o aplicativo instalado e procure um ponto para validar seu ingresso eletrônico",
+        "horaFim" : "17h30min",
+        "horaInicio" : "07h30min",
+        "id" : "4e081f96-7373-11e8-adc0-fa7ae01bbebc",
+        "local" : "Hall de Entrada - Centro de Informática",
+        "nome" : "Check-in"
+      },
+      "4e082202-7373-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "ABERTURA",
+        "data" : "09/07",
+        "descricao" : "-",
+        "horaFim" : "08h15min",
+        "horaInicio" : "08h00min",
+        "id" : "4e082202-7373-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Abertura"
+      },
+      "4e08234c-7373-11e8-adc0-fa7ae01bbebc" : {
+        "autor" : "Lenildo Luan Carlos",
+        "categoria" : "PALESTRA",
+        "contato" : "lenildoluan@gmail.com",
+        "data" : "09/07",
+        "descricao" : "Após terminar meu curso técnico e me deparar com vários meses ociosos até o início do superior, tendo um computador fraco para trabalhar com jogos, e pouco dinheiro para comprar hardware, decidi aprender desenvolvimento web. Mas dentre tantas tecnologias e caminhos a seguir, o que devo aprender para me tornar um bom desenvolvedor? Após um ano estudando web, quero entregar aos perdidos uma rápida explicação sobre a web e um caminho para seguir para que possam se tornar bons desenvolvedores web.",
+        "horaFim" : "09h00min",
+        "horaInicio" : "08h20min",
+        "id" : "4e08234c-7373-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Roadmap do desenvolvedor web"
+      },
+      "4e082676-7373-11e8-adc0-fa7ae01bbebc" : {
+        "autor" : "Gabriel Dias Oliveira de Almeida",
+        "categoria" : "PALESTRA",
+        "contato" : "gdoda2009@gmail.com",
+        "data" : "09/07",
+        "descricao" : "O palestrante irá falar sobre como desenvolver um jogo seja você um programador que acabou de iniciar sua carreira ou até mesmo alguém que já trabalha na área, mostrando ferramentas que podem ser utilizadas e qual a melhor forma de usufruir de todas elas, sejam elas em C, HTML, Ruby, java, etc.",
+        "horaFim" : "09h50min",
+        "horaInicio" : "09h10min",
+        "id" : "4e082676-7373-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Desenvolvendo Jogos Digitais"
+      },
+      "4e0827c0-7373-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "COFFEE-BREAK",
+        "data" : "09/07",
+        "descricao" : "-",
+        "horaFim" : "10h10min",
+        "horaInicio" : "09h50min",
+        "id" : "4e0827c0-7373-11e8-adc0-fa7ae01bbebc",
+        "local" : "Aquário - Centro de Informática",
+        "nome" : "Coffee Break"
+      }
+    }, {
+      "0e3d824c-7437-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CHECKIN",
+        "data" : "10/07",
+        "descricao" : "Para fazer o credenciamente tenha o ingresso em mãos de forma digital ou impressa, caso você deseje evitar filas tenha o aplicativo instalado e procure um ponto para validar seu ingresso eletrônico",
+        "horaFim" : "17h30min",
+        "horaInicio" : "07h30min",
+        "id" : "0e3d824c-7437-11e8-adc0-fa7ae01bbebc",
+        "local" : "Hall de Entrada - Centro Informática",
+        "nome" : "Check-in"
+      },
+      "0e3d84cc-7437-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "EMPRESA",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "08h30min",
+        "horaInicio" : "08h00min",
+        "id" : "0e3d84cc-7437-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Avaty"
+      },
+      "0e3d860c-7437-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "DE-ALUNO-PARA-ALUNO",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "15h30min",
+        "horaInicio" : "14h00min",
+        "id" : "0e3d860c-7437-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "De Aluno Para Aluno"
+      },
+      "0e3d8738-7437-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CORRIDA-ROBOS",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "17h30min",
+        "horaInicio" : "15h30min",
+        "id" : "0e3d8738-7437-11e8-adc0-fa7ae01bbebc",
+        "local" : "Subsolo - Centro Informática",
+        "nome" : "Corrida de Robôs"
+      },
+      "d2abcec6-78d4-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "EMPRESA",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "09h20min",
+        "horaInicio" : "08h40min",
+        "id" : "d2abcec6-78d4-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Empreendedorismo em Dois Tempos - Sebrae"
+      },
+      "d2abd132-78d4-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "EMPRESA",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "10h00min",
+        "horaInicio" : "09h30min",
+        "id" : "d2abd132-78d4-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Cementeira Elizabeth"
+      },
+      "d2abd268-78d4-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "COFFEE-BREAK",
+        "data" : "10/07",
+        "descricao" : "-",
+        "horaFim" : "10h20min",
+        "horaInicio" : "10h00min",
+        "id" : "d2abd268-78d4-11e8-adc0-fa7ae01bbebc",
+        "local" : "Aquário - Centro de Informática",
+        "nome" : "Coffee Break"
+      },
+      "d2abd38a-78d4-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "EMPRESA",
+        "data" : "10/07",
+        "descricao" : "O Armazém Paraíba – N. Claudino é um dos principais grupos no segmento de Móveis, Eletrodomésticos e Celular do Brasil. Há 60 anos, protagoniza uma história de sucesso no varejo, sempre buscando concretizar a sua missão de realizar os sonhos dos clientes e colaboradores. Referência no atendimento, na variedade de produtos e facilidade ao crédito, o Armazém segue todos os dias criando uma relação de confiança com as pessoas e popularizando o seu famoso bordão “Barato e Fiado só aqui.\"",
+        "horaFim" : "10h55min",
+        "horaInicio" : "10h25min",
+        "id" : "d2abd38a-78d4-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Armazém Paraíba"
+      },
+      "d2abd6fa-78d4-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "EMPRESA",
+        "data" : "10/07",
+        "descricao" : "A AXONDATA Tecnologia Analítica é uma empresa startup dedicada ao desenvolvimento de produtos e soluções de tecnologia em Inteligência Artificial (IA) com aplicações em diferentes segmentos de mercado. O produto principal da AXONDATA é a sua Plataforma de Data Analytics, chamada SOMMA®. A AXONDATA é um Centro de Excelência INTEL em Inteligência Artificial",
+        "horaFim" : "11h35min",
+        "horaInicio" : "11h05min",
+        "id" : "d2abd6fa-78d4-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "AXONDATA"
+      }
+    }, {
+      "03904b1a-7903-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CHECKIN",
+        "data" : "11/07",
+        "descricao" : "Para fazer o credenciamente tenha o ingresso em mãos de forma digital ou impressa, caso você deseje evitar filas tenha o aplicativo instalado e procure um ponto para validar seu ingresso eletrônico",
+        "horaFim" : "17h30min",
+        "horaInicio" : "07h30min",
+        "id" : "03904b1a-7903-11e8-adc0-fa7ae01bbebc",
+        "local" : "Hall de Entrada - Centro Informática",
+        "nome" : "Check-in"
+      },
+      "1671a3ea-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação da coordenação e do curso de Ciência da Computação",
+        "horaFim" : "08h20min",
+        "horaInicio" : "08h00min",
+        "id" : "1671a3ea-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Coordenação de Ciência da Computação"
+      },
+      "1671a674-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do fluxograma geral do curso de Ciência da Computação",
+        "horaFim" : "08h45min",
+        "horaInicio" : "08h25min",
+        "id" : "1671a674-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Fluxograma Ciência da Computação"
+      },
+      "1671a7c8-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação da coordenação e do curso de Engenharia de Computação",
+        "horaFim" : "09h10min",
+        "horaInicio" : "08h50min",
+        "id" : "1671a7c8-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Coordenação de Engenharia de Computação"
+      },
+      "1671a8f4-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do fluxograma geral do curso de Engenharia de Computação",
+        "horaFim" : "09h35min",
+        "horaInicio" : "09h15min",
+        "id" : "1671a8f4-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Fluxograma Engenharia de Computação"
+      },
+      "1671aa0c-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação da coordenação e do curso de Matemática Computacional",
+        "horaFim" : "10h00min",
+        "horaInicio" : "09h40min",
+        "id" : "1671aa0c-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Coordenação de Matemática Computacional"
+      },
+      "1671ac82-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do fluxograma geral do curso de Matemática Computacional",
+        "horaFim" : "10h25min",
+        "horaInicio" : "10h05min",
+        "id" : "1671ac82-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Fluxograma Matemática Computacional"
+      },
+      "1671ae08-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "COFFEE-BREAK",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "10h50min",
+        "horaInicio" : "10h30min",
+        "id" : "1671ae08-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Aquário - Centro de Informática",
+        "nome" : "Coffee Break"
+      },
+      "1671b150-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do Centro Acadêmico do Curso de Ciência da Computação (CACCO)",
+        "horaFim" : "11h15min",
+        "horaInicio" : "10h55min",
+        "id" : "1671b150-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Centro Acadêmico Ciência do Computação"
+      },
+      "1671b290-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do Centro Acadêmico do Curso de Matemática Computacional",
+        "horaFim" : "11h40min",
+        "horaInicio" : "11h20min",
+        "id" : "1671b290-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Centro Acadêmico Matemática Computacional"
+      },
+      "1671b3da-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "APRESENTACAO",
+        "data" : "11/07",
+        "descricao" : "Apresentação do Centro Acadêmico do Curso de Engenharia de Computação",
+        "horaFim" : "12h00min",
+        "horaInicio" : "11h40min",
+        "id" : "1671b3da-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Centro Acadêmico Engenharia de Computação"
+      },
+      "1671b506-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "PET-Computação",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "O Programa de Educação Tutorial (PET) é um programa do governo federal brasileiro de estímulo a atividades de pesquisa, ensino e extensão universitárias, no nível de graduação",
+        "horaFim" : "14h15min",
+        "horaInicio" : "14h00min",
+        "id" : "1671b506-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Programa de Educação Tutorial"
+      },
+      "1671b628-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "VISIO",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "14h35min",
+        "horaInicio" : "14h20min",
+        "id" : "1671b628-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Visão Computacional"
+      },
+      "1671b92a-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LUMO",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "14h55min",
+        "horaInicio" : "14h40min",
+        "id" : "1671b92a-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de computação Ubíqua e Móvel"
+      },
+      "1671ba60-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LabTEVE",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "15h15min",
+        "horaInicio" : "15h00min",
+        "id" : "1671ba60-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Tecnologias para o Ensino Virtual e Estatística"
+      },
+      "1671bb6e-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LaSER",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "15h35min",
+        "horaInicio" : "15h20min",
+        "id" : "1671bb6e-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Sistemas Embarcados e Robótica"
+      },
+      "1671bc86-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "COFFEE-BREAK",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "15h55min",
+        "horaInicio" : "15h35min",
+        "id" : "1671bc86-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Aquário - Centro de Informática",
+        "nome" : "Coffee Break"
+      },
+      "1671bd9e-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LaSID",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "16h15min",
+        "horaInicio" : "16h00min",
+        "id" : "1671bd9e-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Sistemas Digitais"
+      },
+      "1671bec0-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LAViD",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "16h35min",
+        "horaInicio" : "16h20min",
+        "id" : "1671bec0-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Aplicações de Vídeo Digital"
+      },
+      "1671c276-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "MCC",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "16h55min",
+        "horaInicio" : "16h40min",
+        "id" : "1671c276-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Meninas na Computação"
+      },
+      "1671c3b6-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "LAMEP",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "17h15min",
+        "horaInicio" : "17h00min",
+        "id" : "1671c3b6-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Laboratório de Modelagem em Engenharia de Petróleo"
+      },
+      "1671c4ce-78f0-11e8-adc0-fa7ae01bbebc" : {
+        "abreviacao" : "PROTUT",
+        "categoria" : "LABORATORIO",
+        "data" : "11/07",
+        "descricao" : "-",
+        "horaFim" : "17h35min",
+        "horaInicio" : "17h20min",
+        "id" : "1671c4ce-78f0-11e8-adc0-fa7ae01bbebc",
+        "local" : "Auditório - Centro de Informática",
+        "nome" : "Programa de Tutoria de Apoio às Disciplinas Básicas"
+      }
+    }, {
+      "03904d90-7903-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CHECKIN",
+        "data" : "12/07",
+        "descricao" : "Para fazer o credenciamente tenha o ingresso em mãos de forma digital ou impressa, caso você deseje evitar filas tenha o aplicativo instalado e procure um ponto para validar seu ingresso eletrônico",
+        "horaFim" : "17h00min",
+        "horaInicio" : "07h30min",
+        "id" : "03904d90-7903-11e8-adc0-fa7ae01bbebc",
+        "local" : "Hall de Entrada - Centro Informática",
+        "nome" : "Check-in"
+      },
+      "986b409e-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "O minicurso é oferecido pelo PET-Computação e tem como principal objetivo introduzir o sistema operacional Ubuntu (teoria e prática) na vida acadêmica dos feras",
+        "horaFim" : "11h00min",
+        "horaInicio" : "08h00min",
+        "id" : "986b409e-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Linux para Feras",
+        "preco" : "1kg de alimento não perecível"
+      },
+      "986b4418-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "Todo profissional precisa de um espaço para publicar seu porrifólio e conhecimentos, portanto, na atualidade, a melhor forma de se fazer isso é na web. Nesse contexto, esse minicurso visa o desenvolvimento de um website do zero, desde sua idealização até sua hospedagem.",
+        "horaFim" : "11h00min",
+        "horaInicio" : "08h00min",
+        "id" : "986b4418-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Desenvolvimento de Websites",
+        "preco" : "1kg de alimento não perecível"
+      },
+      "986b4562-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "Utilização da Game Engine, Construct 3, para criação de Jogos. Será passado primeiramente um estudo relacionado a Game Design e depois iremos ver toda as questões de Programações utilizadas no Construct 3, para assim produzirmos nosso jogo.",
+        "horaFim" : "11h00min",
+        "horaInicio" : "08h00min",
+        "id" : "986b4562-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Criação de jogos utilizando Construct 3",
+        "preco" : "1kg de alimento não perecível"
+      },
+      "986b47ec-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "O minicurso é oferecido pelo PET-Computação e tem como principal objetivo introduzir o sistema operacional Ubuntu (teoria e prática) na vida acadêmica dos feras",
+        "horaFim" : "17h00min",
+        "horaInicio" : "14h00min",
+        "id" : "986b47ec-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Linux para Feras",
+        "preco" : "1kg de alimento não perecível"
+      },
+      "986b4922-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "O minicurso de Python 3 é recomendado para pessoas que possuem algum conhecimento em lógica de programação, e preferencialmente, alguma linguagem (C, Java, PHP, JavaScript, etc.). Este minicurso consistirá no desenvolvimento do conhecimento básico de Python, focando em sua sintaxe. Além disso, serão abordados exemplos de aplicações digitais que a linguagem suporta. O minicurso terá como ponto principal o desenvolvimento de atividades práticas, e, por fim, o participante será incentivado a desenvolver projetos pessoais que continuarão mesmo após o final do Minicurso.",
+        "horaFim" : "17h00min",
+        "horaInicio" : "14h00min",
+        "id" : "986b4922-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Minicurso de Python 3",
+        "preco" : "1kg de alimento não perecível"
+      },
+      "986b4b3e-7905-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MINICURSO",
+        "data" : "12/07",
+        "descricao" : "Aprenda a desenvolver aplicações mobile nativas para iOS/Android com JavaScript utilizando a biblioteca React Native criada pelo Facebook.  Nesse curso prático vamos aprender a dar os primeiros passos com o React Native, criando duas aplicações do absoluto zero. A primeira aplicação será simples, consumindo API's REST, porém sem uso do Redux. A segunda aplicação será mais elaborada e robusta, adicionando os conceitos do Redux, consumindo API's REST, entre outras técnicas mais avançadas!. Vamos desenvolver nossos app`s nativos para iOS/Android utilizando Javascript! Durante o desenvolvimento das aplicações será apresentado conceitos base para você perder o medo e ser capaz de entrar de vez no mundo do React Native.   O React Native é uma ferramenta disponbilizada pelo Facebook que permite a criação de aplicações mobile nativas utilizando JavaScript.   O grande diferencial dessa biblioteca para o Ionic Framework é que a interface produzida no React Native é realmente nativa enquanto que no Ionic temos uma versão híbrida da aplicação rodando com um browser por trás perdendo muita performance.",
+        "horaFim" : "17h00min",
+        "horaInicio" : "14h00min",
+        "id" : "986b4b3e-7905-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Entrando de vez no mundo do React Native",
+        "preco" : "1kg de alimento não perecível"
+      }
+    }, {
+      "e3b3d818-790a-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "CHECKIN",
+        "data" : "13/07",
+        "descricao" : "Para fazer o credenciamente tenha o ingresso em mãos de forma digital ou impressa, caso você deseje evitar filas tenha o aplicativo instalado e procure um ponto para validar seu ingresso eletrônico",
+        "horaFim" : "17h00min",
+        "horaInicio" : "07h30min",
+        "id" : "e3b3d818-790a-11e8-adc0-fa7ae01bbebc",
+        "local" : "Hall de Entrada - Centro Informática",
+        "nome" : "Check-in"
+      },
+      "e3b3daf2-790a-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "GAMEDAY",
+        "data" : "13/07",
+        "descricao" : "Faremos torneio de League of Legends e Counter-Strike. Tá afim de participar dessa atividade?! Fique ligado no site oficial do evento para realizar sua inscrição",
+        "horaFim" : "12h00min",
+        "horaInicio" : "08h00min",
+        "id" : "e3b3daf2-790a-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Game Day"
+      },
+      "e3b3dc50-790a-11e8-adc0-fa7ae01bbebc" : {
+        "categoria" : "MARATONA-PROGRAMACAO",
+        "data" : "13/07",
+        "descricao" : "-",
+        "horaFim" : "17h00min",
+        "horaInicio" : "14h00min",
+        "id" : "e3b3dc50-790a-11e8-adc0-fa7ae01bbebc",
+        "local" : "A definir",
+        "nome" : "Maratona de Programação"
+      }
+    } ]
+  }
+}
