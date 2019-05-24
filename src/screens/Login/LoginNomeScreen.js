@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     padding: 16,
-    backgroundColor: colors.lightBlue400
+    backgroundColor: colors.pinkX
   },
   helpText: {
     fontSize: 14,
@@ -41,7 +41,7 @@ class LoginNomeScreen extends React.Component {
     super(props);
 
     this.state = {
-      statusBarColor: colors.lightBlue600
+      statusBarColor: colors.pink800
     };
 
     //--
@@ -111,13 +111,13 @@ class LoginNomeScreen extends React.Component {
         <View style={{ flex: 0.5, flexDirection: 'column', justifyContent: 'flex-end' }}>
             <TouchableOpacity
               onPress={ () => this.navigatePop() }
-              style={{ backgroundColor: colors.lightBlue400, borderColor: '#fff', borderWidth: 1,  borderRadius: 5 }}>
+              style={{ backgroundColor: colors.pinkX, borderColor: '#fff', borderWidth: 1,  borderRadius: 5 }}>
               <Text style={[styles.buttonText, { color: colors.white }]}>{'Voltar'}</Text>
             </TouchableOpacity>
             <TouchableOpacity 
               onPress={ () => this.navigateLoginCurso() }
               style={{ backgroundColor: colors.white, marginTop: 16, borderRadius: 5 }}>
-              <Text style={[styles.buttonText, { color: colors.lightBlue400 }]}>{'Próximo'}</Text>
+              <Text style={[styles.buttonText, { color: colors.pinkX }]}>{'Próximo'}</Text>
             </TouchableOpacity>
         </View>
       </View>

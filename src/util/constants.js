@@ -1,5 +1,5 @@
 const constants = {
-  SUPER_STORE: '@SUPER_STORE:key',
+  SUPER_STORE: '@SUPER_STORE:AUTH_LOGIN',
   PALESTRA: 'PALESTRA',
   ABERTURA: 'ABERTURA',
   CHECKIN: 'CHECKIN',
@@ -12,6 +12,7 @@ const constants = {
   MINICURSO: 'MINICURSO',
   LABORATORIO: 'LABORATORIO',
   APRESENTACAO: 'APRESENTACAO',
+  MUSICA: 'MUSICA',
 };
 
 export default constants;

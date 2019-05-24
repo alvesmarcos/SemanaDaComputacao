@@ -1,12 +1,12 @@
 export const references = {
-  USUARIOS: 'v1/usuarios/',
-  GERAL: 'v1/geral/',
-  PROGRAMACAO: 'v1/programacao/',
-  NOTIFICACOES: 'v1/notificacoes/',
-  INGRESSOS: 'v1/ingressos/',
-  FAQ: 'v1/faq/',
-  CHECKIN: 'v1/checkin/',
-  AVALIACOES: 'v1/avaliacoes/',
+  USUARIOS: 'v2/usuarios/',
+  GERAL: 'v2/geral/',
+  PROGRAMACAO: 'v2/programacao/',
+  NOTIFICACOES: 'v2/notificacoes/',
+  INGRESSOS: 'v2/ingressos/',
+  FAQ: 'v2/faq/',
+  CHECKIN: 'v2/checkin/',
+  AVALIACOES: 'v2/avaliacoes/',
 };
 
 export default references;

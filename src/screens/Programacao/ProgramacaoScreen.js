@@ -94,6 +94,8 @@ class ProgramacaoScreen extends React.Component {
       return { iconNome: 'award', texto: 'Competição' };
     } else if (categoria === c.MARATONA_PROGRAMACAO) {
       return { iconNome: 'award', texto: 'Competição' };
+    } else if (categoria === c.MUSICA) {
+      return { iconNome: 'music', texto: 'Música' };
     }
   }
 
@@ -141,8 +143,8 @@ class ProgramacaoScreen extends React.Component {
       color = colors.cyan500;
       darkColor = colors.cyan500;
     } else if (categoria === c.COFFEE_BREAK) {
-      color = colors.primary;
-      darkColor = colors.primaryDark;
+      color = colors.pinkX;
+      darkColor = colors.pink800;
     } else if (categoria === c.CHECKIN) {
       color = colors.orange300;
       darkColor = colors.orange500;
@@ -158,15 +160,15 @@ class ProgramacaoScreen extends React.Component {
     } else if (categoria === c.APRESENTACAO) {
       color = colors.cyan500;
       darkColor = colors.cyan600;
-    } else if (categoria === c.LABORATORIO) {
+    } else if (categoria === c.LABORATORIO || categoria === c.MUSICA) {
       color = colors.orange300;
       darkColor = colors.orange500;
     } else if (categoria === c.MINICURSO) {
       color = colors.deepPurple300;
       darkColor = colors.deepPurple400;
     } else if (categoria === c.GAMEDAY) {
-      color = colors.primary;
-      darkColor = colors.primaryDark;
+      color = colors.pinkX;
+      darkColor = colors.pink800;
     } else if (categoria === c.MARATONA_PROGRAMACAO) {
       color = colors.lightBlue400;
       darkColor = colors.lightBlue400;
@@ -223,7 +225,7 @@ class ProgramacaoScreen extends React.Component {
               <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
             }
             { item.categoria === c.COFFEE_BREAK &&
-              <View style={{ backgroundColor: colors.primary, flex: 0.02 }} />
+              <View style={{ backgroundColor: colors.pinkX, flex: 0.02 }} />
             }
             { item.categoria === c.EMPRESA &&
               <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
@@ -237,14 +239,14 @@ class ProgramacaoScreen extends React.Component {
             { item.categoria === c.APRESENTACAO &&
               <View style={{ backgroundColor: colors.cyan500, flex: 0.02 }} />
             }
-            { item.categoria === c.LABORATORIO &&
+            { (item.categoria === c.LABORATORIO || item.categoria === c.MUSICA) &&
               <View style={{ backgroundColor: colors.orange300, flex: 0.02 }} />
             }
             { item.categoria === c.MINICURSO &&
               <View style={{ backgroundColor: colors.deepPurple300, flex: 0.02 }} />
             }
             { item.categoria === c.GAMEDAY &&
-              <View style={{ backgroundColor: colors.primary, flex: 0.02 }} />
+              <View style={{ backgroundColor: colors.pinkX, flex: 0.02 }} />
             }
              { item.categoria === c.MARATONA_PROGRAMACAO &&
               <View style={{ backgroundColor: colors.lightBlue400, flex: 0.02 }} />

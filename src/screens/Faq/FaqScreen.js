@@ -36,7 +36,7 @@ class FaqScreen extends React.Component {
               <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 18}}>{'Curso'}</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.goFaqModal(colors.primary, colors.primaryDark, 'Auxílios')} style={{ flex: 0.5, backgroundColor: colors.primary, marginLeft: 1 }}>
+          <TouchableOpacity onPress={() => this.goFaqModal(colors.pinkX, colors.pink800, 'Auxílios')} style={{ flex: 0.5, backgroundColor: colors.pinkX, marginLeft: 1 }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
               <Feather
                 name={'heart'}
@@ -44,7 +44,7 @@ class FaqScreen extends React.Component {
                 color={colors.white}
               />
             </View>
-            <View style={{ alignItems: 'center', backgroundColor: colors.primaryDark, padding: 10 }}>
+            <View style={{ alignItems: 'center', backgroundColor: colors.pink800, padding: 10 }}>
               <Text style={{ color: colors.white, fontFamily: 'Lato-Regular', fontSize: 18}}>{'Auxílios'}</Text>
             </View>
           </TouchableOpacity>

@@ -1,6 +1,6 @@
 const colors = {
-  primary: '#e6186d',
-  primaryDark: '#AD1457',
+  primary: '#29B6F6',
+  primaryDark: '#039BE5',
   windowBackground: '#fafafa',
   white: '#fff',
   black: '#000',
@@ -24,6 +24,7 @@ const colors = {
   blueGray800: '#37474F',
   blueGray600: '#546E7A',
   pink700: '#C2185B',
+  pinkX: '#e6186d',
   pink800: '#AD1457',
 };
 

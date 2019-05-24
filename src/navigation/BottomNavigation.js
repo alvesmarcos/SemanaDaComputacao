@@ -3,7 +3,7 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Feather from 'react-native-vector-icons/Feather';
 import {
   ProgramacaoStack,
-  NotificacaoStack,
+  // NotificacaoStack,
   FaqStack,
   TicketStack
 } from './StacksNavigation';
@@ -14,7 +14,7 @@ const BottomNavigation = TabNavigator(
     Programacao: { screen: ProgramacaoStack },
     Ticket: { screen: TicketStack },
     Faq: { screen: FaqStack },
-    Notificacao: { screen: NotificacaoStack },
+    // Notificacao: { screen: NotificacaoStack },
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -32,9 +32,9 @@ const BottomNavigation = TabNavigator(
           case 'Faq':
             iconName = 'message-circle';
             break;
-          case 'Notificacao':
-            iconName = 'bell';
-            break;
+          // case 'Notificacao':
+          //   iconName = 'bell';
+          //   break;
         }
         return <Feather name={iconName} size={25} color={tintColor} />;
       },

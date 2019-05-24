@@ -49,7 +49,7 @@ class Init extends React.Component {
         routeName = 'Home';
         this.props.mudaCamposPerfil(JSON.parse(value));
         // carregamentos de dados do app vindo  do banco
-        await this.props.carregaNotificacoes();
+       // await this.props.carregaNotificacoes();
         await this.props.carregaTickets();
         await this.props.carregaProgramacao();
         await this.props.carregaFaq();
