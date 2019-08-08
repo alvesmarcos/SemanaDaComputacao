@@ -278,35 +278,45 @@ class ProgramacaoScreen extends React.Component {
             <Picker.Item label="Sexta-feira" value="5" />
           </Picker>
         </View>
-        { this.state.dia === '1' &&
+        { dia1.length === 0 && dia2.length === 0 && dia3.length === 0 && dia4.length === 0 && dia5.length === 0 &&
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <Feather 
+              name={'alert-circle'}
+              size={130}
+              color={'#E0E0E0'}
+            />
+            <Text style={{ paddingTop: 16, fontFamily: 'Lato-Regular', fontSize: 16, color: '#BDBDBD' }}>{'Em breve a programação estará disponível'}</Text>
+          </View>
+        }
+        { this.state.dia === '1' && dia1.length !== 0 &&
           <FlatList 
             keyExtractor={item => item.id}
             data={dia1}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
-         { this.state.dia === '2' &&
+         { this.state.dia === '2' && dia2.length !== 0 &&
           <FlatList 
             keyExtractor={item => item.id}
             data={dia2}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
-         { this.state.dia === '3' &&
+         { this.state.dia === '3' && dia3.length !== 0 &&
           <FlatList 
             keyExtractor={item => item.id}
             data={dia3}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
-         { this.state.dia === '4' &&
+         { this.state.dia === '4' && dia4.length !== 0 &&
           <FlatList 
             keyExtractor={item => item.id}
             data={dia4}
             renderItem={({item}) => this.renderItem(item)}
           />
         }
-         { this.state.dia === '5' &&
+         { this.state.dia === '5' && dia5.length !== 0 &&
           <FlatList 
             keyExtractor={item => item.id}
             data={dia5}

@@ -50,7 +50,7 @@ class StatusFailScreen extends React.Component {
           <Text style={{ color: '#fff', padding: 16, fontSize: 18, fontFamily: 'Lato-Regular', textAlign: 'center' }}>{'Ocorreu um erro ao criar sua conta!'}</Text>
           <View style={{ marginTop: 16, }}>
             <Text style={{ color: '#fff', fontSize: 22, fontFamily: 'Lato-Regular',textAlign: 'center' }}>{nome}</Text>
-            <Text style={{ color: '#fff', fontSize: 18, fontFamily: 'Lato-Regular', textAlign: 'center', paddingTop: 16 }}>{'Verifique se você possui conexão com internet ou se seu e-mail está correto.'}</Text>
+            <Text style={{ color: '#fff', fontSize: 18, fontFamily: 'Lato-Regular', textAlign: 'center', paddingTop: 16 }}>{'Verifique se você possui conexão com internet ou se já existe uma conta associada a este e-mail.'}</Text>
           </View>
         </View>
         <View style={{ flexDirection: 'column', justifyContent: 'flex-end' }}>
